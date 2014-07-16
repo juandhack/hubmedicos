@@ -1,0 +1,76 @@
+<<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap-responsive.css">
+	<style type="text/css">
+      body{
+      	position: relative;
+      	padding-top: 60px;
+      	padding-bottom: 60px;
+      }
+	</style>
+</head>
+<body data-spy="scroll" data-target=".navbar-example">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+	<div class="container">
+	<a href="" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+	
+		<div class="navbar-example">
+			<ul class="nav nav-tabs" role="tablist">
+			        <li><a href="">Inicio</a></li>
+				    <li><a href="">Acerca</a></li>
+					<li><a href="">Contacto</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Dropmenu <b class="caret"></b> </a>
+						<ul class="dropdown-menu">
+						<li><a href="#">Accion 1</a></li>
+						<li><a href="#">Accion 2</a></li>
+						</ul>
+					</li>
+			</ul>
+			<form action="" class="navbar-form pull-right">
+					<input type="text" class="span2" placeholder="Nombre" required>
+					<input type="text" class="span2" placeholder="Pass" required>
+					<button class="btn btn-primary">Logear <i class="icon-trash"></i> </button>
+				</form>
+		</div>
+		</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="hero-unit">
+			<h1>Taller de Bootstrap</h1>
+			<p>Built at Twitter by @mdo and @fat, Bootstrap utilizes LESS CSS, is compiled via Node, and is managed through GitHub to help nerds do awesome stuff on the web.Built at Twitter by @mdo and @fat, Bootstrap utilizes LESS CSS, is compiled via Node, and is managed through GitHub to help nerds do awesome stuff on the web.</p>
+			<p> <a href="#" class="btn btn-primary">Llamar accion</a> </p>
+		</div>
+
+		<div class="row">
+
+			<div class="span4">
+				<h2>Cabezera</h2>
+				<p>Built at Twitter by @mdo and @fat, Bootstrap utilizes LESS CSS, is compiled via Node, and is managed through GitHub to help nerds do awesome stuff on the web.</p>
+				<p> <a href="" class="btn"> Leer Mas &raquo;</a> </p>
+			</div>
+		</div>
+
+		<hr>
+
+		<footer>
+			<p> &copy; Copyright 2012</p>
+
+		</footer>
+
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script src="{{STATIC_URL}}js/jquery.js"></script>
+	<script src="{{STATIC_URL}}js/bootstrap.js"></script>
+</body>
+</html>
