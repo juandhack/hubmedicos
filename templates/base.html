@@ -1,76 +1,72 @@
-<<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-	<meta charset="UTF-8">
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap-responsive.css">
-	<style type="text/css">
-      body{
-      	position: relative;
-      	padding-top: 60px;
-      	padding-bottom: 60px;
+	<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap | {% block title %}Untitled{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="{{STATIC_URL}}css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
-	</style>
-</head>
-<body data-spy="scroll" data-target=".navbar-example">
-	<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
-	<div class="container">
-	<a href="" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</a>
-	
-		<div class="navbar-example">
-			<ul class="nav nav-tabs" role="tablist">
-			        <li><a href="">Inicio</a></li>
-				    <li><a href="">Acerca</a></li>
-					<li><a href="">Contacto</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Dropmenu <b class="caret"></b> </a>
-						<ul class="dropdown-menu">
-						<li><a href="#">Accion 1</a></li>
-						<li><a href="#">Accion 2</a></li>
-						</ul>
-					</li>
-			</ul>
-			<form action="" class="navbar-form pull-right">
-					<input type="text" class="span2" placeholder="Nombre" required>
-					<input type="text" class="span2" placeholder="Pass" required>
-					<button class="btn btn-primary">Logear <i class="icon-trash"></i> </button>
-				</form>
-		</div>
-		</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="hero-unit">
-			<h1>Taller de Bootstrap</h1>
-			<p>Built at Twitter by @mdo and @fat, Bootstrap utilizes LESS CSS, is compiled via Node, and is managed through GitHub to help nerds do awesome stuff on the web.Built at Twitter by @mdo and @fat, Bootstrap utilizes LESS CSS, is compiled via Node, and is managed through GitHub to help nerds do awesome stuff on the web.</p>
-			<p> <a href="#" class="btn btn-primary">Llamar accion</a> </p>
-		</div>
+    </style>
+    <link href="{{STATIC_URL}}css/bootstrap-responsive.css" rel="stylesheet">
 
-		<div class="row">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="{{STATIC_URL}}js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    {% block extrahead %}
+    {% endblock %}
+    <script type="text/javascript">
+    $(function(){
+    {% block jquery %}
+    {% endblock %}
+    });
+    </script>
+  </head>
 
-			<div class="span4">
-				<h2>Cabezera</h2>
-				<p>Built at Twitter by @mdo and @fat, Bootstrap utilizes LESS CSS, is compiled via Node, and is managed through GitHub to help nerds do awesome stuff on the web.</p>
-				<p> <a href="" class="btn"> Leer Mas &raquo;</a> </p>
-			</div>
-		</div>
+  <body>
 
-		<hr>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">Bootstrap</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 
-		<footer>
-			<p> &copy; Copyright 2012</p>
+    <div id="messages">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{message.tags}}">
+            <a class="close" data-dismiss="alert">×</a>
+            {{message}}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
 
-		</footer>
-
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-	<script src="{{STATIC_URL}}js/jquery.js"></script>
-	<script src="{{STATIC_URL}}js/bootstrap.js"></script>
-</body>
+    <div class="container">
+    {% block content %}
+    {% endblock %}
+    </div> <!-- /container -->
+  </body>
 </html>

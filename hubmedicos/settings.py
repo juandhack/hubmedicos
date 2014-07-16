@@ -22,11 +22,13 @@ ALLOWED_HOSTS = ['*']
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = ''
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/estaticos/'
 
+
 STATICFILES_DIRS = (
-    RUTA_PROYECTO.child('estaticos')
+    RUTA_PROYECTO.child('estaticos'),
+   
 
 )
 
@@ -35,7 +37,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Quick-start development settings - unsuitable for production
@@ -69,6 +71,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'apps.inicio',
     'apps.perfilesmedicos',
+    'registration',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,7 +87,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'hubmedicos.urls'
 
 TEMPLATE_DIRS = (
-    RUTA_PROYECTO.child('templates')
+   RUTA_PROYECTO.child('templates')
+
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -126,3 +131,34 @@ USE_TZ = True
 
 MEDIA_ROOT = RUTA_PROYECTO.child("media")
 MEDIA_URL = 'http://www.techmobilesoft.com/hubmedico/'
+
+
+
+# A sample logging configuration. The only tangible logging
+# performed by this configuration is to send an email to
+# the site admins on every HTTP 500 error when DEBUG=False.
+# See http://docs.djangoproject.com/en/dev/topics/logging for
+# more details on how to customize your logging configuration.
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
