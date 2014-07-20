@@ -30,7 +30,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
-STATIC_ROOT = 'estaticos'
+STATIC_ROOT = ''
 STATIC_URL = '/estaticos/'
 
 
