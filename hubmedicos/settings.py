@@ -7,8 +7,17 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
 from unipath import Path
 RUTA_PROYECTO=Path(__file__).ancestor(2)
+
+ADMINS = (
+    # ('Your Name', 'your_email@example.com'),
+)
+
+MANAGERS = ADMINS
 
 import dj_database_url
 DATABASES = {}
@@ -20,9 +29,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
+
+STATIC_ROOT = ''
 STATIC_URL = '/estaticos/'
 
 
@@ -53,12 +61,6 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-TEMPLATE_DEBUG = DEBUG
-
-
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -130,7 +132,7 @@ USE_TZ = True
 
 
 MEDIA_ROOT = RUTA_PROYECTO.child("media")
-MEDIA_URL = 'http://www.techmobilesoft.com/hubmedico/'
+MEDIA_URL = 'http://www.techmobilesoft.com/hubmedicos/'
 
 
 

@@ -57,7 +57,11 @@
      <div class="row">
         <div class="span4">
         <img class="img-circle" src="{{MEDIA_URL}}images/slider2.png">
-          <h2>Hola Juan David</h2>
+          <h2> {% if user.is_authenticated %}
+                      Bienvenido {{user.first_name}}
+                      <a href="/">Salir</a></h2>
+                      {% else %}
+                      {% endif %}
           <p>Completa tu perfil</p>
    
         </div><!-- /.span4 -->
