@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from .views import *
+from .views import tipografia,base,blank_page,board
 
 urlpatterns = patterns('',
 
