@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from .views import tipografia,base,blank_page,board,index,bootstrap_grid,bootstrap_elements,charts,formularios,tables
+from .views import base,pacientes,board,index
 
 urlpatterns = patterns('',
 
@@ -14,14 +14,9 @@ urlpatterns = patterns('',
 		#url(r'^home/$','apps.inicio.views.sobre'),
 		url(r'^home/$',base.as_view()),
 		url(r'^$',index.as_view()),
-		url(r'^home/blank/',blank_page.as_view()),
+	    url(r'^pacientes/',pacientes.as_view()),
 		url(r'^home/board/',board.as_view()),
-		url(r'^home/bootsgrid/',bootstrap_grid.as_view()),
-		url(r'^home/bootselements/',bootstrap_elements.as_view()),
-		url(r'^home/charts/',charts.as_view()),
-		url(r'^home/formularios/',formularios.as_view()),
-		url(r'^home/tables/',tables.as_view()),
-		url(r'^home/tipografia/',tipografia.as_view()),
+	
 
 
 	

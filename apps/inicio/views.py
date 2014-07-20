@@ -47,3 +47,6 @@ class tables(TemplateView):
 
 class tipografia(TemplateView):
 	template_name = 'inicio/typography.html'
+
+class pacientes(TemplateView):
+	template_name = 'inicio/base.html'
