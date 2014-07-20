@@ -7,7 +7,7 @@ urlpatterns = patterns('',
 		{'template_name':'inicio/index.html'}, name='login'),
 
 	url(r'^home/$','django.contrib.auth.views.login',
-		{'template_name':'inico/base.html'}, name='home'),
+		{'template_name':'inicio/base.html'}, name='home'),
 	
 )
 
