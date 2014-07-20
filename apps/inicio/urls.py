@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from .views import tipografia,base,blank_page,board
+from .views import tipografia,base,blank_page,board,index,bootstrap_grid,bootstrap_elements,charts,formularios,tables
 
 urlpatterns = patterns('',
 
