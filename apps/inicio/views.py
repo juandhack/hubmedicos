@@ -25,9 +25,9 @@ class index(TemplateView):
 	template_name = 'inicio/index.html'
 
 class blank_page(TemplateView):
-	template_name = 'inicio/blank_page.html'
+	template_name = 'inicio/blank-page.html'
 
 class board(TemplateView):
 	template_name = 'inicio/board.html'
-	
+
 
