@@ -36,7 +36,7 @@ STATIC_URL = '/estaticos/'
 
 STATICFILES_DIRS = (
     RUTA_PROYECTO.child('estaticos'),
-    RUTA_PROYECTO('estaticos/css'),
+    RUTA_PROYECTO.child('estaticos/css'),
    
 
 )
