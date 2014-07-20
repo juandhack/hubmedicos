@@ -19,7 +19,7 @@ class Registrarse(FormView):
 		return super(Registrarse , self).form_valid(form)
 
 class base(TemplateView):
-	template_name = 'inicio/base.html'
+	template_name = 'inicio/board.html'
 
 class index(TemplateView):
 	template_name = 'inicio/index.html'
