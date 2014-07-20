@@ -6465,6 +6465,9 @@ ul.icons li .icon-large:before {
 .icon-users:before {
   content: "\f0c0";
 }
+.icon-youtube-play:before {
+  content: "\f16a";
+}
 /* @group Base */
 .chzn-container {
   position: relative;

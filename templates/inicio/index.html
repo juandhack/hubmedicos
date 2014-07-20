@@ -10,6 +10,7 @@
     <!-- Le styles -->
     <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet">
     <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css" rel="stylesheet">
+     <link href="{{STATIC_URL}}css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
     <style>
 
     /* GLOBAL STYLES
@@ -271,7 +272,7 @@
     <div class="navbar-wrapper">
       <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
       <div class="container">
-
+          <img src="{{MEDIA_URL}}images/panel.png" alt="">
         <div class="navbar navbar-inverse">
           <div class="navbar-inner">
             <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
@@ -284,13 +285,14 @@
             <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
             <div class="nav-collapse collapse">
               <ul class="nav">
-                <li><a href="/cuentas/register/">Regístrese</a></li>
+                <li><a href="/cuentas/register/" target="_blank">Regístrese</a></li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Entrar <b class="caret"></b></a>
                  <ul class="dropdown-menu">
-                 <li><a href="/cuentas/login/">Médicos</a></li>
-                    <li><a href="/pacientes/">Pacientes</a></li>
+                 <li><a href="/cuentas/login/" target="blank">Médicos</a></li>
+                    <li><a href="/pacientes/" target="blank">Pacientes</a></li>
                  </ul>
                  </li>
+                 <li><a href="/cuentas/blog/">Blog</a></li>
            
                 <!-- Read about Bootstrap dropdowns at http://twbs.github.com/bootstrap/javascript.html#dropdowns -->
              
@@ -336,22 +338,22 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="span4">
-          <img class="img-circle" src="{{MEDIA_URL}}images/avatar1_registro_responsive.png">
-          <h2>Texto</h2>
-          <p>Texto aquí....</p>
-          <p><a class="btn" href="#">Ver Detalles &raquo;</a></p>
+          <img class="img-circle" src="{{MEDIA_URL}}images/hubsalud.png">
+          <h2>A un Click de tu Médico</h2>
+          <p>Soy Paciente</p>
+          <p><a class="btn" href="/pacientes/" target="blank">Entrar &raquo;</a></p>
         </div><!-- /.span4 -->
-        <div class="span4">
-          <img class="img-circle" src="{{MEDIA_URL}}images/avatar1_registro_responsive.png">
-          <h2>Texto</h2>
-          <p>Texto aquí...</p>
-          <p><a class="btn" href="#">Ver Detalles &raquo;</a></p>
+         <div class="span4">
+          <img class="img-circle" src="{{MEDIA_URL}}images/fot1perfil.png">
         </div><!-- /.span4 -->
-        <div class="span4">
-          <img class="img-circle" src="{{MEDIA_URL}}images/avatar1_registro_responsive.png">
-          <h2>Texto</h2>
-          <p>Texto aquí...</p>
-          <p><a class="btn" href="#">Ver Detalles &raquo;</a></p>
+         <div class="span4">
+          <img class="img-circle" src="{{MEDIA_URL}}images/hubmedico.png">
+          <h2>A un Click de tu Paciente</h2>
+          <p>Soy Médico</p>
+          <p><a class="btn" href="/cuentas/login/" target="blank">Entrar &raquo;</a></p>
+        </div><!-- /.span4 -->
+         <div class="span4">
+          <img class="img-circle" src="{{MEDIA_URL}}images/fot1perfil.png">
         </div><!-- /.span4 -->
       </div><!-- /.row -->
 
@@ -362,8 +364,8 @@
 
       <div class="featurette">
         <img class="featurette-image pull-right" src="{{MEDIA_URL}}images/slider2.png">
-        <h2 class="featurette-heading">Texto Aquí <span class="muted">Texto aquí.</span></h2>
-        <p class="lead">Texto aquí.</p>
+        <h2 class="featurette-heading">Adquiera nuevos pacientes <span class="muted"></span></h2>
+        <p class="lead">Cree su propio perfil</p>
       </div>
 
       <hr class="featurette-divider">
@@ -373,8 +375,9 @@
 
       <!-- FOOTER -->
       <footer>
-        <p class="pull-right"><a href="/admin/">Admin</a></p>
-        <p>&copy; 2014 Hub Médico, Inc. &middot; <a href="#">Privacidad</a> &middot; <a href="#">Terms</a></p>
+        <p class="pull-right"><a href="#" target="_blank"><i class="icon-play icon-large"></i> YouTube </a> &middot; <a href="#" target="_blank"><i class="icon-linkedin icon-large"></i> Linkedin </a> &middot; <a href="#" target="_blank"><i class="icon-facebook icon-large"></i> Facebook </a> &middot; <a href="#" target="_blank"><i class="icon-twitter icon-large"></i>  Twitter </a> &middot; <a href="/admin/" target="_blank"><i class="icon-fullscreen icon-large"></i> Admin </a></p>
+        <p>&copy; Powered by Digitalsmark Latinoamérica | Copyright © 2002 - 2014 &middot; <a href="#">Privacidad</a> &middot; <a href="#">Terminos de uso</a></p>
+        <p></p>
       </footer>
 
     </div><!-- /.container -->
