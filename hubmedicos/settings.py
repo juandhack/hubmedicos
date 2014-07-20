@@ -36,9 +36,6 @@ STATIC_URL = '/estaticos/'
 
 STATICFILES_DIRS = (
     RUTA_PROYECTO.child('estaticos'),
-    RUTA_PROYECTO.child('estaticos/css'),
-   
-
 )
 
 # List of finder classes that know how to find static files in
