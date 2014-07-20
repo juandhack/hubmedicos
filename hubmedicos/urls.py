@@ -11,6 +11,5 @@ urlpatterns = patterns('',
     url(r'^' , include('apps.inicio.urls')),
     url(r'^cuentas/', include('registration.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^home/$', 'apps.inicio.views.sobre',
-        name='home',),
+   
 )
