@@ -132,7 +132,7 @@ USE_TZ = True
 
 
 MEDIA_ROOT = RUTA_PROYECTO.child("media")
-MEDIA_URL = 'http://www.techmobilesoft.com/hubmedicos/'
+MEDIA_URL = 'http://www.techmobilesoft.com/hubmedico/'
 
 
 
