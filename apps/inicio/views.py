@@ -22,6 +22,6 @@ def sobre(request):
     return render_to_response('inicio/base.html')
 
 
-class index2(TemplateView):
+class base(TemplateView):
 	template_name = 'inicio/base.html'
 
