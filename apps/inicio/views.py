@@ -45,5 +45,5 @@ class formularios(TemplateView):
 class tables(TemplateView):
 	template_name = 'inicio/tables.html'
 
-class typography(TemplateView):
+class tipografia(TemplateView):
 	template_name = 'inicio/typography.html'
