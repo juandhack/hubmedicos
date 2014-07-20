@@ -18,10 +18,9 @@ class Registrarse(FormView):
 		perfil.save()
 		return super(Registrarse , self).form_valid(form)
 
-def sobre(request):
-    return render_to_response('inicio/base.html')
-
-
 class base(TemplateView):
 	template_name = 'inicio/base.html'
+
+class index(TemplateView):
+	template_name = 'inicio/index.html'
 
