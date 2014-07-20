@@ -89,7 +89,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'hubmedicos.urls'
 
 TEMPLATE_DIRS = (
-   RUTA_PROYECTO.child('templates')
+   RUTA_PROYECTO.child('template')
 
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
