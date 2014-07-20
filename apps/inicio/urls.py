@@ -16,6 +16,12 @@ urlpatterns = patterns('',
 		url(r'^$',index.as_view()),
 		url(r'^home/blank/',blank_page.as_view()),
 		url(r'^home/board/',board.as_view()),
+		url(r'^home/bootsgrid/',bootstrap_grid.as_view()),
+		url(r'^home/bootselements/',bootstrap_elements.as_view()),
+		url(r'^home/charts/',charts.as_view()),
+		url(r'^home/formularios/',formularios.as_view()),
+		url(r'^home/tables/',tables.as_view()),
+		url(r'^home/tipografia/',tipografia.as_view()),
 
 
 	

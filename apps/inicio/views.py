@@ -30,4 +30,20 @@ class blank_page(TemplateView):
 class board(TemplateView):
 	template_name = 'inicio/board.html'
 
+class bootstrap_elements(TemplateView):
+	template_name = 'inicio/bootstrap-elements.html'
 
+class bootstrap_grid(TemplateView):
+	template_name = 'inicio/bootstrap-grid.html'
+
+class charts(TemplateView):
+	template_name = 'inicio/charts.html'
+
+class formularios(TemplateView):
+	template_name = 'inicio/forms.html'
+
+class tables(TemplateView):
+	template_name = 'inicio/tables.html'
+
+class typography(TemplateView):
+	template_name = 'inicio/typography.html'
