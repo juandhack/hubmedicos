@@ -9,7 +9,7 @@ urlpatterns = patterns('',
 	url(r'^home/$','django.contrib.auth.views.login',
 		{'template_name':'inicio/blank-page.html'}, name='home'),
 
-	url(r'^home/$','django.contrib.auth.views.login',
+	url(r'^home/index$','django.contrib.auth.views.login',
 		{'template_name':'inicio/index.html'}, name='index'),
 
 	
