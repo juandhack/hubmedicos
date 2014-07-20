@@ -14,8 +14,8 @@ urlpatterns = patterns('',
 		#url(r'^home/$','apps.inicio.views.sobre'),
 		url(r'^home/$',base.as_view()),
 		url(r'^$',index.as_view()),
-		url(r'^home/blank$',blank_page.as_view()),
-		url(r'^home/board$',board.as_view()),
+		url(r'^home/blank/',blank_page.as_view()),
+		url(r'^home/board/',board.as_view()),
 
 
 	
