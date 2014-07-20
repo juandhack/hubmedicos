@@ -19,4 +19,4 @@ class Registrarse(FormView):
 		return super(Registrarse , self).form_valid(form)
 
 def sobre(request):
-    return render_to_response('base.html')
+    return render_to_response('inicio/base.html')
