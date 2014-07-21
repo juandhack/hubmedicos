@@ -18,35 +18,16 @@ class Registrarse(FormView):
 		perfil.save()
 		return super(Registrarse , self).form_valid(form)
 
-class base(TemplateView):
-	template_name = 'inicio/board.html'
+
 
 class index(TemplateView):
 	template_name = 'inicio/index.html'
 
-class blank_page(TemplateView):
-	template_name = 'inicio/blank-page.html'
-
 class board(TemplateView):
-	template_name = 'inicio/board.html'
-
-class bootstrap_elements(TemplateView):
-	template_name = 'inicio/bootstrap-elements.html'
-
-class bootstrap_grid(TemplateView):
-	template_name = 'inicio/bootstrap-grid.html'
-
-class charts(TemplateView):
-	template_name = 'inicio/charts.html'
-
-class formularios(TemplateView):
-	template_name = 'inicio/forms.html'
-
-class tables(TemplateView):
-	template_name = 'inicio/tables.html'
-
-class tipografia(TemplateView):
-	template_name = 'inicio/typography.html'
+	template_name = 'inicio/personales.html'
 
 class pacientes(TemplateView):
-	template_name = 'inicio/base.html'
+	template_name = 'inicio/pacientes.html'
+
+class base(TemplateView):
+	template_name = 'base.html'
