@@ -15,11 +15,10 @@ urlpatterns = patterns('',
 		url(r'^home/$',board.as_view()),
 		url(r'^$',index.as_view()),
 	    url(r'^pacientes/',pacientes.as_view()),
-	    url(r'^home/perfil/$',base.as_view()),
         url(r'^login/$', LoginView.as_view(), name='login'),
         url(r'^logout/$', LogoutView.as_view(), name='logout'),
 	    url(r'^registrarse/$', RegisterView.as_view(), name='registro'),
-        url(r'^registrarse/success/$',RegisterSuccessView.as_view(), name='register-success'),
+        url(r'^registrarse/confirmacion/$',RegisterSuccessView.as_view(), name='register-success'),
         )	
 
 

@@ -77,7 +77,7 @@ class RegisterView(FormView):
     @method_decorator(csrf_protect)
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated():
-            return HttpResponseRedirect("registrarse/success/")
+            return HttpResponseRedirect("confirmacion")
         else:
             return super(RegisterView, self).dispatch(request, *args, **kwargs)
 
@@ -96,4 +96,4 @@ class RegisterView(FormView):
 
 
 class RegisterSuccessView(TemplateView):
-    template_name = 'registro/sucess.html'
+    template_name = 'registro/success.html'

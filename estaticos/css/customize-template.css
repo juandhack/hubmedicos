@@ -135,7 +135,7 @@ textarea {
 body {
   margin: 0;
   font-family: Arial, "Helvetica Neue", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   color: #333333;
   background-color: rgba(253, 253, 253, 0.06);
@@ -2940,9 +2940,9 @@ input[type="button"].btn-block {
   background-color: #1276c2;
   background-image: -moz-linear-gradient(top, #128dc2, #1252c2);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#128dc2), to(#1252c2));
-  background-image: -webkit-linear-gradient(top, #128dc2, #1252c2);
+  background-image: -webkit-linear-gradient(top, #57B1D8, #46C3D5);
   background-image: -o-linear-gradient(top, #128dc2, #1252c2);
-  background-image: linear-gradient(to bottom, #128dc2, #1252c2);
+  background-image: linear-gradient(to bottom, #008886, #46C3D5);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff128dc2', endColorstr='#ff1252c2', GradientType=0);
   border-color: #1252c2 #1252c2 #0c357c;
@@ -4261,14 +4261,14 @@ input[type="submit"].btn.btn-mini {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#111111));
   background-image: -webkit-linear-gradient(top, #222222, #111111);
   background-image: -o-linear-gradient(top, #222222, #111111);
-  background-image: linear-gradient(to bottom, #222222, #111111);
+  background-image: linear-gradient(to bottom, #008660,#008990);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
   border-color: #252525;
 }
 .navbar-inverse .brand,
 .navbar-inverse .nav > li > a {
-  color: #999999;
+  color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 .navbar-inverse .brand:hover,
@@ -4299,7 +4299,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-inverse .nav li.dropdown.open > .dropdown-toggle,
 .navbar-inverse .nav li.dropdown.active > .dropdown-toggle,
 .navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle {
-  background-color: #111111;
+  background-color: #006e79;
   color: #ffffff;
 }
 .navbar-inverse .nav li.dropdown > .dropdown-toggle .caret {

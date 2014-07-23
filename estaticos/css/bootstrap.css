@@ -231,7 +231,7 @@ body {
 }
 
 a {
-  color: #0088cc;
+  color: #006e79;
   text-decoration: none;
 }
 
@@ -676,7 +676,7 @@ cite {
 }
 
 .muted {
-  color: #999999;
+  color:#006e79;
 }
 
 a.muted:hover,
@@ -4104,7 +4104,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a:hover,
 .nav-pills > .active > a:focus {
   color: #ffffff;
-  background-color: #0088cc;
+  background-color: #006e79;
 }
 
 .nav-stacked > li {

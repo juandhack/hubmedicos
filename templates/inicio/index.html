@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Hub Médico &middot; Consultorio Virtual</title>
+    <title>Hub Salud &middot; Consultorio Virtual</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}css/bootstrap.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}css/bootstrap-responsive.css" rel="stylesheet">
      <link href="{{STATIC_URL}}css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
     <style>
 
@@ -114,7 +114,7 @@
     .carousel-caption .lead {
       margin: 0;
       line-height: 1.25;
-      color: #fff;
+      color: #00a482;
       text-shadow: 0 1px 1px rgba(0,0,0,.4);
     }
     .carousel-caption .btn {
@@ -272,8 +272,11 @@
     <div class="navbar-wrapper">
       <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
       <div class="container">
-          <img src="{{MEDIA_URL}}images/panel.png" alt="">
+      <div>
+    
+      </div>
         <div class="navbar navbar-inverse">
+
           <div class="navbar-inner">
             <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -281,7 +284,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">Hub Médico</a>
+            <a class="brand" href="#"><img src="{{MEDIA_URL}}images/hubsalud.png" alt=""></a>
             <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
             <div class="nav-collapse collapse">
               <ul class="nav">
@@ -308,19 +311,38 @@
 
     <!-- Carousel
     ================================================== -->
+     <hr class="featurette-divider">
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="item active">
           <img src="{{MEDIA_URL}}images/1.jpg" alt="">
-         
+            <div class="container">
+            <div class="carousel-caption">
+              <h1>Adquiere nuevos pacientes.</h1>
+              <p class="lead">Utiliza el poder del Internet para aumentar tu agenda de pacientes.</p>
+           
+            </div>
+          </div>
         </div>
         <div class="item">
           <img src="{{MEDIA_URL}}images/2.jpg" alt="">
-         
+            <div class="container">
+            <div class="carousel-caption">
+              <h1>Crea tu consulta online.</h1>
+              <p class="lead">Utilizando las herramientas que provee la plataforma, podrás crear tu consultorio virtual</p>
+        
+            </div>
+          </div>
         </div>
         <div class="item">
           <img src="{{MEDIA_URL}}images/3.jpg" alt="">
-          
+             <div class="container">
+            <div class="carousel-caption">
+              <h1>Aumenta tus ingresos</h1>
+              <p class="lead">Tu decides cuanto cobras por las consltas online. Nosotros sólo nos quedamos con un pequeño porcentaje</p>
+       
+            </div>
+          </div>
         </div>
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
@@ -332,13 +354,13 @@
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-
+  
     <div class="container marketing">
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="span4">
-          <img class="img-circle" src="{{MEDIA_URL}}images/hubsalud.png">
+          <a href="/"><img class="img-circle" src="{{MEDIA_URL}}images/hubsalud.png"></a>
           <h2>A un Click de tu Médico</h2>
           <p>Soy Paciente</p>
           <p><a class="btn" href="/pacientes/">Entrar &raquo;</a></p>
@@ -375,11 +397,9 @@
 
       <!-- FOOTER -->
       <footer>
-        <p class="pull-right"><a href="#" target="_blank"><i class="icon-play icon-large"></i> YouTube </a> &middot; <a href="#" target="_blank"><i class="icon-linkedin icon-large"></i> Linkedin </a> &middot; <a href="#" target="_blank"><i class="icon-facebook icon-large"></i> Facebook </a> &middot; <a href="#" target="_blank"><i class="icon-twitter icon-large"></i>  Twitter </a> &middot; <a href="/admin/" target="_blank"><i class="icon-fullscreen icon-large"></i> Admin </a></p>
-        <p>&copy; Powered by Digitalsmark Latinoamérica | Copyright © 2002 - 2014 &middot; <a href="#">Privacidad</a> &middot; <a href="#">Terminos de uso</a></p>
-        <p></p>
+          <p class="pull-left">&copy; Powered by Digitalsmark Latinoamérica | Copyright © 2002 - 2014 &middot; <a href="#">Privacidad</a> &middot; <a href="#">Terminos de uso</a></p><p class="pull-right"> <a href="#" target="_blank"><i></i> YouTube </a> &middot; <a href="#" target="_blank"><i></i> Linkedin </a> &middot; <a href="#" target="_blank"><i></i> Facebook </a> &middot; <a href="#" target="_blank"><i></i> Twitter </a> &middot; <a href="/admin/" target="_blank"><i></i> Admin </a></p>
+  
       </footer>
-
     </div><!-- /.container -->
 
 
