@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from .views import pacientes,board,index,base
+from .views import board,index,pacientes,base,LoginView,RegisterView,LogoutView,RegisterSuccessView
 
 urlpatterns = patterns('',
 
@@ -16,11 +16,10 @@ urlpatterns = patterns('',
 		url(r'^$',index.as_view()),
 	    url(r'^pacientes/',pacientes.as_view()),
 	    url(r'^home/perfil/$',base.as_view()),
+        url(r'^login/$', LoginView.as_view(), name='login'),
+        url(r'^logout/$', LogoutView.as_view(), name='logout'),
+	    url(r'^register/$', RegisterView.as_view(), name='registro'),
+        url(r'^register/success/$',RegisterSuccessView.as_view(), name='register-success'),
+        )	
 
-		
-	
-
-
-	
-)
 
