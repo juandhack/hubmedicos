@@ -67,7 +67,7 @@ class LogoutView(View):
 
     def get(self, request):
         logout(request)
-        return HttpResponseRedirect(config.LOGOUT_REDIRECT_URL)
+        return HttpResponseRedirect("/")
 
 
 class RegisterView(FormView):
@@ -77,7 +77,7 @@ class RegisterView(FormView):
     @method_decorator(csrf_protect)
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated():
-            return HttpResponseRedirect(config.INDEX_REDIRECT_URL)
+            return HttpResponseRedirect("registrarse/success/")
         else:
             return super(RegisterView, self).dispatch(request, *args, **kwargs)
 

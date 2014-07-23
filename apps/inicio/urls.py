@@ -18,8 +18,8 @@ urlpatterns = patterns('',
 	    url(r'^home/perfil/$',base.as_view()),
         url(r'^login/$', LoginView.as_view(), name='login'),
         url(r'^logout/$', LogoutView.as_view(), name='logout'),
-	    url(r'^register/$', RegisterView.as_view(), name='registro'),
-        url(r'^register/success/$',RegisterSuccessView.as_view(), name='register-success'),
+	    url(r'^registrarse/$', RegisterView.as_view(), name='registro'),
+        url(r'^registrarse/success/$',RegisterSuccessView.as_view(), name='register-success'),
         )	
 
 
