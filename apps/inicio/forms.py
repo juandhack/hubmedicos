@@ -5,8 +5,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
-class UserForm(UserCreationForm):
-	telefono = forms.IntegerField()
 
 class LoginForm(AuthenticationForm):
 

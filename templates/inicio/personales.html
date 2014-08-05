@@ -10,13 +10,14 @@ Datos Personales
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Datos Personales
+          Tus Datos Personales
         </a>
       </h4>
     </div>
+    <!-- Desplegable 1 -->
     <div id="collapseOne" class="panel-collapse collapse in">
       <div class="panel-body">
-      
+
 <form class="form-horizontal">
 <fieldset>
 
@@ -36,7 +37,7 @@ Datos Personales
   <label class="control-label" for="apellidos">Apellidos</label>
   <div class="controls">
     <input id="apellidos" name="apellidos" type="text" placeholder="" class="input-large" required="">
-    
+
   </div>
 </div>
 
@@ -45,79 +46,13 @@ Datos Personales
   <label class="control-label" for="nombre">Nombre</label>
   <div class="controls">
     <input id="nombre" name="nombre" type="text" placeholder="" class="input-large" required="">
-    
-  </div>
-</div>
 
-<!-- Select Basic -->
-<div class="control-group">
-  <label class="control-label" for="especialidad">Especialidad</label>
-  <div class="controls">
-    <select id="especialidad" name="especialidad" class="input-xlarge"><option value="">Selecciona especialidad</option>
-      <option value="9">Alergología</option>
-<option value="59">Andrología</option>
-<option value="10">Anestesiología</option>
-<option value="11">Angiología</option>
-<option value="7">Audioprótesis</option>
-<option value="12">Cardiología</option>
-<option value="13">Certificados médicos</option>
-<option value="15">Cirugía cardiovascular</option>
-<option value="14">Cirugía estética</option>
-<option value="16">Cirugía general</option>
-<option value="17">Cirugía maxilofacial</option>
-<option value="18">Cirugía pediátrica</option>
-<option value="19">Cirugía torácica</option>
-<option value="21">Dermatología</option>
-<option value="22">Digestivo</option>
-<option value="23">Endocrinología</option>
-<option value="2">Enfermería</option>
-<option value="24">Epidemiología</option>
-<option value="5">Farmacia</option>
-<option value="25">Fisioterapia</option>
-<option value="26">Geriatría</option>
-<option value="3">Gerocultura</option>
-<option value="27">Ginecología</option>
-<option value="28">Hematología</option>
-<option value="29">Logopedia</option>
-<option value="32">Medicina de familia</option>
-<option value="60">Medicina del trabajo</option>
-<option value="30">Medicina estética</option>
-<option value="1">Medicina General</option>
-<option value="33">Medicina interna</option>
-<option value="31">Medicina legal y forense</option>
-<option value="56">Medicina Preventiva</option>
-<option value="34">Nefrología</option>
-<option value="35">Neumología</option>
-<option value="36">Neurocirugía</option>
-<option value="37">Neurofisiología</option>
-<option value="38">Neurología</option>
-<option value="39">Nutrición y Dietética</option>
-<option value="8">Obstetricia</option>
-<option value="20">Odontología</option>
-<option value="40">Oftalmología y Optometría</option>
-<option value="41">Oncología</option>
-<option value="42">Otorrinolaringología</option>
-<option value="6">Pedagogía y Educación</option>
-<option value="43">Pediatría</option>
-<option value="44">Podología</option>
-<option value="45">Pruebas diagnósticas</option>
-<option value="46">Psicología</option>
-<option value="61">Psicología - Sexología</option>
-<option value="47">Psiquiatría</option>
-<option value="48">Rehabilitación</option>
-<option value="49">Reproducción asistida</option>
-<option value="50">Reumatología</option>
-<option value="51">Terapias alternativas</option>
-<option value="4">Trabajo social</option>
-<option value="52">Traumatología</option>
-<option value="53">Urología</option>
-<option value="54">Valoración del daño corporal</option></select>
-    </select>
   </div>
 </div>
+<!-- Text input -->
 <div class="control-group">
   <label class="control-label" for="extracto">Reseña Personal</label>
-  <div class="controls">                     
+  <div class="controls">
     <textarea id="extracto" name="Reseña personal" placeholder="Escribe una pequeña reseña sobre ti">Escribe aquí</textarea>
   </div>
 </div>
@@ -132,19 +67,22 @@ Datos Personales
 </fieldset>
 </form>
 
-      
+
     </div>
   </div>
+</div>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-          Ubicación - Redes Sociales
+          Tus Contactos
         </a>
       </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse">
       <div class="panel-body">
+        <form class="form-horizontal">
+        <fieldset>
         <div class="control-group">
   <label class="control-label" for="selecdpto">Departamento</label>
   <div class="controls">
@@ -231,7 +169,7 @@ Datos Personales
   <label class="control-label" for="telefono">Teléfono</label>
   <div class="controls">
     <input id="telefono" name="telefono" type="text" placeholder="" class="input-medium">
-    
+
   </div>
 </div>
 
@@ -240,9 +178,47 @@ Datos Personales
   <label class="control-label" for="celular">Celular</label>
   <div class="controls">
     <input id="celular" name="celular" type="text" placeholder="" class="input-medium">
-    
+
   </div>
 </div>
+<!-- Prepended text-->
+<div class="control-group">
+  <label class="control-label" for="correoadd">Correo Adicional</label>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on">@</span>
+      <input id="correoadd" name="correoadd" class="input-xlarge" placeholder="" type="text">
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="Actualizar"></label>
+  <div class="controls">
+    <button id="enviar" name="enviar" class="btn btn-primary">Actualizar</button>
+  </div>
+</div>
+</fieldset>
+</form>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Tus Redes Sociales
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+     <form class="form-horizontal">
+<fieldset>
+
 
 <!-- Prepended text-->
 <div class="control-group">
@@ -252,7 +228,7 @@ Datos Personales
       <span class="add-on">http://</span>
       <input id="blog" name="blog" class="input-large" placeholder="" type="text">
     </div>
-    
+
   </div>
 </div>
 
@@ -264,7 +240,7 @@ Datos Personales
       <span class="add-on"></span>
       <input id="twitter" name="twitter" class="input-medium" placeholder="" type="text">
     </div>
-    
+
   </div>
 </div>
 
@@ -276,7 +252,7 @@ Datos Personales
       <span class="add-on"></span>
       <input id="facebook" name="facebook" class="input-medium" placeholder="" type="text">
     </div>
-    
+
   </div>
 </div>
 
@@ -288,7 +264,7 @@ Datos Personales
       <span class="add-on"></span>
       <input id="youtube" name="youtube" class="input-medium" placeholder="" type="text">
     </div>
-    
+
   </div>
 </div>
 
@@ -300,40 +276,33 @@ Datos Personales
       <span class="add-on"></span>
       <input id="linkedin" name="linkedin" class="input-medium" placeholder="" type="text">
     </div>
-    
+
   </div>
 </div>
 
-<!-- Prepended text-->
-<div class="control-group">
-  <label class="control-label" for="correoadd">Correo Adicional</label>
-  <div class="controls">
-    <div class="input-prepend">
-      <span class="add-on">@</span>
-      <input id="correoadd" name="correoadd" class="input-xlarge" placeholder="" type="text">
-    </div>
-    
-  </div>
-</div>
 <!-- Button -->
 <div class="control-group">
-  <label class="control-label" for="Actualizar"></label>
+  <label class="control-label" for="actualizar"></label>
   <div class="controls">
-    <button id="enviar" name="enviar" class="btn btn-primary">Actualizar</button>
+    <button id="actualizar" name="actualizar" class="btn btn-primary">Actualizar</button>
   </div>
 </div>
+
+</fieldset>
+</form>
+
       </div>
     </div>
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-          Perfil Profesional
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+          Tu Perfil Profesional
         </a>
       </h4>
     </div>
-    <div id="collapseThree" class="panel-collapse collapse">
+    <div id="collapseFour" class="panel-collapse collapse">
       <div class="panel-body">
      <form class="form-horizontal">
 <fieldset>
@@ -344,7 +313,74 @@ Datos Personales
   <label class="control-label" for="organizacion">Nombre de la organización</label>
   <div class="controls">
     <input id="organizacion" name="organizacion" type="text" placeholder="ej: Clínica las vegas" class="input-large">
-    
+
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="especialidad">Especialidad</label>
+  <div class="controls">
+    <select id="especialidad" name="especialidad" class="input-xlarge"><option value="">Selecciona especialidad</option>
+      <option value="9">Alergología</option>
+      <option value="59">Andrología</option>
+      <option value="10">Anestesiología</option>
+      <option value="11">Angiología</option>
+      <option value="7">Audioprótesis</option>
+      <option value="12">Cardiología</option>
+      <option value="13">Certificados médicos</option>
+      <option value="15">Cirugía cardiovascular</option>
+      <option value="14">Cirugía estética</option>
+      <option value="16">Cirugía general</option>
+      <option value="17">Cirugía maxilofacial</option>
+      <option value="18">Cirugía pediátrica</option>
+      <option value="19">Cirugía torácica</option>
+      <option value="21">Dermatología</option>
+      <option value="22">Digestivo</option>
+      <option value="23">Endocrinología</option>
+      <option value="2">Enfermería</option>
+      <option value="24">Epidemiología</option>
+      <option value="5">Farmacia</option>
+      <option value="25">Fisioterapia</option>
+      <option value="26">Geriatría</option>
+      <option value="3">Gerocultura</option>
+      <option value="27">Ginecología</option>
+      <option value="28">Hematología</option>
+      <option value="29">Logopedia</option>
+      <option value="32">Medicina de familia</option>
+      <option value="60">Medicina del trabajo</option>
+      <option value="30">Medicina estética</option>
+      <option value="1">Medicina General</option>
+      <option value="33">Medicina interna</option>
+      <option value="31">Medicina legal y forense</option>
+      <option value="56">Medicina Preventiva</option>
+      <option value="34">Nefrología</option>
+      <option value="35">Neumología</option>
+      <option value="36">Neurocirugía</option>
+      <option value="37">Neurofisiología</option>
+      <option value="38">Neurología</option>
+      <option value="39">Nutrición y Dietética</option>
+      <option value="8">Obstetricia</option>
+      <option value="20">Odontología</option>
+      <option value="40">Oftalmología y Optometría</option>
+      <option value="41">Oncología</option>
+      <option value="42">Otorrinolaringología</option>
+      <option value="6">Pedagogía y Educación</option>
+      <option value="43">Pediatría</option>
+      <option value="44">Podología</option>
+      <option value="45">Pruebas diagnósticas</option>
+      <option value="46">Psicología</option>
+      <option value="61">Psicología - Sexología</option>
+      <option value="47">Psiquiatría</option>
+      <option value="48">Rehabilitación</option>
+      <option value="49">Reproducción asistida</option>
+      <option value="50">Reumatología</option>
+      <option value="51">Terapias alternativas</option>
+      <option value="4">Trabajo social</option>
+      <option value="52">Traumatología</option>
+      <option value="53">Urología</option>
+      <option value="54">Valoración del daño corporal</option></select>
+    </select>
   </div>
 </div>
 
@@ -353,7 +389,7 @@ Datos Personales
   <label class="control-label" for="cargo">Cargo</label>
   <div class="controls">
     <input id="cargo" name="cargo" type="text" placeholder="ej: Médico cirugano" class="input-medium">
-    
+
   </div>
 </div>
 
@@ -375,14 +411,14 @@ Datos Personales
   <label class="control-label" for="registro">Número de registro Profesional</label>
   <div class="controls">
     <input id="registro" name="registro" type="text" placeholder="" class="input-medium">
-    
+
   </div>
 </div>
 
 <!-- Textarea -->
 <div class="control-group">
   <label class="control-label" for="descripcion">Descripción</label>
-  <div class="controls">                     
+  <div class="controls">
     <textarea id="descripcion" name="descripcion">Funciones realizadas</textarea>
   </div>
 </div>
@@ -404,12 +440,12 @@ Datos Personales
     <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-          Perfil Académico
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+          Tu Perfil Académico
         </a>
       </h4>
     </div>
-    <div id="collapseFour" class="panel-collapse collapse">
+    <div id="collapseFive" class="panel-collapse collapse">
       <div class="panel-body">
      <form class="form-horizontal">
 <fieldset>
@@ -420,7 +456,7 @@ Datos Personales
   <label class="control-label" for="organizacion">Institución</label>
   <div class="controls">
     <input id="organizacion" name="organizacion" type="text" placeholder="ej: Universidad de Antioquia" class="input-large">
-    
+
   </div>
 </div>
 
@@ -429,7 +465,7 @@ Datos Personales
   <label class="control-label" for="cargo">Título</label>
   <div class="controls">
     <input id="cargo" name="cargo" type="text" placeholder="ej: Médico general" class="input-medium">
-    
+
   </div>
 </div>
 
@@ -442,7 +478,7 @@ Datos Personales
 <!-- Textarea -->
 <div class="control-group">
   <label class="control-label" for="descripcion">Descripción</label>
-  <div class="controls">                     
+  <div class="controls">
     <textarea id="descripcion" name="descripcion">logros obtenidos y reconocimientos</textarea>
   </div>
 </div>
@@ -462,7 +498,7 @@ Datos Personales
     </div>
   </div>
 </div>
-
+</div>
 <script>
 $('.collapse').collapse()
 </script>

@@ -7,25 +7,13 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.generic import TemplateView,FormView
 from django.views.generic.base import View
 from django.views.generic.edit import FormView
-from .forms import UserForm,RegistrationForm,LoginForm
+from .forms import RegistrationForm,LoginForm
 from django.core.urlresolvers import reverse_lazy
-from .models import Perfiles
+
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from . import config
 
-class Registrarse(FormView):
-	template_name = 'inicio/registrarse.html'
-	form_class = UserForm
-	success_url = reverse_lazy('registrarse')
-
-	def form_valid(self, form):
-		user = form.save()
-		perfil = Perfiles()
-		perfil.usuario = user
-		perfil.telefono = form.cleaned_data['telefono']
-		perfil.save()
-		return super(Registrarse , self).form_valid(form)
 
 
 
@@ -33,7 +21,7 @@ class index(TemplateView):
 	template_name = 'inicio/index.html'
 
 class board(TemplateView):
-	template_name = 'inicio/personales.html'
+    template_name = 'inicio/perfil.html'
 
 class pacientes(TemplateView):
 	template_name = 'inicio/pacientes.html'

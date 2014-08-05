@@ -32,8 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 STATIC_ROOT = ''
 STATIC_URL = '/estaticos/'
-
-
+SITE_ID = 1
 STATICFILES_DIRS = (
     RUTA_PROYECTO.child('estaticos'),
 )
@@ -43,7 +42,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Quick-start development settings - unsuitable for production
@@ -56,7 +55,7 @@ SECRET_KEY = '2oj=-$76f!$hq8&f+%+@u2jxe0y4#9gftg91_i*a^ge5ozq@93'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 # SECURITY WARNING: don't run with debug turned on in production!
 # Application definition
@@ -65,15 +64,20 @@ INSTALLED_APPS = (
     'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites', # Note this one is not included by default
+    'django.contrib.comments',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.inicio',
     'apps.perfilesmedicos',
-    
-
+    'tagging',
+    'mptt',
+    'zinnia',
+   
 )
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -162,3 +166,12 @@ LOGGING = {
         },
     }
 }
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+ 'django.contrib.auth.context_processors.auth',
+ 'django.core.context_processors.i18n',
+ "django.core.context_processors.media",
+ "django.core.context_processors.static",
+ 'django.core.context_processors.request',
+ 'django.contrib.messages.context_processors.messages',
+)
