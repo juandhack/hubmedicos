@@ -73,6 +73,7 @@ INSTALLED_APPS = (
     'apps.inicio',
     'apps.perfilesmedicos',
     'tagging',
+    'mptt',
     'zinnia',
    
 )
