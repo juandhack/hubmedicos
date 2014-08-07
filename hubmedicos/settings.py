@@ -62,6 +62,7 @@ TEMPLATE_LOADERS = (
 
 INSTALLED_APPS = (
     'django_admin_bootstrapped',
+    'grappelli'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites', # Note this one is not included by default
