@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+  {% for usr in usuario %}
+	<title>Perfil Público de {{usr.nombres}} {{usr.apellidos}}</title>
+  {% endfor %}
+	<meta name="description" content="some some some">
+	<meta name="author" content="some">
+	<meta name="keywords" content="some, some, some">
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv/html5shiv.js" type="text/javascript"></script>
+		<script src="js/html5shiv/html5shiv-printshiv.js" type="text/javascript"></script>
+		<style type="text/css">.site_nav { border-bottom: 1px solid #d4d4d4; }</style>
+	<![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://pixeldizajn.com/PerfectCV/fontello/css/-ontello.css">
+	<link rel="stylesheet" href="http://pixeldizajn.com/PerfectCV/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="http://pixeldizajn.com/PerfectCV/bootstrap/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="http://pixeldizajn.com/PerfectCV/css/progressbar.css">
+	<link rel="stylesheet" href="http://pixeldizajn.com/PerfectCV/css/lightbox.css">
+	<link rel="stylesheet" href="{{STATIC_URL}}/css/styles.css">
+
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="container">
+
+		<div class="upbtnwrapp"><div class="upbtn"><span class="icon-up-open-big"></span></div></div>
+
+		<!-- NAVIGATION -->
+		<nav class="site_nav" id="site_nav">
+			<ul class="">
+				<li><a href="#about_me">Extracto Personal</a></li>
+				<li><a href="#experience">Experiencia Profesional</a></li>
+				<li><a href="#education">Estudios</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#my_expertise">P & R</a></li>
+        <li><a href="#contact">Contacto</a></li>
+
+
+			</ul>
+		</nav> <!-- /site_nav -->
+		<div id="aftermenuspace"></div>
+		<!-- HEADER -->
+		<header class="site_header centerise borderbtn">
+      {% for usr in usuario %}
+			<div id="logoline"><h1>Doc. {{usr.nombres}}</h1></div>
+			<h2>{{usr.apellidos}}</h2>
+      {% endfor %}
+		</header> <!-- /site_header -->
+		<!-- end HEADER -->
+		<div class="container-fluid page">
+
+			<!-- ABOUT ME -->
+			<section class="row-fluid about_me" id="about_me">
+				<aside class="span3 aside_el">
+					<h2>Extracto Personal</h2>
+				</aside>
+				<article class="span6 borderleft par_el">
+          {% for usr in usuario %}
+					<span class="circle"><img style="float:left" src="http://pixeldizajn.com/PerfectCV/img/mypic.jpg" alt=""/></span>
+					<p>{{usr.acerca_de}}</p>
+         {% endfor %}
+				</article>
+        {% for redessoc  in social %}
+				<div class="span3 cont_info">
+					<div class="soc">
+						<ul>
+							<li><a href="http://{{redessoc.facebook}}" target="_blank"><img src="http://pixeldizajn.com/PerfectCV/img/icons/facebook.png" alt="" /></a></li>
+							<li><a href="http://twitter.com/{{redessoc.twitter}}" target="_blank"><img src="http://pixeldizajn.com/PerfectCV/img/icons/twitter.png" alt="" /></a></li>
+							<li><a href="http://{{redessoc.linkedin}}" target="_blank"><img src="http://pixeldizajn.com/PerfectCV/img/icons/linkedin.png" alt="" /></a></li>
+							<li><a href="http://{{redessoc.you_tube}}" target="_blank"><img src="http://pixeldizajn.com/PerfectCV/img/icons/google-plus.png" alt="" /></a></li>
+
+						</ul>
+					</div>
+					<div class="info">
+            {% for cont in contactos %}
+						<ul>
+							<li><span class="icon-mobile"></span><a>{{cont.celular}}</a></li>
+							<li><span class="icon-mail"></span><a>{{cont.correo}}</a></li>
+						</ul>
+            {% endfor %}
+					</div>
+				</div> <!-- /cont_info -->
+        {% endfor %}
+			</section> <!-- /about_me -->
+			<!-- end ABOUT ME -->
+
+
+			<!-- EXPERIENCE -->
+			<section class="row-fluid experience" id="experience">
+				<aside class="span3 aside_el">
+					<h2>Experiencia</h2>
+					<h5>Profesional</h5>
+				</aside>
+        {% for prof  in profesional %}
+				<div class="span9">
+					<div class="row-fluid">
+						<article class="span12  borderleft par_el in_spacing">
+							<span class="period">2003 - 2006</span>
+							<div class="bigspacing">
+								<header>
+									<h2>{{prof.organizacion}}</h2>
+									<h3>{{prof.especialidad}}</h3>
+                  <h3>{{prof.cargo}}</h3>
+                  <h3>{{prof.aniosejercidos}}</h3>
+								</header>
+								<p>{{prof.funcionesrealizadas}}</p>
+							</div>
+						</article>
+					</div>
+					<div class="row-fluid">
+						<article class="span12  borderleft par_el in_spacingbottom">
+							<span class="period">2007 - 2008</span>
+							<div class="bigspacing">
+								<header>
+									<h2>Clínica Maicao</h2>
+									<h3>Urología</h3>
+                  <h3>Médico Especialista</h3>
+								</header>
+							<p>Atención a pacientes con problemas de infertilidad</p>
+							</div>
+						</article>
+					</div>
+				</div>
+        {% endfor %}
+			</section> <!-- /experience -->
+			<!-- end EXPERIENCE -->
+
+			<!-- EDUCATION -->
+			<section class="row-fluid education" id="education">
+				<aside class="span3 aside_el">
+					<h2>Educación</h2>
+					<h5>Universidades<br/> Instituciones</h5>
+				</aside>
+        {% for academia in academico %}
+				<div class="span9">
+					<div class="row-fluid">
+						<article class="span12  borderleft par_el in_spacingbottom">
+							<span class="period">1992 - 2003</span>
+							<div class="bigspacing">
+								<header>
+									<h2>{{academia.institucion}}</h2>
+									<h3>{{academia.titulo}}</h3>
+								</header>
+								<p>{{academia.logros}}</p>
+							</div>
+						</article>
+					</div>
+				</div>
+        {% endfor %}
+			</section> <!-- /education -->
+			<!-- end EDUCATION -->
+
+			<!-- PORTFOLIO -->
+			<section class="row-fluid portfolio" id="blog">
+				<aside class="span3 aside_el">
+					<h2>Blog</h2>
+					<h5>Post Publicados<br/> </h5>
+				</aside>
+				<div class="span9 borderleft">
+
+					<div class="galleryContainer">
+						<div class="galleryItem">
+							<a href="" class="lightbox['portfolio']"><img src="{{MEDIA_URL}}images/LogoHubSaludDefinitivo_v2.jpg" alt="" /></a>
+							<h3>La Infertilidad Masculina</h3>
+							<p>Sintomatoligía y tratamiento</p>
+						</div>
+
+						<div class="galleryItem">
+							<a href="" class="lightbox['portfolio']"><img src="{{MEDIA_URL}}images/LogoHubSaludDefinitivo_v2.jpg"  alt="" /></a>
+							<h3>¿Què es la urología?</h3>
+							<p>Información genearl</p>
+						</div>
+
+						<div class="galleryItem">
+							<a href="" class="lightbox['portfolio']"><img src="{{MEDIA_URL}}images/LogoHubSaludDefinitivo_v2.jpg" alt="" /></a>
+							<h3>Manejo de la incontinencia urinaria</h3>
+							<p>Experiencia de un cirujano</p>
+						</div>
+
+					</div>
+				</div>
+			</section> <!-- /portfolio -->
+			<!-- end PORTFOLIO -->
+<!-- MY EXPERTISE -->
+<section class="row-fluid my_expertise" id="my_expertise">
+  <aside class="span3 aside_el">
+    <h2>My Expertise</h2>
+    <h5>skills that I’m<br /> proud of</h5>
+  </aside>
+  <article class="span4 borderleft par_el">
+    <p>Fringilla justo ullamcorper ac. Class aptent taciti sociosqu ad litora torque per conubia nostra, per inceptos himenaeos magna puella molto est.</p>
+    <p>Raesent sem elit, volutpat id vulputate faucibus, fringilla vel mass. Proin nec mi a mi tincidunt elementu sed vel ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>I love doing what I do.</p>
+  </article>
+  <div class="span5 skill_level">
+    <h4>UX Design</h4>
+    <div class="progressbar percent_70">
+      <div class="progressbar-inner"></div>
+    </div>
+    <h4>HTML5 with CSS3</h4>
+    <div class="progressbar percent_100">
+      <div class="progressbar-inner"></div>
+    </div>
+    <h4>PHP&amp;MySQL </h4>
+    <div class="progressbar percent_30">
+      <div class="progressbar-inner"></div>
+    </div>
+    <h4>Javascript</h4>
+    <div class="progressbar percent_90">
+      <div class="progressbar-inner"></div>
+    </div>
+  </div> <!-- /skill_level -->
+</section> <!-- /my_expertise -->
+<!-- end MY EXPERTISE -->
+		</div> <!-- /page -->
+		<footer class="row-fluid siteFooter">
+			<div id="contact">
+				<aside class="span3 aside_el">
+					<h2>Contact us</h2>
+					<h5>we reply in less<br /> than 24 hours</h5>
+				</aside>
+				<div class="span9 borderleft">
+					<form class="comment_form" data-validate="parsley">
+						<fieldset>
+							<input type="text" id="form_name" data-required="true" data-trigger="focusin focusout" placeholder="Name">
+							<input type="text" id="form_email" data-required="true" data-trigger="focusin focusout" data-type="email" placeholder="Email Address">
+							<textarea rows="8" id="form_message" data-required="true" data-trigger="focusin focusout" placeholder="Message"></textarea>
+							<div class="send-button pull-right"> <a>SEND THE MESSAGE </a> </div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</footer>
+	</div> <!-- /container -->
+</div> <!-- /wrapper -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script src="http://pixeldizajn.com/PerfectCV/js/parsley.min.js"></script>
+	<script src="http://pixeldizajn.com/PerfectCV/js/lightbox.js"></script>
+	<script src="http://pixeldizajn.com/PerfectCV/js/retina.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('.comment_form input, .comment_form textarea').focus(function () {
+			$(this).css({"-webkit-box-shadow": "0px 0px 0px rgba(0, 0, 0, 0)", "-moz-box-shadow": "0px 0px 0px rgba(0, 0, 0, 0)", "box-shadow": "0px 0px 0px rgba(0, 0, 0, 0)", "border": "1px solid #999"});
+		});
+		$('.comment_form input, .comment_form textarea').blur(function () {
+			$(this).css({"-webkit-box-shadow": "0px 0px 0px rgba(0, 0, 0, 0)", "-moz-box-shadow": "0px 0px 0px rgba(0, 0, 0, 0)", "box-shadow": "0px 0px 0px rgba(0, 0, 0, 0)", "border": "1px solid #e0e0e0"});
+		});
+	});
+	$(".send-button").click(function () {
+		if ( $( '.comment_form' ).parsley('validate') ) {
+			var form_name = $("#form_name").val();
+			var form_email = $("#form_email").val();
+			var form_message = $("#form_message").val();
+			$.post("php/mailer.php", { name : form_name , email : form_email , message : form_message }, function(results){
+				alert(results);
+			});
+		}
+	});
+	$(window).on('load resize', function () {
+		current_width = $(window).width();
+		if ( current_width < 767 ) {
+			$("br").hide();
+		} else {
+			$("br").show();
+		}
+	});
+
+	// Cache selectors
+	if ( $(window).width() > 940 ) {
+		var lastId,
+			topMenu = $("#site_nav")
+			topMenuHeight = topMenu.outerHeight()+40,
+			// All list items
+			menuItems = topMenu.find("a"),
+			// Anchors corresponding to menu items
+			scrollItems = menuItems.map(function(){
+			  var item = $($(this).attr("href"));
+			  if (item.length) { return item; }
+			});
+	} else {
+		var lastId,
+			topMenu = $("#site_nav")
+			topMenuHeight = topMenu.outerHeight()-140,
+			// All list items
+			menuItems = topMenu.find("a"),
+			// Anchors corresponding to menu items
+			scrollItems = menuItems.map(function(){
+			  var item = $($(this).attr("href"));
+			  if (item.length) { return item; }
+			});
+
+	}
+
+
+	// Bind click handler to menu items
+	// so we can get a fancy scroll animation
+	menuItems.click(function(e){
+	  var href = $(this).attr("href"),
+		  offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+	  $('html, body').stop().animate({
+		  scrollTop: offsetTop
+	  }, 300);
+	  e.preventDefault();
+	});
+
+	// Bind to scroll
+	$(window).scroll(function(){
+	   // Get container scroll position
+	   var fromTop = $(this).scrollTop()+topMenuHeight;
+
+	   // Get id of current scroll item
+	   var cur = scrollItems.map(function(){
+		 if ($(this).offset().top < fromTop)
+		   return this;
+	   });
+	   // Get the id of the current element
+	   cur = cur[cur.length-1];
+	   var id = cur && cur.length ? cur[0].id : "";
+
+	   if (lastId !== id) {
+		   lastId = id;
+		   // Set/remove active class
+		   menuItems
+			 .parent().removeClass("active")
+			 .end().filter("[href=#"+id+"]").parent().addClass("active");
+	   }
+	});// $('.scrollup').fadeIn();
+
+	$(window).scroll(function(){
+		var pos = $(window).scrollTop();
+		if (pos > 55 && current_width > 940) {
+			$(".site_nav").css({
+					"position": "fixed",
+					"top":    "0",
+					"width":    "940px",
+					"margin-bottom":    "55px",
+			});
+			$("#aftermenuspace").css({
+					"height":    "55px",
+			});
+		} else {
+			$(".site_nav").css({
+					"position": "relative",
+					"margin-bottom":    "0",
+					"width":    "100%",
+			});
+			$("#aftermenuspace").css({
+					"height":    "0",
+			});
+		}
+		if ( pos > 600 ) { $('.upbtn').fadeIn();} else { $('.upbtn').fadeOut(); }
+	});
+
+	$('.upbtn').click(function(){
+		$("html, body").animate({ scrollTop: 0 }, 600);
+		return false;
+	});
+
+	</script>
+</body>
+</html>

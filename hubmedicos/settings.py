@@ -61,7 +61,7 @@ TEMPLATE_LOADERS = (
 # Application definition
 
 INSTALLED_APPS = (
-    'django_admin_bootstrapped',
+    'django_admin_bootstrapped',    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites', # Note this one is not included by default
@@ -135,8 +135,8 @@ USE_TZ = True
 
 MEDIA_ROOT = RUTA_PROYECTO.child("media")
 MEDIA_URL = 'http://www.techmobilesoft.com/hubmedico/'
-
-
+#AUTH_PROFILE_MODULE = 'apps.perfilesmedicos.user_profile'
+DEFAULT_CHARSET='utf-8'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

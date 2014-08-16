@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %} SIMPLECRM {% endblock %}
+{% block content %}
+<h1>SimpleCRM - Listado de empresas</h1>
+
+        <ul>
+        	{% for usr in usuario %}
+        	<li><a>{{usr.dni}}</a>
+            </li>
+          <li><a>{{usr.nombres}}</a>
+            </li>
+          <li><a>{{usr.apellidos}}</a>
+            </li>
+          <li><a>{{usr.acerca_de}}</a>
+            </li>{% endfor %}
+</ul>
+
+<ul>
+  {% for academia in academico %}
+  <li><a>{{academia.institucion}}</a>
+    </li>
+  <li><a>{{academia.titulo}}</a>
+    </li>
+  <li><a>{{academia.logros}}</a>
+    </li>{% endfor %}
+</ul>
+
+<ul>
+  {% for cont in contactos %}
+  <li><a>{{cont.dpto}}</a>
+    </li>
+  <li><a>{{cont.ciudad}}</a>
+    </li>
+  <li><a>{{cont.telefono}}</a>
+    </li>
+  <li><a>{{cont.celular}}</a>
+    </li>
+  <li><a>{{cont.correo}}</a>
+    </li>{% endfor %}
+</ul>
+
+<ul>
+  {% for redessoc  in social %}
+  <li><a>{{redessoc.you_tube}}</a>
+    </li>
+  <li><a>{{redessoc.facebook}}</a>
+    </li>
+  <li><a>{{redessoc.linkedin}}</a>
+    </li>
+  <li><a>{{redessoc.blog}}</a>
+    </li>
+  <li><a>{{redessoc.twitter}}</a>
+    </li>{% endfor %}
+</ul>
+
+<ul>
+  {% for prof  in profesional %}
+  <li><a>{{prof.organizacion}}</a>
+    </li>
+  <li><a>{{prof.especialidad}}</a>
+    </li>
+  <li><a>{{prof.cargo}}</a>
+    </li>
+  <li><a>{{prof.aniosejercidos}}</a>
+    </li>
+  <li><a>{{prof.numregistroprof}}</a>
+    </li>
+  <li><a>{{prof.funcionesrealizadas}}</a>
+  </li>{% endfor %}
+</ul>
+</nav>
+
+{% endblock %}

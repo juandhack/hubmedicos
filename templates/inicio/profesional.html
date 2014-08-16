@@ -1,0 +1,57 @@
+{% extends "inicio/board.html" %}
+
+{% block title %}
+Perfil - Personal
+{% endblock %}
+
+{% block content %}
+<div class="row">
+        <div class="span8">
+            <div class="box">
+                <div class="box-content">
+                  <a href=/home/perfilpublico/{{user.id}} target="blank"/>
+                    <h4>Ir a tu perfil público</h4></a>
+                </div>
+                <div class="box-header">
+                    <i class="icon-bookmark"></i>
+                    <h5>Actualiza Tu Perfil</h5>
+                </div>
+                <div class="box-content">
+                    <div class="btn-group-box">
+                        <a href="/home/"><button class="btn"><i class="icon-user icon-large"></i><br>Personales</button></a>
+                        <a href="/home/contacto"><button class="btn"><i class="icon-users icon-large"></i><br>Contacto</button></a>
+                        <a href="/home/academico"><button class="btn"><i class="icon-book icon-large"></i><br>Académico</button></a>
+                        <a href="/home/profesional"><button class="btn"><i class="icon-tasks icon-large"></i><br>Profesional</button></a>
+                        <a href="/home/social"><button class="btn"><i class="icon-comments icon-large"></i><br>Social</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span8">
+          <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <legend class="lead">
+                        Tu Experiencia Profesional
+                    </legend>
+                </h4>
+              </div>
+              <!-- Desplegable 1 -->
+              <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+
+             <form class="form-horizontal" method="POST">{% csrf_token %}
+              {{ form.as_p }}
+                 <input type="submit" value="Actualizar" class="btn btn-primary">
+              </form>
+              </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+$('.collapse').collapse()
+</script>
+{% endblock %}
