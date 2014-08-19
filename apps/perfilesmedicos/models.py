@@ -123,6 +123,12 @@ class PerfilAcademico(models.Model):
 	titulo = models.CharField("Titulo",max_length=255, null=True, blank=True)
 	logros = models.TextField(null=True, blank=True)
 
+class PreguntasRespuestas(models.Model):
+	user = models.ForeignKey(User)
+	pregunta = models.CharField(max_length=255,null=True,blank=True)
+	respuesta = models.TextField(null=True, blank=True)
+
+
 
 
 User.perfiles = property(lambda u: Perfiles.objects.get_or_create(user=u)[0])

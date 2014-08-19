@@ -30,5 +30,6 @@ class RedesSocialesForm(forms.ModelForm):
         fields = ('blog','twitter','facebook','linkedin','you_tube')
 
 
+
         
         

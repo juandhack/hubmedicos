@@ -112,19 +112,8 @@ def user_perfil_publico(request,userid):
 	data['social'] = RedesSociales.objects.filter(user_id = userid)
 	return render_to_response('admin/index.html',data,context_instance=RequestContext(request))
 
-def profesional(request, id_user):
-    data = {}
-    # paso 1 - buscar la empresa!!
-    usuario = get_object_or_404(Perfiles, user_id=id_user)
-    data['usuario'] = usuario
-    # paso 2 - traer los clientes   
-    #paso 3 - agregar formulario para agregar un nuevo cliente
-    if request.method == 'POST':
-        cf= PerfilProfesonalForm(request.POST or None)
-        if cf.is_valid():
-            c = cf.save()
-            cf = PerfilProfesionalForm()
-    else:
-        cf= PerfilProfesonalForm(initial={'usuario':usuario})
-    data['form'] = cf
-    return render_to_response('inicio/profesional.html', data, context_instance=RequestContext(request))
+class pacienteshome(TemplateView):
+	template_name = 'pacientes/index.html'
+
+class pacienteshome(TemplateView):
+	template_name = 'registro/pr.html'

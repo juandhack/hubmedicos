@@ -6328,6 +6328,9 @@ ul.icons li .icon-large:before {
 .icon-tasks:before {
   content: "\f0ae";
 }
+.icon-medkit:before {
+  content: "\f0f2";
+}
 .icon-filter:before {
   content: "\f0b0";
 }
