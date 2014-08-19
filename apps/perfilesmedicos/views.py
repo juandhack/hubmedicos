@@ -115,5 +115,3 @@ def user_perfil_publico(request,userid):
 class pacienteshome(TemplateView):
 	template_name = 'pacientes/index.html'
 
-class pacienteshome(TemplateView):
-	template_name = 'registro/pr.html'
