@@ -134,7 +134,7 @@ USE_TZ = True
 
 
 MEDIA_ROOT = RUTA_PROYECTO.child("media")
-MEDIA_URL = 'http://www.techmobilesoft.com/hubmedico/'
+MEDIA_URL = '/media/'
 #AUTH_PROFILE_MODULE = 'apps.perfilesmedicos.user_profile'
 DEFAULT_CHARSET='utf-8'
 
