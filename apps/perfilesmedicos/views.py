@@ -115,7 +115,6 @@ def user_perfil_publico(request,userid):
     
     
 def consultas(request):
-    profile = Perfiles.objects.get(user=userid)
     if request.method == 'POST':
 	form = ConsultasForm(request.POST, instance=request.user.consultas)
     	if form.is_valid():
