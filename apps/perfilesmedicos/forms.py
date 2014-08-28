@@ -65,6 +65,11 @@ class RedesSocialesForm(forms.ModelForm):
             'linkedin' : ('Ej: linkedin.com/micuenta '),
             'you_tube' : ('Ej: youtube.com/micuenta '),
         }
+        
+class ConsultasForm(forms.ModelForm):
+    class Meta:
+        model = PreguntasRespuestas
+        fields = ('pregunta','respuesta')
 
 
 

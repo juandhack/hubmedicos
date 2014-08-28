@@ -110,7 +110,36 @@ def user_perfil_publico(request,userid):
 	data['academico'] = PerfilAcademico.objects.filter(user_id = userid)
 	data['profesional'] = PerfilProfesional.objects.filter(user_id = userid)
 	data['social'] = RedesSociales.objects.filter(user_id = userid)
+	data['consultas'] = PreguntasRespuestas.objects.filter(user_id = userid)
 	return render_to_response('perfil/index.html',data,context_instance=RequestContext(request))
+    
+    
+def consultas(request):
+    profile = Perfiles.objects.get(user=userid)
+    if request.method == 'POST':
+	form = ConsultasForm(request.POST, instance=request.user.consultas)
+    	if form.is_valid():
+    		new =form.save()
+		#new.user = user.perfiles
+		new.save()
+    		return HttpResponseRedirect('/home/consultas')
+    else:
+        user = request.user
+    	perfiles = user.consultas
+    	form = ConsultasForm(instance=perfiles)
+	#args = {}
+        #args.update(csrf(request))
+
+        #args['form'] = form
+
+    return render_to_response('inicio/consultas.html',locals(), context_instance=RequestContext(request))
+	
+	
+    
+
+
+
+	
 
 class pacienteshome(TemplateView):
 	template_name = 'pacientes/index.html'

@@ -127,6 +127,13 @@ class PerfilAcademico(models.Model):
 	institucion = models.CharField("Universidad",max_length=255, null=True, blank=True)
 	titulo = models.CharField("Titulo",max_length=255, null=True, blank=True)
 	logros = models.TextField(null=True, blank=True)
+	
+class PreguntasRespuestas(models.Model):
+	user = models.ForeignKey(User)
+	pregunta = models.TextField("Pregunta",null=True,blank=True)
+	respuesta = models.TextField("Respuesta",null=True,blank=True)
+	#code
+
 
 
 
@@ -137,6 +144,7 @@ User.contactos = property(lambda u: Contactos.objects.get_or_create(user=u)[0])
 User.sociales = property(lambda u: RedesSociales.objects.get_or_create(user=u)[0])
 User.profesional = property(lambda u: PerfilProfesional.objects.get_or_create(user=u)[0])
 User.academico = property(lambda u: PerfilAcademico.objects.get_or_create(user=u)[0])
+User.consultas = property(lambda u: PreguntasRespuestas.objects.get_or_create(user=u)[0])
 
 
 	
