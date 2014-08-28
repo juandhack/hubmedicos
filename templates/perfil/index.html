@@ -99,7 +99,7 @@
 		     {% for academia in academico %}
 		     {% for prof in profesional %}
 		     {% for soc in social %}
-		    
+		     {% for consultas in consultas %}
                     <div class="row">
 
                         <div class="col-md-12">
@@ -173,13 +173,13 @@
                                                 <i class="fa fa-tasks icon_menu"></i>
                                             </li>
 
-                                            <li class="tabs-portfolio hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="portfolio"> 
+                                            <li class="tabs-contact hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="contact"> 
                                                 <span class="tite-list">Portafolio</span>
                                                 <i class="fa fa-envelope icon_menu"></i>
                                             </li>
 
-                                            <li class="tabs-blog hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="blog">
-                                                <span class="tite-list">Blog</span>
+                                            <li class="tabs-consultas hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="consultas">
+                                                <span class="tite-list">Consultas</span>
                                                 <i class="fa fa-bullhorn icon_menu"></i>
                                             </li>
 
@@ -406,6 +406,60 @@
 
                                             </div>
                                             <!-- End .resume -->
+					    
+					      <!-- .Consultas -->
+                                            <div id="consultas" class="content_2">
+                                                <!-- .title -->
+                                                <h1>Respuestas comunes a tus preguntas</h1>
+                                                <div class="row">
+
+                                                    <!-- .resume-right -->
+                                                    <div class="col-md-6">
+						       <!-- .title_content -->
+                                                        <div class="title_content" style="margin-bottom:5px">
+                                                           
+                                                            <div class="clear"></div>
+                                                        </div>
+                                                        <!-- /.title_content -->
+
+                                                        <!-- .attributes -->
+                                                        <ul class="attributes">
+                                                            <li class="first">
+                                                                <h5>{{consultas.pregunta}} <span class="duration"></span></h5>
+                                                                 <p>{{consultas.respuesta}}</p>
+                                                            </li>
+                                                         
+
+                                                        </ul>
+                                                        <!-- /.attributes -->
+                                                        <br>
+                                                    </div>
+                                                    <!-- /.resume-right -->
+
+                                                    <!-- .resume-left -->
+                                                  
+                                                    <!-- /.resume-left -->
+                                                </div>
+
+                                                <div style="clear: both"></div>  
+
+
+                                                <!-- client reference -->
+                                                <div class="row">
+                                                    <div class="col-md-12">   
+
+                                                  
+                                                    </div>
+
+
+
+
+                                                    <div style="clear: both"></div>   
+                                                </div>
+
+
+                                            </div>
+                                            <!-- End .Consultas -->
 
 
                                             <!-- .contact -->
@@ -527,7 +581,7 @@
 		   {% endfor %}
 		   {% endfor %}
 		   {% endfor %}
-	          
+	           {% endfor %}
                 </div><!-- End container -->
 
             </section>
