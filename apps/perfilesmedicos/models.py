@@ -10,9 +10,13 @@ class Perfiles(models.Model):
 	apellidos = models.CharField(max_length=255, null=True, blank=True)
 	acerca_de = models.TextField("Extracto Personal",null=True, blank=True)
 	tipo_usuario = models.CharField(max_length=1,null=True,blank=True)
-
+	imagen = models.ImageField("Tu foto",upload_to='pictures',null=True,blank=True)
 	def __unicode__(self):
 		return self.dni
+	
+KIND_PAIS = (
+   ('Colombia','Colombia'),
+)
 
 KIND_DPTO = (
    ('Amazonas','Amazonas'),
@@ -86,6 +90,7 @@ KIND_CIUDAD = (
 class Contactos(models.Model):
 
 	user = models.OneToOneField(User)
+	pais = models.CharField("País",max_length=30, null=True, blank=True, choices=KIND_PAIS)
 	dpto = models.CharField("Departamento",max_length=30, null=True, blank=True, choices=KIND_DPTO)
 	ciudad = models.CharField(max_length=30, null=True, blank=True, choices=KIND_CIUDAD)
 	telefono = models.CharField("Tel",max_length=25, null=True, blank=True)

@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def user_profile(request):
     if request.method == 'POST':
-    	form = PerfilesForm(request.POST, instance=request.user.perfiles)
+    	form = PerfilesForm(request.POST, request.FILES, instance=request.user.perfiles)
     	if form.is_valid():
     		form.save()
     		return HttpResponseRedirect('/home/')
