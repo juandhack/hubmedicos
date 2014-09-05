@@ -1,33 +1,33 @@
 {% extends "inicio/board.html" %}
 
 {% block title %}
-Aplicaciones - Eliminar Información académica
+Aplicaciones - Servicios
 {% endblock %}
 
 {% block content %}
 <div class="row">
-    <div class="span8">
-        <div class="box">
-            <div class="box-content">
-              <a href=/home/perfilpublico/{{user.id}} target="blank"/>
-                <h4>Ir a tu perfil público</h4></a>
-            </div>
-            <div class="box-header">
-                <i class="icon-bookmark"></i>
-                <h5>Tu Perfil</h5>
-            </div>
-            <div class="box-content">
-                <div class="btn-group-box">
-                    <a href="/home/"><button class="btn"><i class="icon-user icon-large"></i><br>Personales</button></a>
-                    <a href="/home/contacto"><button class="btn"><i class="icon-users icon-large"></i><br>Contacto</button></a>
-                    <a href="/home/academico"><button class="btn"><i class="icon-book icon-large"></i><br>Académico</button></a>
-                    <a href="/home/profesional/"><button class="btn"><i class="icon-tasks icon-large"></i><br>Profesional</button></a>
-                    <a href="/home/social"><button class="btn"><i class="icon-comments icon-large"></i><br>Social</button></a>
+  <div class="span8">
+      <div class="box">
+          <div class="box-content">
+            <a href=/home/perfilpublico/{{user.id}} target="blank"/>
+              <h4>Ir a tu perfil público</h4></a>
+          </div>
+          <div class="box-header">
+              <i class="icon-bookmark"></i>
+              <h5>Tu Perfil</h5>
+          </div>
+          <div class="box-content">
+              <div class="btn-group-box">
+                  <a href="/home/"><button class="btn"><i class="icon-user icon-large"></i><br>Personales</button></a>
+                  <a href="/home/contacto"><button class="btn"><i class="icon-users icon-large"></i><br>Contacto</button></a>
+                  <a href="/home/academico"><button class="btn"><i class="icon-book icon-large"></i><br>Académico</button></a>
+                  <a href="/home/profesional/"><button class="btn"><i class="icon-tasks icon-large"></i><br>Profesional</button></a>
+                  <a href="/home/social"><button class="btn"><i class="icon-comments icon-large"></i><br>Social</button></a>
 
-                </div>
-            </div>
-        </div>
-         <div class="box">
+              </div>
+          </div>
+      </div>
+    <div class="box">
 
           <div class="box-header">
               <i class="icon-bookmark"></i>
@@ -43,7 +43,7 @@ Aplicaciones - Eliminar Información académica
               </div>
           </div>
       </div>
-        <div class="box">
+      <div class="box">
           <div class="box pattern pattern-sandstone">
                     <div class="box-header">
                         <i class="icon-list"></i>
@@ -67,34 +67,32 @@ Aplicaciones - Eliminar Información académica
 
                 </div>
       </div>
-    </div>
+  </div>
         <div class="span8">
           <div class="panel-group" id="accordion">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <legend class="lead">
-                        Información Académica
+                        Tus Servicios
                     </legend>
                 </h4>
               </div>
               <!-- Desplegable 1 -->
               <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
-  
-                    <p>¿Está seguro de que quiere eliminar esta información académica?</p>
-                    <p></p>
- <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
-              
-                 <input type="submit" value="Eliminar" class="btn btn-primary">
-                    
+
+              <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
+              {{ form }}
+              <p></p>
+              <div> <input type="submit" value="Ingresar" class="btn btn-primary"></div>
+              <p></p>
               </form>
- <p></p>
-   <a href="{% url 'listar_info_academica' %}"><button type="submit" class="btn btn-primary">
-                            <i class="icon-ok"></i>
-                            Cancelar
-                        </button></a>
               </div>
+                 <a href="{% url 'listar_info_servicios' %}"><button type="submit" class="btn btn-primary">
+                            <i class="icon-ok"></i>
+                            Ver tus servicios
+                        </button></a>
             </div>
             </div>
         </div>

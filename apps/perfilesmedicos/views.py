@@ -115,6 +115,7 @@ def user_perfil_publico(request,userid):
 	data['profesional'] = PerfilProfesional.objects.filter(user_id = userid)
 	data['social'] = RedesSociales.objects.filter(user_id = userid)
 	data['consultas'] = PreguntasRespuestas.objects.filter(user_id = userid)
+	data['servicios'] = Servicios.objects.filter(user_id = userid)
 	return render_to_response('perfil/index.html',data,context_instance=RequestContext(request))
     
     
@@ -240,6 +241,45 @@ class ListarInfoAcademica(ListView):
     form_class = PerfilAcademicoForm
     model = PerfilAcademico
     success_url = reverse_lazy('listar_info_academica') 
+
+    
+class IngresarInfoServicios(CreateView):
+    template_name = 'servicios/servicios_form.html'
+    form_class = ServiciosForm
+    model = Servicios
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(IngresarInfoServicios,self).form_valid(form)
+    success_url = reverse_lazy('listar_info_servicios')
+    
+class VisualizarInfoServicios(DetailView):
+    template_name = 'servicios/listarinfoservicios_form.html'
+    model = Servicios
+    
+class EliminarInfoServicios(DeleteView):
+    template_name = 'servicios/servicios_confirmar_delete_form.html'
+    model = Servicios
+    success_url = reverse_lazy('listar_info_servicios')
+  
+    
+class ActualizarInfoServicios(UpdateView):
+    template_name = 'servicios/servicios_form.html'
+    form_class = ServiciosForm
+    model = Servicios
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(ActualizarInfoServicios,self).form_valid(form)
+    success_url = reverse_lazy('listar_info_servicios')  
+    
+class ListarInfoServicios(ListView):
+    template_name = 'servicios/listarinfoservicios_form.html'
+    form_class = ServiciosForm
+    model = Servicios
+    success_url = reverse_lazy('listar_info_servicios') 
 
 
 

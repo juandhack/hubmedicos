@@ -75,6 +75,20 @@ class ConsultasForm(forms.ModelForm):
         model = PreguntasRespuestas
         exclude = ('user',)
 
+class ServiciosForm(forms.ModelForm):
+    class Meta:
+        model = Servicios
+        fields = ('organizacion','especialidad','descripcion','direccion','pais','dpto','telefono','celular','correo','blog')
+        help_texts = {
+            'organizacion': _('Ej: Hospital San Juan de Dios'),
+            'especialidad': _('Ej: Medicina del Trabajo'),
+            'descripcion': _('Ej: Puedes escribir una descripción de tu entidad'),
+            'direccion': _('Ej: Calle 75 Nº 48-121'),
+            'correo': _('Ej: mientidad@mientidad.com'),
+            'blog': _('Ej: http://www.mientidad.com'),
+            
+           
+        }
 
 
         

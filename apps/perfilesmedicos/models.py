@@ -179,7 +179,34 @@ class PreguntasRespuestas(models.Model):
                 return ('eliminar_pregunta', [self.id, ])
       #code
 
-
+class Servicios(models.Model):
+	user = models.ForeignKey(User, null=True, blank=True)
+	organizacion = models.CharField("Entidad de Salud",max_length=255, null=True, blank=True)
+	especialidad = models.CharField(max_length=255, null=True, blank=True, choices=KIND_ESPECIALIDAD)
+	descripcion = models.TextField("Descripción",null=True,blank=True)
+	direccion = models.CharField(max_length=255, null=True, blank=True)
+	pais = models.CharField("País",max_length=30, null=True, blank=True, choices=KIND_PAIS)
+	dpto = models.CharField("Departamento",max_length=30, null=True, blank=True, choices=KIND_DPTO)
+	telefono = models.CharField("Teléfono",max_length=25, null=True, blank=True)
+	celular = models.CharField(max_length=30, null=True, blank=True)
+	correo = models.EmailField(blank=True, null=True)
+	blog = models.CharField("Sitio Web",max_length=255, null=True, blank=True)
+	
+	class Meta:
+		verbose_name = 'Servicios'
+		verbose_name_plural = 'Servicios'
+		
+	def __unicode__(self):
+		return self.organizacion
+	
+        @models.permalink
+	def get_absolute_url(self):
+		return('listar_info_servicios')
+	
+        @models.permalink
+        def get_delete_url(self):
+                return ('eliminar_info_servicios', [self.id, ])
+         
 
 User.perfiles = property(lambda u: Perfiles.objects.get_or_create(user=u)[0])
 User.contactos = property(lambda u: Contactos.objects.get_or_create(user=u)[0])
