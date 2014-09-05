@@ -1,7 +1,7 @@
 {% extends "inicio/board.html" %}
 
 {% block title %}
-Perfil - Personal
+Aplicaciones - Eliminar Experiencia Profesional
 {% endblock %}
 
 {% block content %}
@@ -27,7 +27,7 @@ Perfil - Personal
                 </div>
             </div>
         </div>
-        <div class="box">
+         <div class="box">
 
           <div class="box-header">
               <i class="icon-bookmark"></i>
@@ -74,18 +74,26 @@ Perfil - Personal
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <legend class="lead">
-                        Tus Contactos
+                        Experiencia Profesional
                     </legend>
                 </h4>
               </div>
               <!-- Desplegable 1 -->
               <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
-
-             <form class="form-horizontal" method="POST">{% csrf_token %}
-              {{ form.as_p }}
-                 <input type="submit" value="Actualizar" class="btn btn-primary">
+  
+                    <p>¿Está seguro de que quiere eliminar esta experiencia profesional?</p>
+                    <p></p>
+ <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
+              
+                 <input type="submit" value="Eliminar" class="btn btn-primary">
+                    
               </form>
+ <p></p>
+   <a href="{% url 'listar_preguntas' %}"><button type="submit" class="btn btn-primary">
+                            <i class="icon-ok"></i>
+                            Cancelar
+                        </button></a>
               </div>
             </div>
             </div>

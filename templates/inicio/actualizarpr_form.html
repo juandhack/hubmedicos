@@ -1,7 +1,7 @@
 {% extends "inicio/board.html" %}
 
 {% block title %}
-Aplicaciones - Consultas
+Aplicaciones - Actualizar Preguntas
 {% endblock %}
 
 {% block content %}
@@ -77,10 +77,13 @@ Aplicaciones - Consultas
               <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
 
-             <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
-              {{ form.as_p }}
-                 <input type="submit" value="Actualizar" class="btn btn-primary">
-              </form>
+                <h1>Sample Detail</h1>
+    {{preguntasrespuestas.pregunta}}<br/>
+    {{preguntasrespuestas.respuesta}}<br/>
+  
+<a href="{% url 'crear_pregunta' %}">Crear</a>
+    <a href="{% url 'actualizar_pregunta' preguntasrespuestas.id %}">Actualizar</a>
+      <a href="{% url 'eliminar_pregunta' preguntasrespuestas.id %}">Eliminar</a>
               </div>
             </div>
             </div>

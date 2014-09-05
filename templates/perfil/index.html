@@ -96,10 +96,10 @@
                 <div class="container">
                      {% for cont in contactos %}
 		     {% for usr in usuario %}
-		     {% for academia in academico %}
-		     {% for prof in profesional %}
+		    
+		    
 		     {% for soc in social %}
-		     {% for consultas in consultas %}
+		     
                     <div class="row">
 
                         <div class="col-md-12">
@@ -125,18 +125,14 @@
 					    
                                             <div id="profile_info">
                                                 <h1 id="name">Doc. {{usr.apellidos}}</h1>
-                                                <h4 class="line">{{academia.titulo}}</h4>
-                                              
+                                                                                          
                                             </div>
 					   
                                             <!-- End Profile info -->  
 
 
                                             <!-- Profile Description -->
-                                            <div id="profile_desc">
-					     <h6>Especialidad</h6>
-					      <h4 class="line">{{prof.especialidad}}</h4>
-                                            </div>
+                                          
                                             <!-- End Profile Description -->  
 
                                              
@@ -200,7 +196,7 @@
                                             <!-- profile -->
                                             <div id="profile" class="content_2">
                                                 <!-- .title -->
-                                                <h1>Doctor {{usr.nombres}} {{usr.apellidos}}</h1>
+                                                <h1>Doctor(a) {{usr.nombres}} {{usr.apellidos}}</h1>
 
                                                 <div class="row top-p">
                                                     <div class="col-md-6 profile-l">
@@ -250,18 +246,7 @@
                                                                 <div class="clear"></div>
                                                             </li>
 
-                                                           
-
-                                                        </ul>
-
-
-                                                        <p style="margin-bottom:20px">
-                                                            <i class="fa fa-quote-left"></i>       
-                                                           {{usr.acerca_de}}
-							   <i class="fa fa-quote-right"></i>  
-                                                        </p>
-
-                                                        
+                                                        </ul>                                                      
 
                                                     </div>
                                                     <!-- End left-wrap -->
@@ -277,6 +262,20 @@
                                                     </div>
 
                                                 </div>
+						<div class="row">
+						  
+						  <div class="col-md-12">
+						       <div class="title_content">
+                                                            <div class="text_content">Reseña Personal</div>
+                                                            <div class="clear"></div>
+                                                        </div>
+						   <p style="margin-bottom:20px">
+                                                            <i class="fa fa-quote-left"></i>       
+                                                           {{usr.acerca_de}}
+							   <i class="fa fa-quote-right"></i>  
+                                                        </p>
+						</div>
+						</div>
 
                                                 <div class="border-list"></div>
 
@@ -329,60 +328,67 @@
                                             <!-- .resume -->
                                             <div id="resume" class="content_2">
                                                 <!-- .title -->
-                                                <h1>Doctor {{usr.nombres}} {{usr.apellidos}}</h1> 
-
+                                                
                                                 <div class="row">
 
                                                     <!-- .resume-right -->
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
 						       <!-- .title_content -->
                                                         <div class="title_content" style="margin-bottom:5px">
-                                                            <div class="text_content">Experiencia</div>
+                                                            <div class="text_content">Experiencia Profesional</div>
                                                             <div class="clear"></div>
                                                         </div>
                                                         <!-- /.title_content -->
 
                                                         <!-- .attributes -->
+							 {% for prof in profesional %}
                                                         <ul class="attributes">
                                                             <li class="first">
-                                                                <h5>{{prof.cargo}} <span class="duration"><i class="fa fa-calendar color"></i> 2001 - 2009</span></h5>
+                                                                <h5>{{prof.cargo}} <span class="duration"><i class="fa fa-calendar color"></i> {{prof.anioinicio}} - {{prof.aniofin}} </span></h5>
                                                                 <h6><span class="fa fa-briefcase"></span> {{prof.organizacion}}</h6>
                                                                 <p>{{prof.funcionesrealizadas}}</p>
                                                             </li>
                                                          
 
                                                         </ul>
+							<p></p>
+							<br>
+						        
+						         {% endfor %}
                                                         <!-- /.attributes -->
                                                         <br>
                                                     </div>
+						</div>
                                                     <!-- /.resume-right -->
 
                                                     <!-- .resume-left -->
-                                                    <div class="col-md-6 resume-left">    
+						  <div class="row">
+                                                    <div class="col-md-12">    
                                                         
 
                                                         <!-- .title_content -->
-                                                        <div class="title_content">
-                                                            <div class="text_content">Educación</div>
+                                                        <div class="title_content" style="margin-bottom:5px">
+                                                            <div class="text_content">Información Académica</div>
                                                             <div class="clear"></div>
                                                         </div>
                                                         <!-- /.title_content -->
 
                                                         <!-- .attributes -->
+							{% for academia in academico %}
                                                         <ul class="attributes">
                                                             <li class="first">
-                                                                <h5>{{academia.titulo}}<span class="duration"><i class="fa fa-calendar color"></i> 1984 - 1991</span></h5>
-                                                                <h6><span class="fa fa-book"></span>{{academia.institucion}}</h6>
-                                                                <p>{{academia.logros}}</p>
+                                                                <h5> {{academia.titulo}} <span class="duration"><i class="fa fa-calendar color"></i> {{academia.anioinicio}} - {{academia.aniofin}} </span></h5>
+                                                                <h6><span class="fa fa-book"></span> {{academia.institucion}} </h6>
+                                                                <p> {{academia.logros}} </p>
                                                             </li>
                                                           
                                                         </ul>
+                                                      <p></p>
+							<br>
+						        
+						         {% endfor %}
                                                         <!-- /.attributes -->
-                                                        <br>  
-
-
-                                                       
-
+                                                        <br>
                                                     </div>
                                                     <!-- /.resume-left -->
                                                 </div>
@@ -411,10 +417,11 @@
                                             <div id="consultas" class="content_2">
                                                 <!-- .title -->
                                                 <h1>Respuestas comunes a tus preguntas</h1>
+						{% for consultas in consultas %}
                                                 <div class="row">
 
                                                     <!-- .resume-right -->
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
 						       <!-- .title_content -->
                                                         <div class="title_content" style="margin-bottom:5px">
                                                            
@@ -425,7 +432,7 @@
                                                         <!-- .attributes -->
                                                         <ul class="attributes">
                                                             <li class="first">
-                                                                <h5>{{consultas.pregunta}} <span class="duration"></span></h5>
+                                                                <h4 class="line">{{consultas.pregunta}}</span></h4>
                                                                  <p>{{consultas.respuesta}}</p>
                                                             </li>
                                                          
@@ -440,6 +447,7 @@
                                                   
                                                     <!-- /.resume-left -->
                                                 </div>
+						{% endfor %}
 
                                                 <div style="clear: both"></div>  
 
@@ -576,12 +584,12 @@
                         </div><!-- End col-md-12 -->
 
                     </div><!-- End row -->
-                   {% endfor %}
+                   
+		
 		   {% endfor %}
 		   {% endfor %}
 		   {% endfor %}
-		   {% endfor %}
-	           {% endfor %}
+	         
                 </div><!-- End container -->
 
             </section>

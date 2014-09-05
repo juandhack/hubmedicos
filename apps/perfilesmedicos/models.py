@@ -18,6 +18,12 @@ KIND_PAIS = (
    ('Colombia','Colombia'),
 )
 
+KIND_ESPECIALIDAD = (
+   ('Cardiología','Cardiología'),
+   ('Anestesiología','Anestesiología'),
+   ('Cirugía cardiovascular','Cirugía cardiovascular'),
+   ('Dermatología','Dermatología'),
+)
 KIND_DPTO = (
    ('Amazonas','Amazonas'),
     ('Antioquia','Antioquia'),
@@ -113,40 +119,76 @@ class RedesSociales(models.Model):
    
 
 class PerfilProfesional(models.Model):
-	user = models.ForeignKey(User)
+	user = models.ForeignKey(User, null=True, blank=True)
 	organizacion = models.CharField("Nombre Entidad",max_length=255, null=True, blank=True)
-	especialidad = models.CharField(max_length=255, null=True, blank=True)
+	especialidad = models.CharField(max_length=255, null=True, blank=True, choices=KIND_ESPECIALIDAD)
 	cargo = models.CharField(max_length=255, null=True, blank=True)
-	aniosejercidos = models.CharField("Tiempo Ejercido",max_length=255, null=True, blank=True)
 	numregistroprof = models.CharField("Registro Profesional",max_length=255, null=True, blank=True)
 	funcionesrealizadas = models.TextField("Funciones Realizadas",null=True, blank=True)
+	anioinicio = models.CharField("Año Inicio", max_length=255,null=True,blank=True)
+	aniofin = models.CharField("Año Finalización", max_length=255,null=True,blank=True)
+	class Meta:
+		verbose_name = 'Profesional'
+		verbose_name_plural = 'Profesional'
+		
+	def __unicode__(self):
+		return self.organizacion
+	
+        @models.permalink
+	def get_absolute_url(self):
+		return('listar_info_profesional')
 
 
 class PerfilAcademico(models.Model):
-	user = models.ForeignKey(User)
+	user = models.ForeignKey(User, null=True, blank=True)
 	institucion = models.CharField("Universidad",max_length=255, null=True, blank=True)
 	titulo = models.CharField("Titulo",max_length=255, null=True, blank=True)
 	logros = models.TextField(null=True, blank=True)
+	anioinicio = models.CharField("Año Inicio", max_length=255,null=True,blank=True)
+	aniofin = models.CharField("Año Finalización", max_length=255,null=True,blank=True)
+	
+	class Meta:
+		verbose_name = 'Academico'
+		verbose_name_plural = 'Academico'
+		
+	def __unicode__(self):
+		return self.logros
+	
+        @models.permalink
+	def get_absolute_url(self):
+		return('listar_info_academica')
 	
 class PreguntasRespuestas(models.Model):
-	user = models.ForeignKey(User)
-	pregunta = models.TextField("Pregunta",null=True,blank=True)
-	respuesta = models.TextField("Respuesta",null=True,blank=True)
-	#code
-
-
-
+	user = models.ForeignKey(User, null=True, blank=True)
+	pregunta = models.TextField("Ingresa la pregunta",null=True,blank=True)
+	respuesta = models.TextField("Ingresa la respuesta",null=True,blank=True)
+        
+        class Meta:
+		verbose_name = 'Pregunta'
+		verbose_name_plural = 'Pregunta'
+		
+	def __unicode__(self):
+		return self.pregunta
+	
+        @models.permalink
+	def get_absolute_url(self):
+		return('listar_preguntas')
+	
+        @models.permalink
+        def get_delete_url(self):
+                return ('eliminar_pregunta', [self.id, ])
+      #code
 
 
 
 User.perfiles = property(lambda u: Perfiles.objects.get_or_create(user=u)[0])
 User.contactos = property(lambda u: Contactos.objects.get_or_create(user=u)[0])
 User.sociales = property(lambda u: RedesSociales.objects.get_or_create(user=u)[0])
-User.profesional = property(lambda u: PerfilProfesional.objects.get_or_create(user=u)[0])
-User.academico = property(lambda u: PerfilAcademico.objects.get_or_create(user=u)[0])
-User.consultas = property(lambda u: PreguntasRespuestas.objects.get_or_create(user=u)[0])
+#User.profesional = property(lambda u: PerfilProfesional.objects.get_or_create(user=u)[0])
+#User.academico = property(lambda u: PerfilAcademico.objects.get_or_create(user=u)[0])
+#User.consultas = property(lambda u: PreguntasRespuestas.objects.get_or_create(user=u)[0])
 
 
-	
+
 
 

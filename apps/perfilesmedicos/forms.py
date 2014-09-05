@@ -5,6 +5,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from apps.perfilesmedicos.models import *
+from django.forms import Textarea
 
 class PerfilesForm(forms.ModelForm):
     class Meta:
@@ -16,6 +17,9 @@ class PerfilesForm(forms.ModelForm):
         help_texts = {
             'dni': _('Ej: 71985445'),
             'acerca_de': _('Ingresa un resumen de tu perfil'),
+        }
+        widgets = {
+            'acerca_de': Textarea(attrs={'cols': 80, 'rows': 20}),
         }
       
         
@@ -35,7 +39,7 @@ class ContactoForm(forms.ModelForm):
 class PerfilAcademicoForm(forms.ModelForm):
     class Meta:
         model = PerfilAcademico
-        fields = ('institucion','titulo','logros')
+        fields = ('institucion','titulo','logros','anioinicio','aniofin')
         help_texts = {
             'institucion': _('Ej: Universidad del Norte'),
             'titulo': _('Ej: Medico cirujano'),
@@ -46,7 +50,7 @@ class PerfilAcademicoForm(forms.ModelForm):
 class PerfilProfesionalForm(forms.ModelForm):
     class Meta:
         model = PerfilProfesional
-        fields = ('organizacion','especialidad','cargo','aniosejercidos','funcionesrealizadas')
+        fields = ('organizacion','especialidad','cargo','funcionesrealizadas','anioinicio','aniofin')
         help_texts = {
             'organizacion': _('Ej: Hospital San Juan de Dios'),
             'cargo': _('Ej: Director'),
@@ -69,7 +73,7 @@ class RedesSocialesForm(forms.ModelForm):
 class ConsultasForm(forms.ModelForm):
     class Meta:
         model = PreguntasRespuestas
-        fields = ('pregunta','respuesta')
+        exclude = ('user',)
 
 
 

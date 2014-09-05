@@ -6,6 +6,10 @@ from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 from .models import *
 from django.contrib.auth.decorators import login_required
+from django.views.generic.base import *
+from django.views.generic.edit import *
+from django.views.generic import *
+from django.template import RequestContext
 
 @login_required
 def user_profile(request):
@@ -114,35 +118,128 @@ def user_perfil_publico(request,userid):
 	return render_to_response('perfil/index.html',data,context_instance=RequestContext(request))
     
     
-def consultas(request):
-    if request.method == 'POST':
-	form = ConsultasForm(request.POST, instance=request.user.consultas)
-    	if form.is_valid():
-    		new =form.save()
-		#new.user = user.perfiles
-		new.save()
-    		return HttpResponseRedirect('/home/consultas')
-    else:
-        user = request.user
-    	perfiles = user.consultas
-    	form = ConsultasForm(instance=perfiles)
-	#args = {}
-        #args.update(csrf(request))
 
-        #args['form'] = form
-
-    return render_to_response('inicio/consultas.html',locals(), context_instance=RequestContext(request))
-	
 	
     
-
-
-
+class IngresarPregunta(CreateView):
+    template_name = 'inicio/preguntasrespuestas_form.html'
+    form_class = ConsultasForm
+    model = PreguntasRespuestas
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(IngresarPregunta,self).form_valid(form)
+    success_url = reverse_lazy('listar_preguntas')   
 	
+class VisualizarPregunta(DetailView):
+    template_name = 'inicio/listarpr_form.html'
+    model = PreguntasRespuestas
+    
+class EliminarPregunta(DeleteView):
+    template_name = 'inicio/preguntasrespuestas_confirm_delete.html'
+    model = PreguntasRespuestas
+    success_url = reverse_lazy('listar_preguntas')
+  
+    
+class ActualizarPregunta(UpdateView):
+    template_name = 'inicio/preguntasrespuestas_form.html'
+    form_class = ConsultasForm
+    model = PreguntasRespuestas
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(ActualizarPregunta,self).form_valid(form)
+    success_url = reverse_lazy('listar_preguntas')  
+    
+class ListarPreguntas(ListView):
+    template_name = 'inicio/listarpr_form.html'
+    form_class = ConsultasForm
+    model = PreguntasRespuestas
+    success_url = reverse_lazy('listar_preguntas') 
+   
 
-class pacienteshome(TemplateView):
+class PacientesHome(TemplateView):
 	template_name = 'pacientes/index.html'
 
     #code
+    
+class IngresarInfoProfesional(CreateView):
+    template_name = 'perfil/profesional_form.html'
+    form_class = PerfilProfesionalForm
+    model = PerfilProfesional
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(IngresarInfoProfesional,self).form_valid(form)
+    success_url = reverse_lazy('listar_info_profesional')
+    
+class VisualizarInfoProfesional(DetailView):
+    template_name = 'perfil/listarexperienciaprofesional_form.html'
+    model = PerfilProfesional
+    
+class EliminarInfoProfesional(DeleteView):
+    template_name = 'perfil/profesional_confirmar_delete_form.html'
+    model = PerfilProfesional
+    success_url = reverse_lazy('listar_info_profesional')
+  
+    
+class ActualizarInfoProfesional(UpdateView):
+    template_name = 'perfil/profesional_form.html'
+    form_class = PerfilProfesionalForm
+    model = PerfilProfesional
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(ActualizarInfoProfesional,self).form_valid(form)
+    success_url = reverse_lazy('listar_info_profesional')  
+    
+class ListarInfoProfesional(ListView):
+    template_name = 'perfil/listarexperienciaprofesional_form.html'
+    form_class = PerfilProfesionalForm
+    model = PerfilProfesional
+    success_url = reverse_lazy('listar_info_profesional')
+    
+class IngresarInfoAcademica(CreateView):
+    template_name = 'perfil/academico_form.html'
+    form_class = PerfilAcademicoForm
+    model = PerfilAcademico
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(IngresarInfoAcademica,self).form_valid(form)
+    success_url = reverse_lazy('listar_info_academica')
+    
+class VisualizarInfoAcademica(DetailView):
+    template_name = 'perfil/listarinfoacademica_form.html'
+    model = PerfilAcademico
+    
+class EliminarInfoAcademica(DeleteView):
+    template_name = 'perfil/academico_confirmar_delete_form.html'
+    model = PerfilAcademico
+    success_url = reverse_lazy('listar_info_academica')
+  
+    
+class ActualizarInfoAcademica(UpdateView):
+    template_name = 'perfil/academico_form.html'
+    form_class = PerfilAcademicoForm
+    model = PerfilAcademico
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(ActualizarInfoAcademica,self).form_valid(form)
+    success_url = reverse_lazy('listar_info_academica')  
+    
+class ListarInfoAcademica(ListView):
+    template_name = 'perfil/listarinfoacademica_form.html'
+    form_class = PerfilAcademicoForm
+    model = PerfilAcademico
+    success_url = reverse_lazy('listar_info_academica') 
+
 
 

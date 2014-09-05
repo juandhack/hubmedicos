@@ -1,7 +1,7 @@
 {% extends "inicio/board.html" %}
 
 {% block title %}
-Perfil - Personal
+Perfil - Profesional
 {% endblock %}
 
 {% block content %}
@@ -27,7 +27,7 @@ Perfil - Personal
                 </div>
             </div>
         </div>
-        <div class="box">
+    <div class="box">
 
           <div class="box-header">
               <i class="icon-bookmark"></i>
@@ -74,19 +74,25 @@ Perfil - Personal
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <legend class="lead">
-                        Tus Contactos
+                        Tu Experiencia Profesional
                     </legend>
                 </h4>
               </div>
               <!-- Desplegable 1 -->
               <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
-
-             <form class="form-horizontal" method="POST">{% csrf_token %}
-              {{ form.as_p }}
-                 <input type="submit" value="Actualizar" class="btn btn-primary">
+             <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
+              {{ form }}
+              <p></p>
+              <div> <input type="submit" value="Ingresar" class="btn btn-primary"></div>
+              <p></p>
               </form>
               </div>
+                <a href="{% url 'listar_info_profesional' %}"><button type="submit" class="btn btn-primary">
+                            <i class="icon-ok"></i>
+                            Ver tu experiencia profesional
+                        </button></a>
+                <p></p>
             </div>
             </div>
         </div>
