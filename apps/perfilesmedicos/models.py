@@ -19,10 +19,10 @@ KIND_PAIS = (
 )
 
 KIND_ESPECIALIDAD = (
-   ('Cardiología','Cardiología'),
-   ('Anestesiología','Anestesiología'),
-   ('Cirugía cardiovascular','Cirugía cardiovascular'),
-   ('Dermatología','Dermatología'),
+   ('Cardiologia','Cardiología'),
+   ('Anestesiologia','Anestesiología'),
+   ('Cirugia cardiovascular','Cirugía cardiovascular'),
+   ('Dermatologia','Dermatología'),
 )
 KIND_DPTO = (
    ('Amazonas','Amazonas'),
