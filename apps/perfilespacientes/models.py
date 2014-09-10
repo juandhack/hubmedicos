@@ -108,14 +108,6 @@ class ContactosBasico(models.Model):
 	     return u'%s %s' % (self.dpto, self.ciudad)
 
 
-
-class RedesSociales(models.Model):
-	user = models.OneToOneField(User)
-	blog = models.CharField(max_length=255, null=True, blank=True)
-	twitter = models.CharField(max_length=20, null=True, blank=True)
-	facebook = models.CharField(max_length=30, null=True, blank=True)
-	linkedin = models.CharField(max_length=30, null=True, blank=True)
-	you_tube = models.CharField(max_length=30, null=True, blank=True)
     
    
 
