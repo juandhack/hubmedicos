@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^' , include('apps.inicio.urls')),
     url(r'^' , include('apps.perfilesmedicos.urls')),
+    url(r'^' , include('apps.perfilespacientes.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT,}),
    

@@ -162,7 +162,7 @@ class ListarPreguntas(ListView):
    
 
 class PacientesHome(TemplateView):
-	template_name = 'pacientes/index.html'
+	template_name = 'pacientes/medicos_pacientes_fichas.html'
 
     #code
     

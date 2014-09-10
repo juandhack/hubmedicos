@@ -24,9 +24,10 @@ KIND_ESPECIALIDAD = (
    ('Cirugia cardiovascular','Cirugía cardiovascular'),
    ('Dermatologia','Dermatología'),
 )
+
 KIND_DPTO = (
-   ('Amazonas','Amazonas'),
-    ('Antioquia','Antioquia'),
+        ('Amazonas','Amazonas'),
+        ('Antioquia','Antioquia'),
 	('Atlantico','Atlantico'),
 	('Bolivar','Bolivar'),
 	('Boyacá','Boyacá'),
@@ -60,8 +61,8 @@ KIND_DPTO = (
 
 KIND_CIUDAD = (
 	('Leticia','Leticia'),
-    ('Medellin',u'Medellín'),
-    ('Arauca','Arauca'),
+        ('Medellin',u'Medellín'),
+        ('Arauca','Arauca'),
 	('Barranquilla','Barranquilla'),
 	('Cartagena','Cartgena'),
 	('Tunja','Tunja'),
