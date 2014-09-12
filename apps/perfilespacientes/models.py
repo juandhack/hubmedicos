@@ -97,7 +97,7 @@ KIND_CIUDAD = (
 class ContactosBasico(models.Model):
 
 	user = models.OneToOneField(User)
-	pais = models.CharField("Pa?s",max_length=30, null=True, blank=True, choices=KIND_PAIS)
+	pais = models.CharField("País",max_length=30, null=True, blank=True, choices=KIND_PAIS)
 	dpto = models.CharField("Departamento",max_length=30, null=True, blank=True, choices=KIND_DPTO)
 	ciudad = models.CharField(max_length=30, null=True, blank=True, choices=KIND_CIUDAD)
 	telefono = models.CharField("Tel",max_length=25, null=True, blank=True)

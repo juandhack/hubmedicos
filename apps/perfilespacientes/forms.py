@@ -17,10 +17,10 @@ class PerfilBasicoForm(forms.ModelForm):
         }
         help_texts = {
             'dni': _('Ej: 71985445'),
-            'acerca_de': _('Acerca de ti'),
+           
         }
         widgets = {
-            'acerca_de': Textarea(attrs={'cols': 80, 'rows': 20}),
+            'acerca_de': Textarea(attrs={'cols': 35, 'rows': 10}),
         }
       
         
@@ -32,10 +32,7 @@ class ContactosBasicoForm(forms.ModelForm):
         model = ContactosBasico
         fields = ('pais','dpto','ciudad','telefono','celular','correo')
         
-        help_texts = {
-            'telefono': _('Ej: 2523240'),
-            'correo': _('Ej: juan.perez@tucorreo.com'),
-        }
+       
 
 
 class RedesSocialesForm(forms.ModelForm):
