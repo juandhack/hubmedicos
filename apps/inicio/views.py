@@ -48,7 +48,7 @@ class LoginView(FormView):
             return "/accounts/profile/"
 	
 class LoginViewPaciente(FormView):
-    template_name = 'registro/login.html'
+    template_name = 'registro/loginPaciente.html'
     form_class = LoginForm
 
     @method_decorator(csrf_protect)
@@ -101,7 +101,7 @@ class RegisterView(FormView):
         return reverse('register-success')
 
 class RegisterViewPaciente(FormView):
-    template_name = 'registro/register.html'
+    template_name = 'registro/registerPaciente.html'
     form_class = RegistrationForm
 
     @method_decorator(csrf_protect)
