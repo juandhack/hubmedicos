@@ -20,8 +20,8 @@ urlpatterns = patterns('',
         url(r'^logout/$', LogoutView.as_view(), name='logout'),
 	url(r'^reg/medico/$', RegisterView.as_view(), name='registro_medico'),
         url(r'^reg/paciente/$', RegisterViewPaciente.as_view(), name='registro_paciente'),
-        url(r'^registrarse/confirmacion/$',RegisterSuccessView.as_view(), name='register-success'),
-        url(r'^registrarse/confirmacionpaciente/$',RegisterSuccessViewPaciente.as_view(), name='register-success_paciente'),
+        url(r'^reg/medico/confirmacion/$',RegisterSuccessView.as_view(), name='register-success'),
+        url(r'^reg/paciente/confirmacion/$',RegisterSuccessViewPaciente.as_view(), name='register-success_paciente'),
         )	
 
 
