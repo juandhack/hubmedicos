@@ -28,7 +28,7 @@ class PerfilBasico(models.Model):
 	acerca_de = models.TextField("Extracto Personal",null=True, blank=True)
 	sexo = models.CharField(max_length=1,null=True,blank=True, choices=KIND_SEXO)
         fecha_nacimiento = models.DateField(unique=True, null=True, blank=True)
-        grupo_sanguineo = models.CharField(max_length=4,null=True,blank=True,choices=GRUPO_SANGUINEO)
+        grupo_sanguineo = models.CharField("Grupo Sanguíneo",max_length=4,null=True,blank=True,choices=GRUPO_SANGUINEO)
 	imagen = models.ImageField("Tu foto",upload_to='pictures',null=True,blank=True)
 	def __unicode__(self):
 		return self.dni
@@ -113,10 +113,10 @@ class ContactosBasico(models.Model):
 	user = models.OneToOneField(User)
 	pais = models.CharField("País",max_length=30, null=True, blank=True, choices=KIND_PAIS)
 	dpto = models.CharField("Departamento",max_length=30, null=True, blank=True, choices=KIND_DPTO)
-	ciudad = models.CharField(max_length=30, null=True, blank=True, choices=KIND_CIUDAD)
-	telefono = models.CharField("Tel",max_length=25, null=True, blank=True)
-	celular = models.CharField(max_length=30, null=True, blank=True)
-	correo = models.EmailField(blank=True, null=True)
+	ciudad = models.CharField("Ciudad",max_length=30, null=True, blank=True, choices=KIND_CIUDAD)
+	telefono = models.CharField("Teléfono",max_length=25, null=True, blank=True)
+	celular = models.CharField("Celular",max_length=30, null=True, blank=True)
+	correo = models.EmailField("Correo",blank=True, null=True)
 
 	def __unicode__(self):
 	     return u'%s %s' % (self.dpto, self.ciudad)

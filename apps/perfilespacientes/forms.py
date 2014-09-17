@@ -16,7 +16,7 @@ class PerfilBasicoForm(forms.ModelForm):
         labels = {
             'dni': _('Documento de Identidad'),
             'fecha_nacimiento': _('Fecha de Nacimiento'),
-            'grupo_sanguineo': _('Grupo Sanguíneo'),
+            'grupo_sanguineo': _('Grupo de Sangre'),
         }
         
         widgets = {
@@ -33,9 +33,6 @@ class ContactosBasicoForm(forms.ModelForm):
     class Meta:
         model = ContactosBasico
         fields = ('pais','dpto','ciudad','telefono','celular','correo')
-        labels = {
-            'telefono': _('Teléfono')
-        }
         
         widgets = {
             'telefono': TextInput(attrs={'placeholder': _("Ej: 5415854")}),
