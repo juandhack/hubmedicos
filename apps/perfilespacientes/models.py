@@ -2,10 +2,22 @@ import os, sys
 # -*- encoding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
+from apps.perfilesmedicos.models import RedesSociales
 
 KIND_SEXO = (
-   ('Hombre','Hombre'),
-   ('Mujer','Mujer'),
+   ('H','Hombre'),
+   ('M','Mujer'),
+)
+
+GRUPO_SANGUINEO = (
+   ('A+','A+'),
+   ('A-','A-'),
+   ('B+','B+'),
+   ('B-','B-'),
+   ('AB+','AB+'),
+   ('AB-','AB-'),
+   ('O+','O+'),
+   ('O-','O-'),  
 )
 
 class PerfilBasico(models.Model):
@@ -15,6 +27,8 @@ class PerfilBasico(models.Model):
 	apellidos = models.CharField(max_length=255, null=True, blank=True)
 	acerca_de = models.TextField("Extracto Personal",null=True, blank=True)
 	sexo = models.CharField(max_length=1,null=True,blank=True, choices=KIND_SEXO)
+        fecha_nacimiento = models.DateField(unique=True, null=True, blank=True)
+        grupo_sanguineo = models.CharField(max_length=4,null=True,blank=True,choices=GRUPO_SANGUINEO)
 	imagen = models.ImageField("Tu foto",upload_to='pictures',null=True,blank=True)
 	def __unicode__(self):
 		return self.dni
@@ -90,7 +104,7 @@ KIND_CIUDAD = (
 	('Ibague','Ibagué'),
 	('Cali','Cali'),
 	('Mitu','Mitú'),
-	('Puerto Carreno','Puerto Carreño,')
+	('Puerto Carreno','Puerto Carreño'),
 )
 
 
@@ -108,12 +122,8 @@ class ContactosBasico(models.Model):
 	     return u'%s %s' % (self.dpto, self.ciudad)
 
 
-    
-   
+     
 
-
-         
-
-User.perfiles = property(lambda u: PerfilesBasico.objects.get_or_create(user=u)[0])
-User.contactos = property(lambda u: ContactosBasico.objects.get_or_create(user=u)[0])
-User.sociales = property(lambda u: RedesSociales.objects.get_or_create(user=u)[0])
+User.perfilbasicopaciente = property(lambda u: PerfilBasico.objects.get_or_create(user=u)[0])
+User.contactospaciente = property(lambda u: ContactosBasico.objects.get_or_create(user=u)[0])
+User.socialespaciente = property(lambda u: RedesSociales.objects.get_or_create(user=u)[0])

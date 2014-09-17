@@ -4,25 +4,27 @@ from django.utils.translation import ugettext_lazy as _
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
-from apps.perfilespacientes.models import *
-from apps.perfilesmedicos.models import *
-from django.forms import Textarea
+from .models import *
+from apps.perfilesmedicos.models import RedesSociales
+from django.forms import Textarea,TextInput, URLInput, CharField
+from django.forms.extras import SelectDateWidget
 
 class PerfilBasicoForm(forms.ModelForm):
     class Meta:
         model = PerfilBasico
-        fields = ('dni','nombres','apellidos','acerca_de','sexo','imagen')
+        fields = ('dni','nombres','apellidos','acerca_de','sexo','fecha_nacimiento','grupo_sanguineo','imagen')
         labels = {
             'dni': _('Documento de Identidad'),
+            'fecha_nacimiento': _('Fecha de Nacimiento'),
+            'grupo_sanguineo': _('Grupo Sanguíneo'),
         }
-        help_texts = {
-            'dni': _('Ej: 71985445'),
-           
-        }
+        
         widgets = {
-            'acerca_de': Textarea(attrs={'cols': 35, 'rows': 10}),
+            'acerca_de': Textarea(attrs={'cols': 35, 'rows': 10, 'placeholder': _("Escribe un breve resumen de tu perfil")}),
+            'fecha_nacimiento': SelectDateWidget(years=range(1930, 2015)),
+            'dni': TextInput(attrs={'placeholder': _("Ej: 71794069")})
         }
-      
+       
         
         
         
@@ -31,19 +33,22 @@ class ContactosBasicoForm(forms.ModelForm):
     class Meta:
         model = ContactosBasico
         fields = ('pais','dpto','ciudad','telefono','celular','correo')
+        labels = {
+            'telefono': _('Teléfono')
+        }
         
-       
-
-
+        widgets = {
+            'telefono': TextInput(attrs={'placeholder': _("Ej: 5415854")}),
+            'celular': TextInput(attrs={'placeholder': _("Ej: 3014527885")}),
+            'correo': TextInput(attrs={'placeholder': _("Ej: micorreo@midominio.com")}),
+        }
+        
+    
 class RedesSocialesForm(forms.ModelForm):
     class Meta:
         model = RedesSociales
         fields = ('blog','twitter','facebook','linkedin','you_tube')
-        help_texts = {
-            'blog': _('Ej: miblog.com'),
-            'twitter': _('Ej: @MiCuenta'),
-            'facebook' : ('Ej: facebook.com/micuenta '),
-            'linkedin' : ('Ej: linkedin.com/micuenta '),
-            'you_tube' : ('Ej: youtube.com/micuenta '),
-        }       
+        
+             
+      
         

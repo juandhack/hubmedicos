@@ -5,6 +5,7 @@ Perfil - Básico
 {% endblock %}
 
 {% block content %}
+<br>
 <div class="navbar navbar-default">
                     <div class="container">
                         <div class="navbar-header">
@@ -18,9 +19,11 @@ Perfil - Básico
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="/paciente/perfilbasico/">Información personal</a>
+                                <li class="active"><a href="/paciente/perfilbasico/">Mis Datos Personales</a>
                                 </li>
-                                <li><a href="/paciente/perfilbasico/contacto">Información de contacto</a>
+                                <li><a href="/paciente/perfilbasico/contacto">Mis Datos de Contacto</a>
+                                </li>
+                                <li><a href="/paciente/perfilbasico/social">Mis Redes Sociales</a>
                                 </li>
                             </ul>
                         </div>
@@ -29,10 +32,10 @@ Perfil - Básico
                 </div>
 
 <div class="row">
-  <div class="col-lg-4">
+  <div class="col-lg-5">
     <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-user-md"></i> Información Personal</h3>
+                                <h3 class="panel-title"><i class="fa fa-user"></i></h3>
                             </div>
                             <div class="panel-body">
                                  <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}

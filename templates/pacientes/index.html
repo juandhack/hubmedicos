@@ -1,150 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-     <title>{% block title %}
+    <title>{% block title %}
 
     {% endblock title %}</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{{STATIC_URL}}pacientes/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="{{STATIC_URL}}pacientes2/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Add custom CSS here -->
-    <link href="{{STATIC_URL}}pacientes/css/sb-admin.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{STATIC_URL}}pacientes/font-awesome/css/font-awesome.min.css">
-    <!-- Page Specific CSS -->
-    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+    <!-- MetisMenu CSS -->
+    <link href="{{STATIC_URL}}pacientes2/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="{{STATIC_URL}}pacientes2/css/plugins/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{STATIC_URL}}pacientes2/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="{{STATIC_URL}}pacientes2/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{STATIC_URL}}pacientes2/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="{{MEDIA_URL}}images/registro_menu.png">
-  </head>
 
-  <body>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
 
     <div id="wrapper">
 
-      <!-- Sidebar -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/paciente/perfilbasico/">Hub Salud</a>
-        </div>
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/paciente/perfilbasico/">Hub Salud</a>
+            </div>
+            <!-- /.navbar-header -->
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav side-nav">
-            <li class="active"><a href="index.html"><i class="fa fa-home"></i> Actividad</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Perfil <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                  <li><a href="/paciente/perfilbasico/"><i class="fa fa-user-md"></i> Básico</a></li>
-                  <li><a href="/paciente/perfilbasico/contacto"><i class="fa fa-ambulance"></i> Emergencia</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-stethoscope"></i> Historial <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                  <li><a href="#">Afecciones</a></li>
-                  <li><a href="#">Alergias</a></li>
-                  <li><a href="#">Antecedentes familiares</a></li>
-                  <li><a href="#">Dispositivos médicos</a></li>
-                  <li><a href="#">Citas</a></li>
-                  <li><a href="#">Inmunizaciones</a></li>
-                  <li><a href="#">Medicamentos</a></li>
-                  <li><a href="#">Procedimientos</a></li>
-                  <li><a href="#">Resultados de análisis</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-edit"></i> Mediciones <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                  <li><a href="#">Altura</a></li>
-                  <li><a href="#">Colesterol</a></li>
-                  <li><a href="#">Comida y Bebida</a></li>
-                  <li><a href="#">Ejercicio</a></li>
-                  <li><a href="#">Flujo máximo</a></li>
-                  <li><a href="#">Glucemia</a></li>
-                  <li><a href="#">Peso</a></li>
-                  <li><a href="#">Presión arterial</a></li>
-
-              </ul>
-            </li>
-            <li><a href="forms.html"><i class="fa fa-envelope"></i> Mensajes</a></li>
-            <li><a href="typography.html"><i class="fa fa-users"></i> Contactos</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-medkit"></i> Clubes <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                  <li><a href="#">Diabetes</a></li>
-                  <li><a href="#">Hipertensión</a></li>
-                  <li><a href="#">Riesgo Cardiovascular</a></li>
-                  <li><a href="#">Insuficiencia Renal</a></li>
-                  <li><a href="#">Cancer</a></li>
-                  <li><a href="#">Artritis</a></li>
-                  <li><a href="#">Climaterio & Menopausia</a></li>
-                  <li><a href="#">Pediatría</a></li>
-              </ul>
-            </li>
-            <li><a href="bootstrap-elements.html"><i class="fa fa-file"></i> Archivos</a></li>
-
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right navbar-user">
-            <li class="dropdown messages-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Mensajes <span class="badge">1</span> <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-header">1 Nuevos mensajes</li>
-                <li class="message-preview">
-                  <a href="#">
-                    <span class="avatar"><img src="http://placehold.it/50x50"></span>
-                    <span class="name">Doctor Juan Carlos Hernández:</span>
-                    <span class="message">Resultados análisis</span>
-                    <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
-                  </a>
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i> 
+                        Mensajes <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                   {% if user.is_authenticated %}
+                      Bienvenido apreciado paciente
+                      {% else %}
+                      {% endif %}
+                        <li class="divider"></li>
+                   
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Todos los mensajes</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
                 </li>
-                <li class="divider"></li>
-                <li><a href="#">Ver bandeja <span class="badge">1</span></a></li>
-              </ul>
-            </li>
-            <li class="dropdown user-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#"><i class="fa fa-user"></i> Perfil</a></li>
-                <li><a href="#"><i class="fa fa-envelope"></i> Actividad <span class="badge">1</span></a></li>
-                <li><a href="#"><i class="fa fa-gear"></i> Configuración</a></li>
-                <li class="divider"></li>
-                <li><a href="/logout/"><i class="fa fa-power-off"></i> Salir</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </nav>
+                <!-- /.dropdown -->
+         
+                <!-- /.dropdown -->
+               
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Perfil </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="/logout/"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
 
-      <div id="page-wrapper">
-  {% block content %}
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                    
+                        <li>
+                            <a href="#"><i class="fa fa-home fa-fw"></i> Actividad</a>
+                        </li>
+                         <li>
+                            <a href="/paciente/perfilbasico/"><i class="fa fa-user fa-fw"></i> Mi perfil</a>
+                        </li>
+                                
+                        <li>
+                            <a href="/paciente/diariomedico/sintomas/"><i class="fa fa-edit fa-fw"></i> Mi diario médico</a>
+                        </li>
+                        <li>
+                            <a href="/paciente/historiaclinica/resumen/"><i class="fa fa-stethoscope fa-fw"></i> Mi historia clínica</a>
+                        </li>
+                         <li>
+                            <a href="/paciente/hubsalud/clubes/"><i class="fa fa-medkit fa-fw"></i> Mi hub de salud</a>
+                        </li>
+                      
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
 
-  {% endblock content %}
-      </div><!-- /#page-wrapper -->
+        <div id="page-wrapper">
+              {% block content %}
 
-    </div><!-- /#wrapper -->
+              {% endblock content %}
+        </div>
+        <!-- /#page-wrapper -->
 
-    <!-- JavaScript -->
-    <script src="{{STATIC_URL}}pacientes/js/jquery-1.10.2.js"></script>
-    <script src="{{STATIC_URL}}pacientes/js/bootstrap.js"></script>
+    </div>
+    <div>
+                    <div class="panel-footer">
+                           <footer class="application-footer">
+            <div class="container">
+                <h4> Powered by Digitalsmark Latinoamérica | Copyright © 2002 - 2014</h4>
+                <div class="disclaimer">
+                    <label> © Tech Mobile Software 2010 |</label>
+                    <label>Términos de uso |</label>
+                    <label>Políticas de privacidad |</label>
+                    <label>Condiciones de servicio |</label>
+                </div>
+            </div>
+        </footer>
+                        </div>
+                </div>
+    <!-- /#wrapper -->
 
-    <!-- Page Specific Plugins -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
-    <script src="{{STATIC_URL}}pacientes/js/morris/chart-data-morris.js"></script>
-    <script src="{{STATIC_URL}}pacientes/js/tablesorter/jquery.tablesorter.js"></script>
-    <script src="{{STATIC_URL}}pacientes/js/tablesorter/tables.js"></script>
+    <!-- jQuery Version 1.11.0 -->
+    <script src="{{STATIC_URL}}pacientes2/js/jquery-1.11.0.js"></script>
 
-  </body>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{STATIC_URL}}pacientes2/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{{STATIC_URL}}pacientes2/js/plugins/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="{{STATIC_URL}}pacientes2/js/plugins/morris/raphael.min.js"></script>
+    <script src="{{STATIC_URL}}pacientes2/js/plugins/morris/morris.min.js"></script>
+    <script src="{{STATIC_URL}}pacientes2/js/plugins/morris/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{STATIC_URL}}pacientes2/js/sb-admin-2.js"></script>
+
+</body>
+
 </html>
