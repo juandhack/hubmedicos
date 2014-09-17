@@ -14,10 +14,7 @@ class PerfilesForm(forms.ModelForm):
         labels = {
             'dni': _('Documento de Identidad'),
         }
-        help_texts = {
-            'dni': _('Ej: 71985445'),
-            'acerca_de': _('Ingresa un resumen de tu perfil'),
-        }
+        
         widgets = {
             'acerca_de': Textarea(attrs={'cols': 80, 'rows': 20}),
         }
@@ -31,44 +28,24 @@ class ContactoForm(forms.ModelForm):
         model = Contactos
         fields = ('pais','dpto','ciudad','telefono','celular','correo')
         
-        help_texts = {
-            'telefono': _('Ej: 2523240'),
-            'correo': _('Ej: juan.perez@tucorreo.com'),
-        }
-
+       
 class PerfilAcademicoForm(forms.ModelForm):
     class Meta:
         model = PerfilAcademico
         fields = ('institucion','titulo','logros','anioinicio','aniofin')
-        help_texts = {
-            'institucion': _('Ej: Universidad del Norte'),
-            'titulo': _('Ej: Medico cirujano'),
-            'logros': _('Ej: Becado con honores'),
-          
-        }
+       
 
 class PerfilProfesionalForm(forms.ModelForm):
     class Meta:
         model = PerfilProfesional
         fields = ('organizacion','especialidad','cargo','funcionesrealizadas','anioinicio','aniofin')
-        help_texts = {
-            'organizacion': _('Ej: Hospital San Juan de Dios'),
-            'cargo': _('Ej: Director'),
-            'especialidad': _('Ej: Medicina del Trabajo'),
-           
-        }
+       
 
 class RedesSocialesForm(forms.ModelForm):
     class Meta:
         model = RedesSociales
         fields = ('blog','twitter','facebook','linkedin','you_tube')
-        help_texts = {
-            'blog': _('Ej: miblog.com'),
-            'twitter': _('Ej: @MiCuenta'),
-            'facebook' : ('Ej: facebook.com/micuenta '),
-            'linkedin' : ('Ej: linkedin.com/micuenta '),
-            'you_tube' : ('Ej: youtube.com/micuenta '),
-        }
+       
         
 class ConsultasForm(forms.ModelForm):
     class Meta:
@@ -79,16 +56,7 @@ class ServiciosForm(forms.ModelForm):
     class Meta:
         model = Servicios
         fields = ('organizacion','especialidad','descripcion','direccion','pais','dpto','telefono','celular','correo','blog')
-        help_texts = {
-            'organizacion': _('Ej: Hospital San Juan de Dios'),
-            'especialidad': _('Ej: Medicina del Trabajo'),
-            'descripcion': _('Ej: Puedes escribir una descripción de tu entidad'),
-            'direccion': _('Ej: Calle 75 Nº 48-121'),
-            'correo': _('Ej: mientidad@mientidad.com'),
-            'blog': _('Ej: http://www.mientidad.com'),
-            
-           
-        }
+       
 
 
         
