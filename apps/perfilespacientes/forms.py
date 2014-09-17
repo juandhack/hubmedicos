@@ -46,6 +46,16 @@ class RedesSocialesForm(forms.ModelForm):
         model = RedesSociales
         fields = ('blog','twitter','facebook','linkedin','you_tube')
         
+
+class SintomasGeneralesPacienteForm(forms.ModelForm):
+    class Meta:
+        model = SintomasGeneralesPaciente
+        exclude = ('user',)
+        #code
+    
+    #code
+
+        
              
       
         

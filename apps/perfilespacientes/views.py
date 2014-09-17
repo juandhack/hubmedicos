@@ -55,6 +55,41 @@ class MedicosPaciente(TemplateView):
     template_name = 'pacientes/hubsalud_medicos_form.html'
     
     
+class IngresarSintomaPaciente(CreateView):
+    template_name = 'pacientes/mis_sintomas_form.html'
+    form_class = SintomasGeneralesPacienteForm
+    model = SintomasGeneralesPaciente
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(IngresarSintomaPaciente,self).form_valid(form)
+    success_url = reverse_lazy('listar_sintomas_paciente') 
+    
+    
+class ListarSintomaPaciente(ListView):
+    template_name = 'pacientes/mis_sintomas_listar_form.html'
+    form_class = SintomasGeneralesPacienteForm
+    model = SintomasGeneralesPaciente
+    success_url = reverse_lazy('listar_sintomas_paciente')
+    
+class ActualizarSintomaPaciente(UpdateView):
+    template_name = 'pacientes/mis_sintomas_form.html'
+    form_class = SintomasGeneralesPacienteForm
+    model = SintomasGeneralesPaciente
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(ActualizarSintomaPaciente,self).form_valid(form)
+    success_url = reverse_lazy('listar_sintomas_paciente')
+    
+class EliminarSintomaPaciente(DeleteView):
+    template_name = 'pacientes/mis_sintomas_confirmar_delete_form.html'
+    model = SintomasGeneralesPaciente
+    success_url = reverse_lazy('listar_sintomas_paciente')
+    
+    
         
 @login_required
 def perfil_basico(request):

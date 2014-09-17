@@ -121,6 +121,35 @@ class ContactosBasico(models.Model):
 	def __unicode__(self):
 	     return u'%s %s' % (self.dpto, self.ciudad)
 
+SINTOMAS_GENERALES = (
+    ('Malestar general','Malestar general'),
+    ('Ansiedad','Ansiedad'),
+    ('Nerviosismo','Nerviosismo'),
+    ('Dolor de cabeza ','Dolor de cabeza'),
+    ('Dolor de cuello ','Dolor de cuello'),
+    ('Dolor de ojos ','Dolor de ojos'),
+)
+
+class SintomasGeneralesPaciente(models.Model):
+    
+    user = models.ForeignKey(User, null=True, blank=True)
+    sintoma = models.CharField("Síntoma",max_length=50,null=True,blank=True,choices=SINTOMAS_GENERALES)
+              
+    class Meta:
+		verbose_name = 'Sintomas'
+		verbose_name_plural = 'Sintomas'
+		
+    def __unicode__(self):
+		return self.sintoma
+	
+    @models.permalink
+    def get_absolute_url(self):
+		return('listar_sintomas_paciente')
+	
+    @models.permalink
+    def get_delete_url(self):
+                return ('eliminar_sintomas_paciente', [self.id, ])
+    #code
 
      
 
