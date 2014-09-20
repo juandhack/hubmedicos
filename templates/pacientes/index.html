@@ -116,7 +116,7 @@
                         </li>
                                 
                         <li>
-                            <a href="/paciente/diariomedico/sintomas/"><i class="fa fa-edit fa-fw"></i> Mi diario médico</a>
+                            <a href="{% url 'listar_sintomas_paciente' %}"><i class="fa fa-edit fa-fw"></i> Mi diario médico</a>
                         </li>
                         <li>
                             <a href="/paciente/historiaclinica/resumen/"><i class="fa fa-stethoscope fa-fw"></i> Mi historia clínica</a>
@@ -173,6 +173,17 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{STATIC_URL}}pacientes2/js/sb-admin-2.js"></script>
+    <script>
+    // tooltip demo
+    $('.tooltip-demo').tooltip({
+        selector: "[data-toggle=tooltip]",
+        container: "body"
+    })
+
+    // popover demo
+    $("[data-toggle=popover]")
+        .popover()
+    </script>
 
 </body>
 

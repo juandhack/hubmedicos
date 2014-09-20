@@ -20,9 +20,11 @@ class PerfilBasicoForm(forms.ModelForm):
         }
         
         widgets = {
-            'acerca_de': Textarea(attrs={'cols': 35, 'rows': 10, 'placeholder': _("Escribe un breve resumen de tu perfil")}),
+            'acerca_de': Textarea(attrs={'cols': 40, 'rows': 10, 'placeholder': _("Escribe un breve resumen de tu perfil")}),
             'fecha_nacimiento': SelectDateWidget(years=range(1930, 2015)),
-            'dni': TextInput(attrs={'placeholder': _("Ej: 71794069")})
+            'dni': TextInput(attrs={'size':30,'placeholder': _("Ej: 71794069")}),
+            'nombres': TextInput(attrs={'size':40}),
+            'apellidos': TextInput(attrs={'size':40})
         }
        
         
@@ -51,6 +53,12 @@ class SintomasGeneralesPacienteForm(forms.ModelForm):
     class Meta:
         model = SintomasGeneralesPaciente
         exclude = ('user',)
+        
+class EstadoAnimoPacienteForm(forms.ModelForm):
+    class Meta:
+        model = EstadosAnimoPaciente
+        exclude = ('user',)
+        
         #code
     
     #code

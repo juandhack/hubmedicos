@@ -22,19 +22,19 @@ class EstadoAnimoPaciente(TemplateView):
     template_name = 'pacientes/mis_estado_de_animo_form.html'
     
 class MedicionesPaciente(TemplateView):
-    template_name = 'pacientes/mis_mediciones_clinicas_form.html'
+    template_name = 'pacientes/medicionesclinicas/mis_mediciones_clinicas_form.html'
     
 class RutinasPaciente(TemplateView):
-    template_name = 'pacientes/mis_rutinas_salud_form.html'
+    template_name = 'pacientes/rutinas/mis_rutinas_salud_form.html'
     
 class TratamientosPaciente(TemplateView):
-    template_name = 'pacientes/mis_tratamientos_form.html'
+    template_name = 'pacientes/tratamientos/mis_tratamientos_form.html'
     
 class ResultadosExamenesPaciente(TemplateView):
-    template_name = 'pacientes/mis_resultados_examenes_form.html'
+    template_name = 'pacientes/resultados_examenes/mis_resultados_examenes_form.html'
     
 class ProximasCitasPaciente(TemplateView):
-    template_name = 'pacientes/mis_proximas_citas_form.html'
+    template_name = 'pacientes/citas/mis_proximas_citas_form.html'
     
 class ResumenClinicoPaciente(TemplateView):
     template_name = 'pacientes/historiaclinica_cuentanos_form.html'
@@ -56,7 +56,7 @@ class MedicosPaciente(TemplateView):
     
     
 class IngresarSintomaPaciente(CreateView):
-    template_name = 'pacientes/mis_sintomas_form.html'
+    template_name = 'pacientes/sintomas/mis_sintomas_form.html'
     form_class = SintomasGeneralesPacienteForm
     model = SintomasGeneralesPaciente
     def form_valid(self,form):
@@ -68,13 +68,13 @@ class IngresarSintomaPaciente(CreateView):
     
     
 class ListarSintomaPaciente(ListView):
-    template_name = 'pacientes/mis_sintomas_listar_form.html'
+    template_name = 'pacientes/sintomas/mis_sintomas_listar_form.html'
     form_class = SintomasGeneralesPacienteForm
     model = SintomasGeneralesPaciente
     success_url = reverse_lazy('listar_sintomas_paciente')
     
 class ActualizarSintomaPaciente(UpdateView):
-    template_name = 'pacientes/mis_sintomas_form.html'
+    template_name = 'pacientes/sintomas/mis_sintomas_form.html'
     form_class = SintomasGeneralesPacienteForm
     model = SintomasGeneralesPaciente
     def form_valid(self,form):
@@ -85,11 +85,45 @@ class ActualizarSintomaPaciente(UpdateView):
     success_url = reverse_lazy('listar_sintomas_paciente')
     
 class EliminarSintomaPaciente(DeleteView):
-    template_name = 'pacientes/mis_sintomas_confirmar_delete_form.html'
+    template_name = 'pacientes/sintomas/mis_sintomas_confirmar_delete_form.html'
     model = SintomasGeneralesPaciente
     success_url = reverse_lazy('listar_sintomas_paciente')
     
     
+    
+class IngresarEstadoAnimoPaciente(CreateView):
+    template_name = 'pacientes/estado_animo/mi_estado_animo_form.html'
+    form_class = EstadoAnimoPacienteForm
+    model = EstadosAnimoPaciente
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(IngresarEstadoAnimoPaciente,self).form_valid(form)
+    success_url = reverse_lazy('listar_estado_animo_paciente') 
+    
+    
+class ListarEstadoAnimoPaciente(ListView):
+    template_name = 'pacientes/estado_animo/mi_estado_animo_listar_form.html'
+    form_class = EstadoAnimoPacienteForm
+    model = EstadosAnimoPaciente
+    success_url = reverse_lazy('listar_estado_animo_paciente')
+    
+class ActualizarEstadoAnimoPaciente(UpdateView):
+    template_name = 'pacientes/estado_animo/mi_estado_animo_form.html'
+    form_class = EstadoAnimoPacienteForm
+    model = EstadosAnimoPaciente
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(ActualizarEstadoAnimoPaciente,self).form_valid(form)
+    success_url = reverse_lazy('listar_estado_animo_paciente')
+    
+class EliminarEstadoAnimoPaciente(DeleteView):
+    template_name = 'pacientes/estado_animo/mi_estado_animo_confirmar_delete_form.html'
+    model = EstadosAnimoPaciente
+    success_url = reverse_lazy('listar_estado_animo_paciente')
         
 @login_required
 def perfil_basico(request):

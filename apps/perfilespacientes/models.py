@@ -127,9 +127,51 @@ SINTOMAS_GENERALES = (
     ('Nerviosismo','Nerviosismo'),
     ('Dolor de cabeza ','Dolor de cabeza'),
     ('Dolor de cuello ','Dolor de cuello'),
-    ('Dolor de ojos ','Dolor de ojos'),
+    ('Dolor de oidos ','Dolor de oídos'),
+    ('Dolor de garganta','Dolor de garganta'),
+    ('Dolor de encias','Dolor de encías'),
+    ('Dolor de pecho','Dolor de pecho'),
+    ('Dolor de articulaciones','Dolor de articulaciones'),
+    ('Dolor de abdomen','Dolor de abdomen'),
+    ('Dolor de brazos','Dolor de manos'),
+    ('Dolor de piernas','Dolor de piernas'),
+    ('Dolor de vejiga','Dolor de vejiga'),
+    ('Dolor de genitales','Dolor de genitales'),
+    ('Fiebre','fiebre'),
+    ('Escalofrios','Escalofríos'),
+    ('Frio excesivo y anormal','Frio excesivo y anormal'),
+    ('Dificultad respiratoria','Dificultad respiratoria'),
+    ('Tos con expectoracion','Tos con expectoración'),
+    ('Flujo nasal de cantidad y color anormal','Flujo nasal de cantidad y color anormal'),
+    ('Perdida de apetito','Pérdida de apetito'),
+    ('Aumento de frecuencia urinaria','Aumento de frecuencia urinaria'),
+    ('Cambio de peso injustificdo','Cambio de peso injustificado'),
+    ('Nauseas','Nauseas'),
+    ('Vomito','Vómito'),
+    ('Sangrado por la nariz','Sangrado por la nariz'),
+    ('Sangrado por la boca','Sangrado por la boca'),
+    ('Sangrado por los genitales','Sangrado por los genitales'),
+    ('Sangrado por el recto','Sangrado por el recto'),
+    ('Diarrea','Diarrea'),
+    ('Estrenimiento','Estreñimiento'),
+    ('Ausencia o retraso menstrual','Ausencia o retraso menstrual'),
 )
 
+ESTADO_ANIMO = (
+    
+    ('Feliz','Feliz'),
+    ('Optimista','Optimista'),
+    ('Confiando','Confiado'),
+    ('Ansioso','Ansioso'),
+    ('Triste','Triste'),
+    ('Sin energia','Sin energía'),
+    ('Sin interes','Sin interés'),
+    ('Con deseos de llorar','Con deseos de llorar'),
+    ('Con ideas de muerte o suicidio','Con ideas de muerte o suicidio'),
+    ('No puedo dormir','No puedo dormir'),
+)
+
+    
 class SintomasGeneralesPaciente(models.Model):
     
     user = models.ForeignKey(User, null=True, blank=True)
@@ -149,6 +191,27 @@ class SintomasGeneralesPaciente(models.Model):
     @models.permalink
     def get_delete_url(self):
                 return ('eliminar_sintomas_paciente', [self.id, ])
+    #code
+    
+class EstadosAnimoPaciente(models.Model):
+    
+    user = models.ForeignKey(User, null=True, blank=True)
+    estado = models.CharField("Estado",max_length=50,null=True,blank=True,choices=ESTADO_ANIMO)
+              
+    class Meta:
+		verbose_name = 'Estado'
+		verbose_name_plural = 'Estado'
+		
+    def __unicode__(self):
+		return self.estado
+	
+    @models.permalink
+    def get_absolute_url(self):
+		return('listar_estado_animo_paciente')
+	
+    @models.permalink
+    def get_delete_url(self):
+                return ('eliminar_estado_animo_paciente', [self.id, ])
     #code
 
      
