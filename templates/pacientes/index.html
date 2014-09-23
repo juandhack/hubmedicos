@@ -112,17 +112,17 @@
                             <a href="#"><i class="fa fa-home fa-fw"></i> Actividad</a>
                         </li>
                          <li>
-                            <a href="/paciente/perfilbasico/"><i class="fa fa-user fa-fw"></i> Mi perfil</a>
+                            <a href="{% url 'perfil_basico_paciente' %}"><i class="fa fa-user fa-fw"></i> Mi perfil</a>
                         </li>
                                 
                         <li>
                             <a href="{% url 'listar_sintomas_paciente' %}"><i class="fa fa-edit fa-fw"></i> Mi diario médico</a>
                         </li>
                         <li>
-                            <a href="/paciente/historiaclinica/resumen/"><i class="fa fa-stethoscope fa-fw"></i> Mi historia clínica</a>
+                            <a href="{% url 'listar_resumenclinico_paciente' %}"><i class="fa fa-stethoscope fa-fw"></i> Mi historia clínica</a>
                         </li>
                          <li>
-                            <a href="/paciente/hubsalud/clubes/"><i class="fa fa-medkit fa-fw"></i> Mi hub de salud</a>
+                            <a href="#"><i class="fa fa-medkit fa-fw"></i> Mi hub de salud</a>
                         </li>
                       
                     </ul>

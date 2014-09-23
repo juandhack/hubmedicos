@@ -1,0 +1,48 @@
+{% extends "pacientes/index.html" %}
+
+{% block title %}
+Diario Médico - Mis Historia Médica
+{% endblock %}
+
+{% block content %}
+<br>
+<h1 class="page-header">Mi Historia Clínica</h1>
+<p>
+<a href="{% url 'listar_resumenclinico_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mis Antecedentes</button></a>
+                              
+</p>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+                            <div class="panel-heading">
+                               <a href="{% url 'listar_resumenclinico_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Mi Historia Médica</button></a>
+                               <a href="{% url 'listar_enfermedad_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Mis Enfermedades</button></a>
+                               <a href="{% url 'listar_cirugia_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Mis Cirugías</button></a>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-lg-5">
+                    <div class="well well-sm">
+                    <div class="alert alert-info">
+                        <h5><label>Historia: </label></h5></div>
+                                     <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
+              {{ form }}
+              <p></p>
+              <div class="tooltip-demo">
+ <button type="submit" class="btn btn-info btn-circle" data-toggle="tooltip" data-placement="right" title="" data-original-title="Ingresar historia"><i class="fa fa-check"></i></button>
+ </div>
+ <p></p>
+              </form>
+                    </div>
+                </div>
+               
+  </div>
+                               
+                            </div>
+
+   </div>
+
+</div><!-- /.row -->
+
+
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends "pacientes/index.html" %}
 
 {% block title %}
-Diario Médico - Eliminar Estado de Ánimo
+Diario Médico - Eliminar Talla
 {% endblock %}
 
 {% block content %}
@@ -19,16 +19,23 @@ Diario Médico - Eliminar Estado de Ánimo
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
-                               <div class="panel-heading">
-                             <h3 class="panel-title"> </h3>
-                  <a href="{% url 'listar_estado_animo_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Estado de ánimo actual</button></a>
-                          
+                            <div class="panel-heading">
+                    <a href="{% url 'listar_peso_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Peso</button></a>
+                    <a href="{% url 'listar_talla_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Talla</button></a>
+                    <a href="{% url 'listar_hemoglobina_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Hemoglobina Glicosilada</button></a>
+                    <a href="{% url 'listar_colesterol_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Colesterol & Triglicéridos</button></a>
+                    <a href="{% url 'listar_presion_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Presión Arterial</button></a>
+                    <a href="{% url 'listar_gluco_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> GlucoDay</button></a>
+                            </div>
+                                 <div class="panel-heading">
+                                
+                   
                             </div>
                             <div class="panel-body">
-            <div class="col-lg-6">
+                   <div class="col-lg-6">
             <div class="well">
                        
-                               <h5><label>¿Está seguro de que quiere eliminar este estado?</label></h5>
+                               <h5><label>¿Está seguro de que quiere eliminar esta talla?</label></h5>
                     <p></p>
  <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
              <div class="tooltip-demo">
@@ -41,7 +48,7 @@ Diario Médico - Eliminar Estado de Ánimo
               </form>
  <p></p>
  <div class="tooltip-demo">
-   <a href="{% url 'listar_estado_animo_paciente' %}">
+   <a href="{% url 'listar_talla_paciente' %}">
    <button type="button" class="btn btn-primary btn-circle btn-lg" data-toggle="tooltip" data-placement="right" title="" data-original-title="Regresar"><i class="fa fa-list"></i> 
                             </button></a></div><p></p>
                     </div>

@@ -1,7 +1,7 @@
 {% extends "pacientes/index.html" %}
 
 {% block title %}
-Diario Médico - Eliminar Estado de Ánimo
+Diario Médico - Mis Rutinas de Ejercicio
 {% endblock %}
 
 {% block content %}
@@ -16,37 +16,30 @@ Diario Médico - Eliminar Estado de Ánimo
 <a href="{% url 'listar_resultado_lab_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mis resultados de exámenes</button></a>
 <a href="{% url 'listar_cita_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mis próximas citas</button></a>  
 </p>
+
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
-                               <div class="panel-heading">
-                             <h3 class="panel-title"> </h3>
-                  <a href="{% url 'listar_estado_animo_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Estado de ánimo actual</button></a>
-                          
+                            <div class="panel-heading">
+                            <a href="{% url 'listar_ejercicio_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Ejercicio</button></a>
+                    <a href="{% url 'listar_alimentacion_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Alimentación</button></a>
+                                
                             </div>
                             <div class="panel-body">
-            <div class="col-lg-6">
-            <div class="well">
-                       
-                               <h5><label>¿Está seguro de que quiere eliminar este estado?</label></h5>
-                    <p></p>
- <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
-             <div class="tooltip-demo">
-                 <button type="submit" class="btn btn-danger btn-circle btn-lg" data-toggle="tooltip" data-placement="right" title="" data-original-title="Eliminar"><i class="fa fa-times"></i>
-                            </button>
-                            </div>
-                           
-                         
-                    
-              </form>
+                  <div class="col-lg-4">
+                    <div class="well well-sm">
+                    <div class="alert alert-info">
+                        <h5><label>Ejercicios: </label></h5></div>
+                                     <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
+              {{ form }}
+              <p></p>
+              <div class="tooltip-demo">
+ <button type="submit" class="btn btn-info btn-circle" data-toggle="tooltip" data-placement="right" title="" data-original-title="Ingresar ejercicio"><i class="fa fa-check"></i></button>
+ </div>
  <p></p>
- <div class="tooltip-demo">
-   <a href="{% url 'listar_estado_animo_paciente' %}">
-   <button type="button" class="btn btn-primary btn-circle btn-lg" data-toggle="tooltip" data-placement="right" title="" data-original-title="Regresar"><i class="fa fa-list"></i> 
-                            </button></a></div><p></p>
+              </form>
                     </div>
-             
-            </div>
+                </div>
                
   </div>
                                
@@ -55,5 +48,6 @@ Diario Médico - Eliminar Estado de Ánimo
    </div>
 
 </div><!-- /.row -->
+
 
 {% endblock %}

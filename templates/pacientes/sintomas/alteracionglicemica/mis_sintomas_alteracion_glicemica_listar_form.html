@@ -30,7 +30,7 @@ Diario Médico - Listar Síntomas
             <div class="col-lg-6">
               <div class="panel panel-default">
                         <div class="panel-heading">
-                           <a href="{% url 'pacientes_sintomas_ingresar' %}"><h4><i class="fa fa-plus-square"></i> Adicionar síntoma</h4></a>
+                           <a href="{% url 'ingresar_sintomas_alteracion_glicemica_paciente' %}"><h4><i class="fa fa-plus-square"></i> Adicionar síntoma</h4></a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -48,7 +48,7 @@ Diario Médico - Listar Síntomas
                                         <tr>
                                             <td>{{sintomas.sintoma}}</td>
                                              <td>
-                                                 <a href={% url 'eliminar_sintomas_paciente' sintomas.id %}>Eliminar</a>
+                                                 <a href={% url 'eliminar_sintomas_alteracion_glicemica_paciente' sintomas.id %}>Eliminar</a>
                                                
                                             </td>
                                             

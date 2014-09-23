@@ -1,7 +1,7 @@
 {% extends "pacientes/index.html" %}
 
 {% block title %}
-Diario Médico - Listar Síntomas
+Diario Médico - Listar Glicemia
 {% endblock %}
 
 {% block content %}
@@ -16,21 +16,26 @@ Diario Médico - Listar Síntomas
 <a href="{% url 'listar_resultado_lab_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mis resultados de exámenes</button></a>
 <a href="{% url 'listar_cita_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mis próximas citas</button></a>  
 </p>
-
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
-                                   <div class="panel-heading">
-                             <h3 class="panel-title"> </h3>
-                  <a href="{% url 'listar_sintomas_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Síntomas generales actuales</button></a>
-                    <a href="{% url 'listar_sintomas_alteracion_glicemica_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Síntomas alteración glicémica</button></a>
+                            <div class="panel-heading">
+                    <a href="{% url 'listar_peso_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Peso</button></a>
+                    <a href="{% url 'listar_talla_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Talla</button></a>
+                    <a href="{% url 'listar_hemoglobina_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Hemoglobina Glicosilada</button></a>
+                    <a href="{% url 'listar_colesterol_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Colesterol & Triglicéridos</button></a>
+                    <a href="{% url 'listar_presion_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Presión Arterial</button></a>
+                    <a href="{% url 'listar_gluco_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> GlucoDay</button></a>
+                            </div>
+                                 <div class="panel-heading">
                                 
+                   
                             </div>
                             <div class="panel-body">
-            <div class="col-lg-6">
+                        <div class="col-lg-6">
               <div class="panel panel-default">
                         <div class="panel-heading">
-                           <a href="{% url 'pacientes_sintomas_ingresar' %}"><h4><i class="fa fa-plus-square"></i> Adicionar síntoma</h4></a>
+                           <a href="{% url 'ingresar_gluco_paciente' %}"><h4><i class="fa fa-plus-square"></i> Adicionar glicemia</h4></a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -39,16 +44,16 @@ Diario Médico - Listar Síntomas
                                     <thead>
                                         <tr>
           
-                                            <th>Descripción del síntoma</th>
+                                            <th>Glicemia</th>
                                          
                                         </tr>
                                     </thead>
-                                    {% for sintomas in object_list %}
+                                    {% for glicemia in object_list %}
                                     <tbody>
                                         <tr>
-                                            <td>{{sintomas.sintoma}}</td>
+                                            <td>{{glicemia.medicion}}</td>
                                              <td>
-                                                 <a href={% url 'eliminar_sintomas_paciente' sintomas.id %}>Eliminar</a>
+                                                 <a href={% url 'eliminar_gluco_paciente' glicemia.id %}>Eliminar</a>
                                                
                                             </td>
                                             
