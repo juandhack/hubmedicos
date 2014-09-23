@@ -155,9 +155,9 @@ class RutinaEjercicioPacienteForm(forms.ModelForm):
         widgets = {
             'nombre': TextInput(attrs={'size':20,'placeholder': _("ej: ciclismo")}),
             'descripcion': TextInput(attrs={'size':16}),
-            'diastolica': TextInput(attrs={'size':10,'placeholder': _("ej: entrenamiento para maratón")}),
+            'diastolica': TextInput(attrs={'size':10,'placeholder': _("ej: entrenamiento para partida de tenis")}),
             'duracion': NumberInput(attrs={'size':10,'placeholder': _("minutos")}),
-            'distancia': NumberInput(attrs={'size':10,'placeholder': _("kilómetros")}),
+            'distancia': NumberInput(attrs={'size':10,'placeholder': _("km")}),
             'num_pasos': NumberInput(attrs={'size':5}),
             'calorias_quemadas': NumberInput(attrs={'size':5    }),
             'fecha': SelectDateWidget(years=range(1930, 2015)),
