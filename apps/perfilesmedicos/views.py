@@ -5,6 +5,7 @@ from django.shortcuts import render, render_to_response, RequestContext
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 from .models import *
+from admin.forms import *
 from django.contrib.auth.decorators import login_required
 from django.views.generic.base import *
 from django.views.generic.edit import *
@@ -163,8 +164,7 @@ class ListarPreguntas(ListView):
 
 class PacientesHome(TemplateView):
 	template_name = 'pacientes/medicos_pacientes_fichas.html'
-
-    #code
+	
     
 class IngresarInfoProfesional(CreateView):
     template_name = 'perfil/profesional_form.html'
@@ -279,7 +279,18 @@ class ListarInfoServicios(ListView):
     template_name = 'servicios/listarinfoservicios_form.html'
     form_class = ServiciosForm
     model = Servicios
-    success_url = reverse_lazy('listar_info_servicios') 
+    success_url = reverse_lazy('listar_info_servicios')
+    
+class IngresarEntradaBlog(CreateView):
+    template_name = 'blog/entradas_blog_form.html'
+    form_class = EntryAdminForm
+    ##model = PerfilProfesional
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(IngresarEntradaBlog,self).form_valid(form)
+    success_url = reverse_lazy('ingresar_entrada_blog')
 
 
 

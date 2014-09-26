@@ -1,7 +1,7 @@
 {% extends "inicio/board.html" %}
 
 {% block title %}
-Aplicaciones - Listar Experiencia Académica
+Aplicaciones - Listar Servicios
 {% endblock %}
 
 {% block content %}
@@ -38,7 +38,7 @@ Aplicaciones - Listar Experiencia Académica
                   <ul class="nav nav-pills nav-stacked">
                       <li><a href=/home/pr/creacion>Preguntas de tus pacientes</a></li>
                       <li><a href=/home/servicios/creacion>Tus servicios</a></li>
-                      <li><a href={% url 'ingresar_entrada_blog' %}>Blog</a></li>
+                      <li><a href="#">Blog</a></li>
                    
               </div>
           </div>
@@ -74,7 +74,7 @@ Aplicaciones - Listar Experiencia Académica
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <legend class="lead">
-                        Tu Información Académica
+                        Tus Servicios
                     </legend>
                 </h4>
               </div>
@@ -85,24 +85,24 @@ Aplicaciones - Listar Experiencia Académica
                             <div class="box-header">
                                 <i class="icon-table"></i>
                                 <h5>
-                                     <a href="{% url 'crear_info_academica' %}">Adicionar información académica</a>
+                                     <a href="{% url 'crear_info_servicios' %}">Adicionar servicios</a>
                                 </h5>
                             </div>
                             <div class="box-content box-table">
                                 <table id="sample-table" class="table table-hover table-bordered tablesorter">
                                     <thead>
                                         <tr>
-                                            <th class="header">Institución</th>
+                                            <th class="header">Organización</th>
                                            
                                         </tr>
                                     </thead>
-                                    {% for perfilacademico in object_list %}
+                                    {% for servicios in object_list %}
                                     <tbody>
                                         <tr>
-                                            <td><a href="{% url 'actualizar_info_academica' perfilacademico.id %}">{{perfilacademico.institucion}}</a></td>
+                                            <td><a href="{% url 'actualizar_info_servicios' servicios.id %}">{{servicios.organizacion}}</a></td>
                                             <td class="td-actions">
-                                                 <a href="{% url 'actualizar_info_academica' perfilacademico.id %}">Actualizar</a>
-                                                 <a href="{% url 'eliminar_info_academica' perfilacademico.id %}">Eliminar</a>
+                                                 <a href="{% url 'actualizar_info_servicios' servicios.id %}">Actualizar</a>
+                                                 <a href="{% url 'eliminar_info_servicios' servicios.id %}">Eliminar</a>
                                             </td>
                                         </tr>
                                     </tbody>

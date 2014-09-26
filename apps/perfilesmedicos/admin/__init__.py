@@ -7,5 +7,5 @@ from zinnia.admin.entry import EntryAdmin
 from zinnia.admin.category import CategoryAdmin
 
 
-#admin.site.register(Entry, EntryAdmin)
-#admin.site.register(Category, CategoryAdmin)
+admin.site.register(Entry, EntryAdmin)
+admin.site.register(Category, CategoryAdmin)
