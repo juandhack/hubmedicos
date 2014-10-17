@@ -159,7 +159,10 @@ class ListarPreguntas(ListView):
     template_name = 'inicio/listarpr_form.html'
     form_class = ConsultasForm
     model = PreguntasRespuestas
-    success_url = reverse_lazy('listar_preguntas') 
+    success_url = reverse_lazy('listar_preguntas')
+    
+    def get_queryset(self):
+        return PreguntasRespuestas.objects.filter(user_id = self.request.user)
    
 
 class PacientesHome(TemplateView):
@@ -204,6 +207,9 @@ class ListarInfoProfesional(ListView):
     model = PerfilProfesional
     success_url = reverse_lazy('listar_info_profesional')
     
+    def get_queryset(self):
+        return PerfilProfesional.objects.filter(user_id = self.request.user)
+    
 class IngresarInfoAcademica(CreateView):
     template_name = 'perfil/academico_form.html'
     form_class = PerfilAcademicoForm
@@ -240,7 +246,10 @@ class ListarInfoAcademica(ListView):
     template_name = 'perfil/listarinfoacademica_form.html'
     form_class = PerfilAcademicoForm
     model = PerfilAcademico
-    success_url = reverse_lazy('listar_info_academica') 
+    success_url = reverse_lazy('listar_info_academica')
+    
+    def get_queryset(self):
+        return PerfilAcademico.objects.filter(user_id = self.request.user)
 
     
 class IngresarInfoServicios(CreateView):
@@ -280,6 +289,10 @@ class ListarInfoServicios(ListView):
     form_class = ServiciosForm
     model = Servicios
     success_url = reverse_lazy('listar_info_servicios')
+    
+    def get_queryset(self):
+        return Servicios.objects.filter(user_id = self.request.user)
+    
     
 class IngresarEntradaBlog(CreateView):
     template_name = 'blog/entradas_blog_form.html'

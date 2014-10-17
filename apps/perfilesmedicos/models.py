@@ -3,6 +3,33 @@ import os, sys
 from django.db import models
 from django.contrib.auth.models import User
 
+class Pais(models.Model):
+    nombre = models.CharField(max_length = 140)
+    
+    def __unicode__(self):
+        return self.nombre
+
+class Dpto(models.Model):
+	nombre = models.CharField(max_length = 140)
+	
+	def __unicode__(self):
+		return self.nombre
+	
+class Ciudad(models.Model):
+	nombre = models.CharField(max_length = 140)
+	
+	def __unicode__(self):
+		return self.nombre
+
+
+class Especialidad(models.Model):
+	nombre = models.CharField(max_length = 140)
+	
+	def __unicode__(self):
+		return self.nombre
+	
+
+
 class Perfiles(models.Model):
 	user = models.OneToOneField(User)
 	dni = models.CharField(max_length=20)
@@ -97,9 +124,9 @@ KIND_CIUDAD = (
 class Contactos(models.Model):
 
 	user = models.OneToOneField(User)
-	pais = models.CharField("País",max_length=30, null=True, blank=True, choices=KIND_PAIS)
-	dpto = models.CharField("Departamento",max_length=30, null=True, blank=True, choices=KIND_DPTO)
-	ciudad = models.CharField(max_length=30, null=True, blank=True, choices=KIND_CIUDAD)
+	pais = models.ForeignKey(Pais, null=True, blank=True)
+	dpto = models.ForeignKey(Dpto, null=True, blank=True)
+	ciudad = models.ForeignKey(Ciudad, null=True, blank=True)
 	telefono = models.CharField("Teléfono",max_length=25, null=True, blank=True)
 	celular = models.CharField(max_length=30, null=True, blank=True)
 	correo = models.EmailField(blank=True, null=True)
@@ -122,7 +149,7 @@ class RedesSociales(models.Model):
 class PerfilProfesional(models.Model):
 	user = models.ForeignKey(User, null=True, blank=True)
 	organizacion = models.CharField("Nombre Entidad",max_length=255, null=True, blank=True)
-	especialidad = models.CharField(max_length=255, null=True, blank=True, choices=KIND_ESPECIALIDAD)
+	especialidad = models.ForeignKey(Especialidad, null=True, blank=True)
 	cargo = models.CharField(max_length=255, null=True, blank=True)
 	numregistroprof = models.CharField("Registro Profesional",max_length=255, null=True, blank=True)
 	funcionesrealizadas = models.TextField("Funciones Realizadas",null=True, blank=True)
