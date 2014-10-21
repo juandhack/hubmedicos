@@ -1,0 +1,50 @@
+{% extends "pacientes/index.html" %}
+
+{% block title %}
+Historial Clínico - Eliminar Historia Medica
+{% endblock %}
+
+{% block content %}
+<br>
+{% include 'pacientes/menu_historia_clinica_antecedentes.html' %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+                            <div class="panel-heading">
+                               {% include 'pacientes/menu_historia_clinica_antecedentes_personales.html' %}
+                            </div>
+                            <div class="panel-body">
+                     <div class="col-lg-6">
+            <div class="well">
+                       
+                               <h5><label>¿Está seguro de que quieres eliminar tu historia médica?</label></h5>
+                    <p></p>
+ <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
+             <div class="tooltip-demo">
+                 <button type="submit" class="btn btn-danger btn-circle btn-lg" data-toggle="tooltip" data-placement="right" title="" data-original-title="Eliminar"><i class="fa fa-times"></i>
+                            </button>
+                            </div>
+                           
+                         
+                    
+              </form>
+ <p></p>
+ <div class="tooltip-demo">
+   <a href="{% url 'listar_resumenclinico_paciente' %}">
+   <button type="button" class="btn btn-primary btn-circle btn-lg" data-toggle="tooltip" data-placement="right" title="" data-original-title="Regresar"><i class="fa fa-list"></i> 
+                            </button></a></div><p></p>
+                    </div>
+             
+            </div>
+               
+  </div>
+                               
+                            </div>
+
+   </div>
+
+</div><!-- /.row -->
+
+
+{% endblock %}

@@ -6,24 +6,13 @@ Diario Médico - Eliminar Síntomas
 
 {% block content %}
 <br>
-<h1 class="page-header">Mi Diario Médico</h1>
-<p>
-<a href="{% url 'listar_sintomas_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mis síntomas</button></a>
-<a href="{% url 'listar_estado_animo_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mi estado de ánimo</button></a>
-<a href="{% url 'listar_peso_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mis mediciones médicas</button></a>
-<a href="{% url 'listar_ejercicio_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mis rutinas de salud</button></a>
-<a href="{% url 'listar_medicamento_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mis tratamientos</button></a>
-<a href="{% url 'listar_resultado_lab_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mis resultados de exámenes</button></a>
-<a href="{% url 'listar_cita_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mis próximas citas</button></a>  
-</p>
+{% include 'pacientes/menu_diario_medico.html' %}
 
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
                                    <div class="panel-heading">
-                             <h3 class="panel-title"> </h3>
-                  <a href="{% url 'listar_sintomas_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Síntomas generales actuales</button></a>
-                    <a href="{% url 'listar_sintomas_alteracion_glicemica_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Síntomas alteración glicémica</button></a>
+                             {% include 'pacientes/menu_diario_medico_sintomas.html' %}
                                 
                             </div>
                             <div class="panel-body">

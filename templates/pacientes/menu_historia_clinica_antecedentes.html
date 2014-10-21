@@ -1,0 +1,17 @@
+<h1 class="page-header">Mi Historia Clínica</h1>
+<p>
+<div class="dropdown">
+  <button class="btn btn-primary btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    Mis Antecedentes
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'listar_resumenclinico_paciente' %}">Personales</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="{% url 'listar_familiar_paciente' %}">Familiares</a></li>  
+  </ul>
+</div>  
+<br>
+<p> 
+<a href="{% url 'listar_enfermedad_actual_paciente' %}"><button type="button" class="btn btn-primary btn-sm">Mi Enfermedad Actual</button></a> 
+</p>                        
+</p>

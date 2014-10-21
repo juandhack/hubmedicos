@@ -110,16 +110,64 @@ urlpatterns = patterns('',
     url(r'^paciente/diariomedico/historiaclinica/cirugias/eliminar/(?P<pk>\d+)/$' ,EliminarCirugiaPaciente.as_view(), name='eliminar_cirugia_paciente'),
     
     #Historia clinica familiares
-    #url(r'^paciente/diariomedico/historiaclinica/familiares/ingresar$',IngresarFamiliarPaciente.as_view(), name='ingresar_familiar_paciente'),
-    #url(r'^paciente/diariomedico/historiaclinica/familiares/listar/(?P<pk>\d+)/$',ListarFamiliarPaciente.as_view(), name='listar_familiar_paciente'),
-    #url(r'^paciente/diariomedico/historiaclinica/familiares/actualizar/(?P<pk>\d+)/$',ActualizarFamiliarPaciente.as_view(), name='actualizar_familiar_paciente'),
-    #url(r'^paciente/diariomedico/historiaclinica/familiares/eliminar/(?P<pk>\d+)/$' ,EliminarFamiliarPaciente.as_view(), name='eliminar_familiar_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/familiares/ingresar$',IngresarFamiliarPaciente.as_view(), name='ingresar_familiar_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/familiares/listar/$',ListarFamiliarPaciente.as_view(), name='listar_familiar_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/familiares/actualizar/(?P<pk>\d+)/$',ActualizarFamiliarPaciente.as_view(), name='actualizar_familiar_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/familiares/eliminar/(?P<pk>\d+)/$' ,EliminarFamiliarPaciente.as_view(), name='eliminar_familiar_paciente'),
     
+     #Enfermedad Actual
+    url(r'^paciente/diariomedico/historiaclinica/enfermedad_actual/ingresar$',IngresarEnfermedadActualPaciente.as_view(), name='ingresar_enfermedad_actual_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/enfermedad_actual/listar/$',ListarEnfermedadActualPaciente.as_view(), name='listar_enfermedad_actual_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/enfermedad_actual/actualizar/(?P<pk>\d+)/$',ActualizarEnfermedadActualPaciente.as_view(), name='actualizar_enfermedad_actual_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/enfermedad_actual/eliminar/(?P<pk>\d+)/$' ,EliminarEnfermedadActualPaciente.as_view(), name='eliminar_enfermedad_actual_paciente'),
+    
+     #Historia Clinica Toxicos
+    url(r'^paciente/diariomedico/historiaclinica/toxicos/ingresar$',IngresarToxicosPaciente.as_view(), name='ingresar_toxicos_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/toxicos/listar/$',ListarToxicosPaciente.as_view(), name='listar_toxicos_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/toxicos/actualizar/(?P<pk>\d+)/$',ActualizarToxicosPaciente.as_view(), name='actualizar_toxicos_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/toxicos/eliminar/(?P<pk>\d+)/$' ,EliminarToxicosPaciente.as_view(), name='eliminar_toxicos_paciente'),
    
+    #Historia Clinica Alergias
+    url(r'^paciente/diariomedico/historiaclinica/alergias/ingresar$',IngresarAlergiasPaciente.as_view(), name='ingresar_alergias_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/alergias/listar/$',ListarAlergiasPaciente.as_view(), name='listar_alergias_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/alergias/actualizar/(?P<pk>\d+)/$',ActualizarAlergiasPaciente.as_view(), name='actualizar_alergias_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/alergias/eliminar/(?P<pk>\d+)/$' ,EliminarAlergiasPaciente.as_view(), name='eliminar_alergias_paciente'),
+    
+     #Historia Clinica Inmunizacion
+    url(r'^paciente/diariomedico/historiaclinica/inmunizacion/ingresar$',IngresarInmunizacionPaciente.as_view(), name='ingresar_inmunizacion_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/inmunizacion/listar/$',ListarInmunizacionPaciente.as_view(), name='listar_inmunizacion_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/inmunizacion/actualizar/(?P<pk>\d+)/$',ActualizarInmunizacionPaciente.as_view(), name='actualizar_inmunizacion_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/inmunizacion/eliminar/(?P<pk>\d+)/$' ,EliminarInmunizacionPaciente.as_view(), name='eliminar_inmunizacion_paciente'),
+    
+    #Historia Clinica Medicamento
+    url(r'^paciente/diariomedico/historiaclinica/medicamento/ingresar$',IngresarMedicamentoPaciente.as_view(), name='ingresar_medicamento_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/medicamento/listar/$',ListarMedicamentoPaciente.as_view(), name='listar_medicamento_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/medicamento/actualizar/(?P<pk>\d+)/$',ActualizarMedicamentoPaciente.as_view(), name='actualizar_medicamento_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/medicamento/eliminar/(?P<pk>\d+)/$' ,EliminarMedicamentoPaciente.as_view(), name='eliminar_medicamento_paciente'),
+    
+     #Historia Clinica Gineco Historial
+    url(r'^paciente/diariomedico/historiaclinica/gineco_historial/ingresar$',IngresarGinecoHistorialPaciente.as_view(), name='ingresar_gineco_historial_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/gineco_historial/listar/$',ListarGinecoHistorialPaciente.as_view(), name='listar_gineco_historial_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/gineco_historial/actualizar/(?P<pk>\d+)/$',ActualizarGinecoHistorialPaciente.as_view(), name='actualizar_gineco_historial_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/gineco_historial/eliminar/(?P<pk>\d+)/$' ,EliminarGinecoHistorialPaciente.as_view(), name='eliminar_gineco_historial_paciente'),
+    
+    #Historia Clinica Gineco diario
+    url(r'^paciente/diariomedico/historiaclinica/gineco_diario/ingresar$',IngresarGinecoDiarioPaciente.as_view(), name='ingresar_gineco_diario_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/gineco_diario/listar/$',ListarGinecoDiarioPaciente.as_view(), name='listar_gineco_diario_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/gineco_diario/actualizar/(?P<pk>\d+)/$',ActualizarGinecoDiarioPaciente.as_view(), name='actualizar_gineco_diario_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/gineco_diario/eliminar/(?P<pk>\d+)/$' ,EliminarGinecoDiarioPaciente.as_view(), name='eliminar_gineco_diario_paciente'),
+    
+     #Hub Salud Clubes
+    url(r'^paciente/hubsalud/clubes/ingresar$',IngresarClubPaciente.as_view(), name='ingresar_club_paciente'),
+    url(r'^paciente/hubsalud/clubes/listar/$',ListarClubPaciente.as_view(), name='listar_club_paciente'),
+    url(r'^paciente/hubsalud/clubes/actualizar/(?P<pk>\d+)/$',ActualizarClubPaciente.as_view(), name='actualizar_club_paciente'),
+    url(r'^paciente/hubsalud/clubes/eliminar/(?P<pk>\d+)/$' ,EliminarClubPaciente.as_view(), name='eliminar_club_paciente'),
     
     url(r'^paciente/perfilbasico/$' ,'apps.perfilespacientes.views.perfil_basico', name='perfil_basico_paciente'),
     url(r'^paciente/perfilbasico/contacto/$' ,'apps.perfilespacientes.views.perfil_basico_contactos', name='perfil_basico_contactos_paciente'),
     url(r'^paciente/perfilbasico/social/$' ,'apps.perfilespacientes.views.perfil_basico_social', name='perfil_basico_social_paciente'),
 
+    #url(r'^paciente/perfilbasico/principal$' ,PerfilPrincipalPaciente.as_view(), name='perfil_principal_paciente'),
+    url(r'^paciente/perfilbasico/principal/$' ,'apps.perfilespacientes.views.perfil_principal_paciente_home', name='perfil_principal_paciente'),
 
 )

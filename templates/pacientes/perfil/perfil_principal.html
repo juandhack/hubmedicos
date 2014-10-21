@@ -1,0 +1,126 @@
+{% extends "pacientes/index.html" %}
+
+{% block title %}
+Perfil
+{% endblock %}
+
+{% block content %}
+<br>
+  <div class="col-lg-12">
+  <div class="jumbotron">
+                {% for paciente in paciente%}
+                        <h2>{{paciente.nombres}} {{paciente.apellidos}}</h2>
+                
+                         <p></p>
+                                              <div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="{{MEDIA_URL}}{{paciente.imagen}}">
+     
+    </div>
+    <p><a class="btn btn-primary btn-lg" href="{% url 'perfil_basico_paciente' %}" role="button">Editar Perfil</a>
+                        </p>
+  </div>
+  
+  <div class="col-lg-4">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            Mi Información Personal
+                        </div>
+                        <div class="panel-body">
+                            Extracto: <a>{{paciente.acerca_de}}</a>
+                            <br>
+                            Sexo: <a>{{paciente.sexo}}</a>
+                            <br>
+                            Grupo Sanguíneo: <a>{{paciente.grupo_sanguineo}}</a>
+                            <br>
+                        </div>
+                        <div class="panel-footer">
+                          
+                        </div>
+                    </div>
+                </div>
+                {% for contacto in contacto %}
+                <div class="col-lg-4">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            Mi Información de Contacto
+                        </div>
+                        <div class="panel-body">
+                            Teléfono: <a>{{contacto.telefono}}</a>
+                            <br>
+                            Celular: <a>{{contacto.celular}}</a>
+                            <br>
+                            Correo: <a>{{contacto.correo}}</a>
+                            <br>
+                             {% if pais %}
+                            Pais: <a>{{pais.nombre}}</a>
+                            {% endif %}
+                            <br>
+                             {% if dpto %}
+                            Departamento: <a>{{dpto.nombre}}</a>
+                            {% endif %}
+                            <br>
+                             {% if ciudad %}
+                            Ciudad: <a>{{ciudad.nombre}}</a>
+                            {% endif %}
+                            <br>
+                             
+                        </div>
+                        <div class="panel-footer">
+                          
+                        </div>
+                    </div>
+                </div>
+                    {% endfor %}
+                    {% for social in social %}
+                 <div class="col-lg-4">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                          Mis Redes Sociales  
+                        </div>
+                        <div class="panel-body">
+                            Blog: <a>{{social.blog}}</a>
+                            <br>
+                            Twitter: <a>{{social.twitter}}</a>
+                            <br>
+                            Facebook: <a>{{social.facebook}}</a>
+                            <br>
+                            Linkedin: <a>{{social.linkedin}}</a>
+                            <br>
+                            YouTube: <a>{{social.you_tube}}</a>
+                            <br>
+                        </div>
+                        <div class="panel-footer">
+                          
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                  <div class="col-lg-4">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                          Mis Clubes 
+                        </div>
+                        <div class="panel-body">
+                            <p></p>
+                        </div>
+                        <div class="panel-footer">
+                          
+                        </div>
+                    </div>
+                
+                </div>
+
+</div>
+                       
+                        
+
+  
+                    </div>
+                    {% endfor %}
+
+   </div>
+
+
+{% endblock %}

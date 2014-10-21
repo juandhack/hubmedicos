@@ -32,6 +32,7 @@ def user_profile(request):
     return render_to_response('inicio/perfil.html',args, context_instance=RequestContext(request))
 
 
+@login_required
 def user_contactos(request):
     if request.method == 'POST':
     	form = ContactoForm(request.POST, instance=request.user.contactos)
@@ -51,6 +52,7 @@ def user_contactos(request):
     return render_to_response('inicio/contacto.html',args, context_instance=RequestContext(request))
 
 
+@login_required
 def user_academico(request):
     if request.method == 'POST':
     	form = PerfilAcademicoForm(request.POST, instance=request.user.academico)
@@ -70,6 +72,7 @@ def user_academico(request):
     return render_to_response('inicio/academico.html',args, context_instance=RequestContext(request))
 
 
+@login_required
 def user_profesional(request):
     if request.method == 'POST':
     	form = PerfilProfesionalForm(request.POST, instance=request.user.profesional)
@@ -89,6 +92,7 @@ def user_profesional(request):
     return render_to_response('inicio/profesional.html',args, context_instance=RequestContext(request))
 
 
+@login_required
 def user_social(request):
     if request.method == 'POST':
     	form = RedesSocialesForm(request.POST, instance=request.user.sociales)
@@ -108,6 +112,7 @@ def user_social(request):
     return render_to_response('inicio/social.html',args, context_instance=RequestContext(request))
 
 
+@login_required
 def user_perfil_publico(request,userid):
 	data = {}
 	data['usuario'] = Perfiles.objects.filter(user_id = userid)

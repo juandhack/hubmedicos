@@ -42,6 +42,14 @@ class RedesSocialesForm(forms.ModelForm):
     class Meta:
         model = RedesSociales
         fields = ('blog','twitter','facebook','linkedin','you_tube')
+        widgets = {
+            'blog' : TextInput(attrs={'placeholder': _("ej: miblog.com")}),
+            'twitter' : TextInput(attrs={'placeholder': _("ej: twitter.com/miusuario")}),
+            'facebook' : TextInput(attrs={'placeholder': _("ej: facebook.com/miusuario")}),
+            'linkedin' : TextInput(attrs={'placeholder': _("ej: linkedin.com/miusuario")}),
+            'you_tube' : TextInput(attrs={'placeholder': _("ej: youtube.com/miusuario")}),
+            
+        }
         
 
 class SintomasGeneralesPacienteForm(forms.ModelForm):
@@ -278,3 +286,8 @@ class CirugiaPacienteForm(forms.ModelForm):
             'nota': Textarea(attrs={'cols': 30, 'rows': 5}),
         }
         
+class AntecedentesFamiliaresForm(forms.ModelForm):
+    class Meta:
+        model = AntecedentesFamiliares
+        exclude = ('user',)
+       

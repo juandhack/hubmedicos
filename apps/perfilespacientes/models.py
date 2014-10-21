@@ -110,7 +110,7 @@ class PerfilBasico(models.Model):
 	nombres = models.CharField(max_length=255, null=True, blank=True)
 	apellidos = models.CharField(max_length=255, null=True, blank=True)
 	acerca_de = models.TextField("Extracto Personal",null=True, blank=True)
-	sexo = models.CharField(max_length=1,null=True,blank=True, choices=KIND_SEXO)
+	sexo = models.CharField(max_length=10,null=True,blank=True, choices=KIND_SEXO)
         fecha_nacimiento = models.DateField(unique=True, null=True, blank=True)
         grupo_sanguineo = models.CharField("Grupo Sanguíneo",max_length=4,null=True,blank=True,choices=GRUPO_SANGUINEO)
 	imagen = models.ImageField("Tu foto",upload_to='pictures',null=True,blank=True)
@@ -773,6 +773,217 @@ class Cirugia(models.Model):
     def get_delete_url(self):
                 return ('eliminar_cirugia_paciente', [self.id, ])
     #code
+    
+class AntecedentesFamiliares(models.Model):
+    user = models.ForeignKey(User,null=True,blank=True)
+    relacion = models.CharField(max_length=100)
+    nombre_familiar = models.CharField(max_length=100)
+    enfermedad = models.CharField(max_length=100)
+    fecha_inicio = models.DateField(unique=True, null=True, blank=True)
+    fecha_final = models.DateField(unique=True, null=True, blank=True)
+    estado = models.CharField(max_length=100,null=True,blank=True)
+    como_finalizo = models.CharField(max_length=100,null=True,blank=True)
+    nota = models.TextField(null=True, blank=True)
+
+    class Meta:
+		verbose_name = 'Antecedentes Familiares'
+		verbose_name_plural = 'Antecedentes Familiares'
+		
+    def __unicode__(self):
+		return self.nombre
+	
+    @models.permalink
+    def get_absolute_url(self):
+		return('listar_familiar_paciente')
+	
+    @models.permalink
+    def get_delete_url(self):
+                return ('eliminar_familiar_paciente', [self.id, ])
+    #code
+    
+class Toxico(models.Model):
+    user = models.ForeignKey(User,null=True,blank=True)
+    fumador = models.CharField(max_length=100)
+    num_cigarrillos = models.CharField(max_length=100)
+    num_anios_fumador = models.CharField(max_length=100)
+    bebedor = models.CharField(max_length=100)
+    tipo_bebedor = models.CharField(max_length=100)
+    drogadicto = models.CharField(max_length=100)
+    tipo_droga = models.CharField(max_length=100)
+
+    class Meta:
+		verbose_name = 'Toxicos'
+		verbose_name_plural = 'Toxicos'
+		
+    def __unicode__(self):
+		return self.fumador
+	
+    @models.permalink
+    def get_absolute_url(self):
+		return('listar_toxicos_paciente')
+	
+    @models.permalink
+    def get_delete_url(self):
+                return ('eliminar_toxicos_paciente', [self.id, ])
+    #code
+    
+    
+class Alergia(models.Model):
+    user = models.ForeignKey(User,null=True,blank=True)
+    nombre = models.CharField(max_length=100)
+    reaccion = models.CharField(max_length=100)
+    tipo = models.CharField(max_length=100)
+    fecha_inicio = models.DateField(unique=True, null=True, blank=True)
+    nota = models.TextField(null=True, blank=True)
+
+    class Meta:
+		verbose_name = 'Alergia'
+		verbose_name_plural = 'Alergia'
+		
+    def __unicode__(self):
+		return self.nombre
+	
+    @models.permalink
+    def get_absolute_url(self):
+		return('listar_alergias_paciente')
+	
+    @models.permalink
+    def get_delete_url(self):
+                return ('eliminar_alergias_paciente', [self.id, ])
+    #code
+    
+
+class Inmunizacion(models.Model):
+    user = models.ForeignKey(User,null=True,blank=True)
+    nombre = models.CharField(max_length=100)
+    fecha_inicio = models.DateField(unique=True, null=True, blank=True)
+    num_secuencia = models.CharField(max_length=100)
+    efectos_secundarios = models.CharField(max_length=100)
+    nota = models.TextField(null=True, blank=True)
+
+    class Meta:
+		verbose_name = 'Inmunizacion'
+		verbose_name_plural = 'Inmunizacion'
+		
+    def __unicode__(self):
+		return self.nombre
+	
+    @models.permalink
+    def get_absolute_url(self):
+		return('listar_inmunizacion_paciente')
+	
+    @models.permalink
+    def get_delete_url(self):
+                return ('eliminar_inmunizacion_paciente', [self.id, ])
+    #code
+    
+    
+
+class Medicamento(models.Model):
+    user = models.ForeignKey(User,null=True,blank=True)
+    nombre = models.CharField(max_length=100)
+    motivo = models.CharField(max_length=100)
+    fecha_inicio = models.DateField(unique=True, null=True, blank=True)
+    fecha_fin = models.DateField(unique=True, null=True, blank=True)
+    nota = models.TextField(null=True, blank=True)
+
+    class Meta:
+		verbose_name = 'Medicamento'
+		verbose_name_plural = 'Medicamento'
+		
+    def __unicode__(self):
+		return self.nombre
+	
+    @models.permalink
+    def get_absolute_url(self):
+		return('listar_medicamento_paciente')
+	
+    @models.permalink
+    def get_delete_url(self):
+                return ('eliminar_medicamento_paciente', [self.id, ])
+    #code
+    
+class GinecoHistorial(models.Model):
+    user = models.ForeignKey(User,null=True,blank=True)
+    edad_primera_menstruacion = models.CharField(max_length=100)
+    edad_menupausia = models.CharField(max_length=100)
+    edad_inicio_vida_sexual = models.CharField(max_length=100)
+    num_embarazos = models.CharField(max_length=100)
+    num_partos_vaginales = models.CharField(max_length=100)
+    num_abortos = models.CharField(max_length=100)
+    num_hijos_vivos = models.CharField(max_length=100)
+    num_cesareas = models.CharField(max_length=100)
+    num_embarazos_ectopicos = models.CharField(max_length=100)
+    sangrados_vaginales = models.CharField(max_length=100)
+    causas_sangrados_vaginales = models.CharField(max_length=100)
+    duracion_sangrados_vaginales = models.CharField(max_length=100)
+    
+    class Meta:
+		verbose_name = 'Historial Ginecologico'
+		verbose_name_plural = 'Historial Ginecologico'
+		
+    def __unicode__(self):
+		return self.edad_primera_menstruacion
+	
+    @models.permalink
+    def get_absolute_url(self):
+		return('listar_gineco_historial_paciente')
+	
+    @models.permalink
+    def get_delete_url(self):
+                return ('eliminar_gineco_historial_paciente', [self.id, ])
+    #code
+    
+class GinecoDiario(models.Model):
+    user = models.ForeignKey(User,null=True,blank=True)
+    ciclos_menstruales = models.CharField(max_length=100)
+    duracion_ciclos = models.CharField(max_length=100)
+    tipo_anticonceptivos = models.CharField(max_length=100)
+    tiempo_uso_anticonceptivos = models.CharField(max_length=100)
+    resultado_citologia = models.CharField(max_length=100)
+    resultado_mamografia = models.CharField(max_length=100)
+    fecha_ultima_mestruacion = models.DateField(unique=True, null=True, blank=True)
+    fecha_ultima_citologia = models.DateField(unique=True, null=True, blank=True)
+    fecha_ultima_mamografia = models.DateField(unique=True, null=True, blank=True)
+     
+    class Meta:
+		verbose_name = 'Diario Ginecologico'
+		verbose_name_plural = 'Diario Ginecologico'
+		
+    def __unicode__(self):
+		return self.edad_primera_menstruacion
+	
+    @models.permalink
+    def get_absolute_url(self):
+		return('listar_gineco_diario_paciente')
+	
+    @models.permalink
+    def get_delete_url(self):
+                return ('eliminar_gineco_diario_paciente', [self.id, ])
+    #code
+    
+    
+class ClubMedico(models.Model):
+    user = models.ForeignKey(User,null=True,blank=True)
+    nombre_club = models.CharField(max_length=100)
+  
+    class Meta:
+		verbose_name = 'Club Medico'
+		verbose_name_plural = 'Club Medico'
+		
+    def __unicode__(self):
+		return self.edad_primera_menstruacion
+	
+    @models.permalink
+    def get_absolute_url(self):
+		return('listar_club_paciente')
+	
+    @models.permalink
+    def get_delete_url(self):
+                return ('eliminar_club_paciente', [self.id, ])
+    #code
+    
+
     
 User.perfilbasicopaciente = property(lambda u: PerfilBasico.objects.get_or_create(user=u)[0])
 User.contactospaciente = property(lambda u: ContactosBasico.objects.get_or_create(user=u)[0])

@@ -5,7 +5,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from apps.perfilesmedicos.models import *
-from django.forms import Textarea
+from django.forms import Textarea, TextInput
 
 class PerfilesForm(forms.ModelForm):
     class Meta:
@@ -45,7 +45,14 @@ class RedesSocialesForm(forms.ModelForm):
     class Meta:
         model = RedesSociales
         fields = ('blog','twitter','facebook','linkedin','you_tube')
-       
+        widgets = {
+            'blog' : TextInput(attrs={'size':30,'placeholder': _("ej: miblog.com")}),
+            'twitter' : TextInput(attrs={'size':30,'placeholder': _("ej: twitter.com/miusuario")}),
+            'facebook' : TextInput(attrs={'size':30,'placeholder': _("ej: facebook.com/miusuario")}),
+            'linkedin' : TextInput(attrs={'size':30,'placeholder': _("ej: linkedin.com/miusuario")}),
+            'you_tube' : TextInput(attrs={'size':30,'placeholder': _("ej: youtube.com/miusuario")}),
+            
+        }       
         
 class ConsultasForm(forms.ModelForm):
     class Meta:
