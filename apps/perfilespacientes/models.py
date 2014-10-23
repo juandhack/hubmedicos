@@ -728,8 +728,10 @@ class Enfermedad(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
     nombre = models.CharField(max_length=100)
     estado = models.ForeignKey(EstadoEnfermedad, null=True, blank=True)
-    fecha = models.DateField(unique=True)
+    fecha_inicio = models.DateField(unique=True)
+    fecha_final = models.DateField(unique=True)
     evolucion = models.CharField("Evolución",max_length=100,null=True,blank=True)
+    actual = models.CharField(max_length=100,null=True,blank=True)
     nota = models.TextField(null=True, blank=True)
     
     class Meta:
@@ -878,8 +880,8 @@ class Inmunizacion(models.Model):
     #code
     
     
-
-class Medicamento(models.Model):
+ 
+class MedicamentoHistorial(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
     nombre = models.CharField(max_length=100)
     motivo = models.CharField(max_length=100)
@@ -896,11 +898,11 @@ class Medicamento(models.Model):
 	
     @models.permalink
     def get_absolute_url(self):
-		return('listar_medicamento_paciente')
+		return('listar_medicamento_historial_paciente')
 	
     @models.permalink
     def get_delete_url(self):
-                return ('eliminar_medicamento_paciente', [self.id, ])
+                return ('eliminar_medicamento_historial_paciente', [self.id, ])
     #code
     
 class GinecoHistorial(models.Model):

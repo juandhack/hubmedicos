@@ -10,14 +10,16 @@ Perfil
   <div class="jumbotron">
                 {% for paciente in paciente%}
                         <h2>{{paciente.nombres}} {{paciente.apellidos}}</h2>
-                
+               {% endfor %}
                          <p></p>
                                               <div class="row">
-  <div class="col-sm-6 col-md-4">
+  <div class="col-sm-6 col-md-2">
     <div class="thumbnail">
+    {% for paciente in paciente%}
       <img src="{{MEDIA_URL}}{{paciente.imagen}}">
-     
+    {% endfor %}
     </div>
+     
     <p><a class="btn btn-primary btn-lg" href="{% url 'perfil_basico_paciente' %}" role="button">Editar Perfil</a>
                         </p>
   </div>
@@ -27,6 +29,7 @@ Perfil
                         <div class="panel-heading">
                             Mi Información Personal
                         </div>
+                        {% for paciente in paciente%}
                         <div class="panel-body">
                             Extracto: <a>{{paciente.acerca_de}}</a>
                             <br>
@@ -35,17 +38,18 @@ Perfil
                             Grupo Sanguíneo: <a>{{paciente.grupo_sanguineo}}</a>
                             <br>
                         </div>
+                         {% endfor %}
                         <div class="panel-footer">
                           
                         </div>
                     </div>
                 </div>
-                {% for contacto in contacto %}
                 <div class="col-lg-4">
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             Mi Información de Contacto
                         </div>
+                        {% for contacto in contacto %}
                         <div class="panel-body">
                             Teléfono: <a>{{contacto.telefono}}</a>
                             <br>
@@ -65,20 +69,20 @@ Perfil
                             Ciudad: <a>{{ciudad.nombre}}</a>
                             {% endif %}
                             <br>
-                             
                         </div>
+                        {% endfor %}
                         <div class="panel-footer">
                           
                         </div>
                     </div>
                 </div>
-                    {% endfor %}
-                    {% for social in social %}
+                    
                  <div class="col-lg-4">
                     <div class="panel panel-info">
                         <div class="panel-heading">
                           Mis Redes Sociales  
                         </div>
+                        {% for social in social %}
                         <div class="panel-body">
                             Blog: <a>{{social.blog}}</a>
                             <br>
@@ -91,12 +95,11 @@ Perfil
                             YouTube: <a>{{social.you_tube}}</a>
                             <br>
                         </div>
+                        {% endfor %}
                         <div class="panel-footer">
-                          
                         </div>
                     </div>
                 </div>
-                {% endfor %}
                   <div class="col-lg-4">
                     <div class="panel panel-info">
                         <div class="panel-heading">
@@ -118,7 +121,7 @@ Perfil
 
   
                     </div>
-                    {% endfor %}
+                   
 
    </div>
 

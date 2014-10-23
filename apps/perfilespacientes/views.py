@@ -844,117 +844,117 @@ class EliminarToxicosPaciente(DeleteView):
     
  #--------------Historia Clinica - Alergias -----------------------------------------------------------------# 
 class IngresarAlergiasPaciente(CreateView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
-    form_class = AntecedentesFamiliaresForm
-    model = AntecedentesFamiliares
+    template_name = 'pacientes/historialclinico/antecedentes/personales/alergias/mi_historial_alergias_form.html'
+    form_class = AlergiaForm
+    model = Alergia
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
 	return super(IngresarCirugiaPaciente,self).form_valid(form)
-    success_url = reverse_lazy('listar_familiar_paciente') 
+    success_url = reverse_lazy('listar_alergias_paciente') 
      
 class ListarAlergiasPaciente(ListView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_listar_form.html'
-    form_class = AntecedentesFamiliaresForm
+    template_name = 'pacientes/historialclinico/antecedentes/personales/alergias/mi_historial_alergias_listar_form.html'
+    form_class = AlergiaForm
     #model = Cirugia
-    success_url = reverse_lazy('listar_familiar_paciente')
+    success_url = reverse_lazy('listar_alergias_paciente')
     
     def get_queryset(self):
         return Cirugia.objects.filter(user_id = self.request.user)
     
 class ActualizarAlergiasPaciente(UpdateView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
-    form_class = AntecedentesFamiliaresForm
-    model = AntecedentesFamiliares
+    template_name = 'pacientes/historialclinico/antecedentes/personales/alergias/mi_historial_alergias_form.html'
+    form_class = AlergiaForm
+    model = Alergia
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
 	return super(ActualizarCirugiaPaciente,self).form_valid(form)
-    success_url = reverse_lazy('listar_familiar_paciente')
+    success_url = reverse_lazy('listar_alergias_paciente')
     
 class EliminarAlergiasPaciente(DeleteView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_confirmar_delete_form.html'
-    model = AntecedentesFamiliares
-    success_url = reverse_lazy('listar_familiar_paciente')
+    template_name = 'pacientes/historialclinico/antecedentes/personales/alergias/mi_historial_alergias_confirmar_delete_form.html'
+    model = Alergia
+    success_url = reverse_lazy('listar_alergias_paciente')
 
 
  #--------------Historia Clinica - Inmunizacion -----------------------------------------------------------# 
 class IngresarInmunizacionPaciente(CreateView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
-    form_class = AntecedentesFamiliaresForm
-    model = AntecedentesFamiliares
+    template_name = 'pacientes/historialclinico/antecedentes/personales/inmunizaciones/mi_historial_inmunizaciones_form.html'
+    form_class = InmunizacionForm
+    model = Inmunizacion
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
 	return super(IngresarCirugiaPaciente,self).form_valid(form)
-    success_url = reverse_lazy('listar_familiar_paciente') 
+    success_url = reverse_lazy('listar_inmunizacion_paciente') 
      
 class ListarInmunizacionPaciente(ListView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_listar_form.html'
-    form_class = AntecedentesFamiliaresForm
+    template_name = 'pacientes/historialclinico/antecedentes/personales/inmunizaciones/mi_historial_inmunizaciones_listar_form.html'
+    form_class = InmunizacionForm
     #model = Cirugia
-    success_url = reverse_lazy('listar_familiar_paciente')
+    success_url = reverse_lazy('listar_inmunizacion_paciente')
     
     def get_queryset(self):
         return Cirugia.objects.filter(user_id = self.request.user)
     
 class ActualizarInmunizacionPaciente(UpdateView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
-    form_class = AntecedentesFamiliaresForm
-    model = AntecedentesFamiliares
+    template_name = 'pacientes/historialclinico/antecedentes/personales/inmunizaciones/mi_historial_inmunizaciones_form.html'
+    form_class = InmunizacionForm
+    model = Inmunizacion
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
 	return super(ActualizarCirugiaPaciente,self).form_valid(form)
-    success_url = reverse_lazy('listar_familiar_paciente')
+    success_url = reverse_lazy('listar_inmunizacion_paciente')
     
 class EliminarInmunizacionPaciente(DeleteView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_confirmar_delete_form.html'
+    template_name = 'pacientes/historialclinico/antecedentes/personales/inmunizaciones/mi_historial_inmunizaciones_confirmar_delete_form.html'
     model = AntecedentesFamiliares
-    success_url = reverse_lazy('listar_familiar_paciente')
+    success_url = reverse_lazy('listar_inmunizacion_paciente')
  
  
 
- #--------------Historia Clinica - Medicamento -----------------------------------------------------------# 
-class IngresarMedicamentoPaciente(CreateView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
-    form_class = AntecedentesFamiliaresForm
-    model = AntecedentesFamiliares
+ #--------------Historia Clinica - Medicamento Historial-----------------------------------------------------------# 
+class IngresarMedicamentoHistorialPaciente(CreateView):
+    template_name = 'pacientes/historialclinico/antecedentes/personales/medicamentos/mi_historial_medicamentos_form.html'
+    form_class = MedicamentoHistorialForm
+    model = MedicamentoHistorial
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
 	return super(IngresarCirugiaPaciente,self).form_valid(form)
-    success_url = reverse_lazy('listar_familiar_paciente') 
+    success_url = reverse_lazy('listar_medicamento_historial_paciente') 
      
-class ListarMedicamentoPaciente(ListView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_listar_form.html'
-    form_class = AntecedentesFamiliaresForm
+class ListarMedicamentoHistorialPaciente(ListView):
+    template_name = 'pacientes/historialclinico/antecedentes/personales/medicamentos/mi_historial_medicamentos_listar_form.html'
+    form_class = MedicamentoHistorialForm
     #model = Cirugia
-    success_url = reverse_lazy('listar_familiar_paciente')
+    success_url = reverse_lazy('listar_medicamento_historial_paciente')
     
     def get_queryset(self):
         return Cirugia.objects.filter(user_id = self.request.user)
     
-class ActualizarMedicamentoPaciente(UpdateView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
-    form_class = AntecedentesFamiliaresForm
-    model = AntecedentesFamiliares
+class ActualizarMedicamentoHistorialPaciente(UpdateView):
+    template_name = 'pacientes/historialclinico/antecedentes/personales/medicamentos/mi_historial_medicamentos_form.html'
+    form_class = MedicamentoHistorialForm
+    model = MedicamentoHistorial
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
 	return super(ActualizarCirugiaPaciente,self).form_valid(form)
-    success_url = reverse_lazy('listar_familiar_paciente')
+    success_url = reverse_lazy('listar_medicamento_historial_paciente')
     
-class EliminarMedicamentoPaciente(DeleteView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_confirmar_delete_form.html'
-    model = AntecedentesFamiliares
-    success_url = reverse_lazy('listar_familiar_paciente')
+class EliminarMedicamentoHistorialPaciente(DeleteView):
+    template_name = 'pacientes/historialclinico/antecedentes/personales/medicamentos/mi_historial_medicamentos_form.html'
+    model = MedicamentoHistorial
+    success_url = reverse_lazy('listar_medicamento_historial_paciente')
 
 
  #--------------Historia Clinica - Gineco Historial -----------------------------------------------------------# 
@@ -1077,7 +1077,7 @@ def perfil_basico(request):
     	form = PerfilBasicoForm(request.POST, request.FILES, instance=request.user.perfilbasicopaciente)
     	if form.is_valid():
     		form.save()
-    		return HttpResponseRedirect('/paciente/perfilbasico/principal')
+    		return HttpResponseRedirect('/paciente/perfilbasico/')
     else:
     	user = request.user
     	perfiles = user.perfilbasicopaciente
@@ -1095,7 +1095,7 @@ def perfil_basico_contactos(request):
     	form = ContactosBasicoForm(request.POST, request.FILES, instance=request.user.contactospaciente)
     	if form.is_valid():
     		form.save()
-    		return HttpResponseRedirect('/paciente/perfilbasico/principal')
+    		return HttpResponseRedirect('/paciente/perfilbasico/contacto')
     else:
     	user = request.user
     	contactos = user.contactospaciente
@@ -1113,7 +1113,7 @@ def perfil_basico_social(request):
     	form = RedesSocialesForm(request.POST, instance=request.user.socialespaciente)
     	if form.is_valid():
     		form.save()
-    		return HttpResponseRedirect('/paciente/perfilbasico/principal')
+    		return HttpResponseRedirect('/paciente/perfilbasico/social')
     else:
     	user = request.user
     	sociales = user.socialespaciente
@@ -1144,5 +1144,11 @@ def perfil_principal_paciente_home(request):
         data['ciudad'] = tipo_ciudad
 
 	return render_to_response('pacientes/perfil/perfil_principal.html',data,context_instance=RequestContext(request))
+    
+
+
+
+    
+    
     
     

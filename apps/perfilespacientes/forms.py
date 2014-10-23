@@ -263,7 +263,7 @@ class ResumenClinicoPacienteForm(forms.ModelForm):
 class EnfermedadPacienteForm(forms.ModelForm):
     class Meta:
         model = Enfermedad
-        fields = ('nombre','estado','fecha','evolucion','nota')
+        fields = ('nombre','estado','fecha_inicio','fecha_final','actual','evolucion','nota')
                 
         widgets = {
             'nombre': TextInput(attrs={'size':25}),
@@ -291,3 +291,40 @@ class AntecedentesFamiliaresForm(forms.ModelForm):
         model = AntecedentesFamiliares
         exclude = ('user',)
        
+       
+class ToxicoForm(forms.ModelForm):
+    class Meta:
+        model = Toxico
+        exclude = ('user',)
+        
+
+class AlergiaForm(forms.ModelForm):
+    class Meta:
+        model = Alergia
+        exclude = ('user',)
+  
+        
+class InmunizacionForm(forms.ModelForm):
+    class Meta:
+        model = Inmunizacion
+        exclude = ('user',)
+
+class MedicamentoHistorialForm(forms.ModelForm):
+    class Meta:
+        model = MedicamentoHistorial
+        exclude = ('user',)        
+
+class GinecoHistorialForm(forms.ModelForm):
+    class Meta:
+        model = GinecoHistorial
+        exclude = ('user',)
+         
+class GinecoDiarioForm(forms.ModelForm):
+    class Meta:
+        model = GinecoDiario
+        exclude = ('user',)
+               
+class ClubMedicoForm(forms.ModelForm):
+    class Meta:
+        model = ClubMedico
+        exclude = ('user',)

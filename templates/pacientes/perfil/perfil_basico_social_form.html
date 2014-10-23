@@ -27,7 +27,9 @@ Perfil - Básico
   <div class="col-lg-3">
     <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-user"></i></h3>
+                                <h3 class="panel-title"><i class="fa fa-user"></i> Mis Redes Sociales</h3>
+                                 <br>
+                                 <a href="{% url 'perfil_principal_paciente' %}"><button type="button" class="btn btn-primary btn-xs">Ver Mi Perfil Público</button></a>
                             </div>
                             <div class="panel-body">
                                  <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}

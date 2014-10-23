@@ -139,11 +139,11 @@ urlpatterns = patterns('',
     url(r'^paciente/diariomedico/historiaclinica/inmunizacion/actualizar/(?P<pk>\d+)/$',ActualizarInmunizacionPaciente.as_view(), name='actualizar_inmunizacion_paciente'),
     url(r'^paciente/diariomedico/historiaclinica/inmunizacion/eliminar/(?P<pk>\d+)/$' ,EliminarInmunizacionPaciente.as_view(), name='eliminar_inmunizacion_paciente'),
     
-    #Historia Clinica Medicamento
-    url(r'^paciente/diariomedico/historiaclinica/medicamento/ingresar$',IngresarMedicamentoPaciente.as_view(), name='ingresar_medicamento_paciente'),
-    url(r'^paciente/diariomedico/historiaclinica/medicamento/listar/$',ListarMedicamentoPaciente.as_view(), name='listar_medicamento_paciente'),
-    url(r'^paciente/diariomedico/historiaclinica/medicamento/actualizar/(?P<pk>\d+)/$',ActualizarMedicamentoPaciente.as_view(), name='actualizar_medicamento_paciente'),
-    url(r'^paciente/diariomedico/historiaclinica/medicamento/eliminar/(?P<pk>\d+)/$' ,EliminarMedicamentoPaciente.as_view(), name='eliminar_medicamento_paciente'),
+    #Historia Clinica Medicamento Historial
+    url(r'^paciente/diariomedico/historiaclinica/medicamento_historial/ingresar$',IngresarMedicamentoHistorialPaciente.as_view(), name='ingresar_medicamento_historial_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/medicamento_historial/listar/$',ListarMedicamentoHistorialPaciente.as_view(), name='listar_medicamento_historial_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/medicamento_historial/actualizar/(?P<pk>\d+)/$',ActualizarMedicamentoHistorialPaciente.as_view(), name='actualizar_medicamento_historial_paciente'),
+    url(r'^paciente/diariomedico/historiaclinica/medicamento_historial/eliminar/(?P<pk>\d+)/$' ,EliminarMedicamentoHistorialPaciente.as_view(), name='eliminar_medicamento_historial_paciente'),
     
      #Historia Clinica Gineco Historial
     url(r'^paciente/diariomedico/historiaclinica/gineco_historial/ingresar$',IngresarGinecoHistorialPaciente.as_view(), name='ingresar_gineco_historial_paciente'),
@@ -168,6 +168,7 @@ urlpatterns = patterns('',
     url(r'^paciente/perfilbasico/social/$' ,'apps.perfilespacientes.views.perfil_basico_social', name='perfil_basico_social_paciente'),
 
     #url(r'^paciente/perfilbasico/principal$' ,PerfilPrincipalPaciente.as_view(), name='perfil_principal_paciente'),
+    #url(r'^paciente/perfilbasico/principal/$' ,'apps.perfilespacientes.views.perfil_basico', name='perfil_principal_paciente'),
     url(r'^paciente/perfilbasico/principal/$' ,'apps.perfilespacientes.views.perfil_principal_paciente_home', name='perfil_principal_paciente'),
 
 )
