@@ -482,11 +482,11 @@ class Presion(models.Model):
 class RutinaEjercicio(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
     nombre = models.CharField(max_length=100)
-    descripcion = models.CharField("Descripción",max_length=150,null=True,blank=True)
-    duracion = models.SmallIntegerField("Duración",null=True,blank=True)
+    descripcion = models.TextField(max_length=150,null=True,blank=True)
+    duracion = models.SmallIntegerField(null=True,blank=True)
     distancia = models.SmallIntegerField(null=True,blank=True)
-    num_pasos = models.SmallIntegerField("Número de pasos",null=True,blank=True)
-    calorias_quemadas = models.SmallIntegerField("Calorías quemadas",null=True,blank=True)
+    num_pasos = models.SmallIntegerField(null=True,blank=True)
+    calorias_quemadas = models.SmallIntegerField(null=True,blank=True)
     fecha = models.DateField(unique=True)
     hora = models.CharField(max_length=30,null=True,blank=True)
     nota = models.TextField(null=True, blank=True)
@@ -605,13 +605,13 @@ MODO_ADMIN = (
 class Medicamento(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
     nombre = models.CharField(max_length=100)
-    concentracion = models.SmallIntegerField("Concentración",max_length=100,null=True,blank=True)
+    concentracion = models.SmallIntegerField(max_length=100,null=True,blank=True)
     tipo_concentracion = models.ForeignKey(TipoConcentracion, null=True, blank=True)
     dosis = models.SmallIntegerField(max_length=100,null=True,blank=True)
     tipo_dosis = models.ForeignKey(TipoDosis, null=True, blank=True)
     modo_admin = models.ForeignKey(ModoAdministracion, null=True, blank=True)
-    frecuencia_admin = models.CharField("Frecuencia de administración",max_length=100,null=True,blank=True)
-    motivo_admin = models.CharField("Motivo de administración",max_length=100,null=True,blank=True)
+    frecuencia_admin = models.CharField(max_length=100,null=True,blank=True)
+    motivo_admin = models.CharField(max_length=100,null=True,blank=True)
     fecha_inicio = models.DateField(unique=True, null=True, blank=True)
     fecha_final = models.DateField(unique=True, null=True, blank=True)
     nota = models.TextField(null=True, blank=True)
@@ -633,7 +633,7 @@ class Medicamento(models.Model):
     
 class Terapia (models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
-    nombre = models.CharField(max_length=100)
+    nombre = models.TextField(null=True, blank=True)
     class Meta:
 		verbose_name = 'Terapia'
 		verbose_name_plural = 'Terapia'
@@ -743,7 +743,6 @@ class Enfermedad(models.Model):
     fecha_inicio = models.DateTimeField(unique=True, null=True, blank=True)
     fecha_final = models.DateTimeField(unique=True, null=True, blank=True)
     evolucion = models.CharField("Evolución",max_length=100,null=True,blank=True)
-    actual = models.BooleanField(default=False)
     nota = models.TextField(null=True, blank=True)
     
     class Meta:
@@ -891,7 +890,7 @@ class Inmunizacion(models.Model):
     nombre = models.CharField(max_length=100, null=True, blank=True)
     fecha_recepcion = models.DateTimeField(unique=True, null=True, blank=True)
     num_secuencia = models.SmallIntegerField(max_length=100, null=True, blank=True)
-    efectos_secundarios = models.CharField(max_length=100)
+    efectos_secundarios = models.TextField(max_length=100)
     nota = models.TextField(null=True, blank=True)
 
     class Meta:
@@ -949,7 +948,7 @@ class GinecoHistorial(models.Model):
     num_embarazos_ectopicos = models.SmallIntegerField(null=True, blank=True)
     sangrados_vaginales = models.BooleanField(default=False)
     causas_sangrados_vaginales = models.CharField(max_length=100)
-    duracion_sangrados_vaginales = models.CharField(max_length=100)
+    duracion_sangrados_vaginales = models.TextField(null=True, blank=True)
     
     class Meta:
 		verbose_name = 'Historial Ginecologico'
