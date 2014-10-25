@@ -250,12 +250,7 @@ class MedicamentoPacienteForm(forms.ModelForm):
         }
         
         labels = {
-            'concentracion':("Concentración"),
-            'tipo_concentracion':("Tipo de concentración"),
-            'tipo_dosis':('Tipo de dosis'),
-            'frecuencia_admin':('Frecuencia de administración'),
-            'modo_admin':('Modo de administración'),
-            'motivo_admin':('Motivo de administración'),
+
             
         }
         
