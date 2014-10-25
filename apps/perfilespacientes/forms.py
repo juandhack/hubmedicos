@@ -240,7 +240,7 @@ class MedicamentoPacienteForm(forms.ModelForm):
             'tipo_concentracion':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
             'dosis': NumberInput(attrs={'class': 'form-control','style':'width:200px','placeholder': _("ej: 2")}),
             'tipo_dosis':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
-            'frecuencia_admin': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px','placeholder': _("ej: 2 veces al día")}),
+            'frecuencia_admin': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px','placeholder': _("ej: 2 veces al dia")}),
             'modo_admin':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
             'motivo_admin': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px'}),
             'fecha_inicio': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:200px'}),
