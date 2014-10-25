@@ -28,7 +28,7 @@ class PerfilBasicoForm(forms.ModelForm):
             'dni': _('Documento de Identidad'),
             'fecha_nacimiento': _('Fecha de Nacimiento'),
             'grupo_sanguineo': _('Grupo de Sangre'),
-            'acerca_de':('Reseña médica')
+           
         }
         
         
