@@ -22,7 +22,7 @@ class PerfilBasicoForm(forms.ModelForm):
             'sexo': forms.Select(attrs={'class':'selectMenu','style':'width:150px'}),
             'grupo_sanguineo': forms.Select(attrs={'class':'selectMenu','style':'width:150px'}),
             'imagen': FileInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:250px'}),
-            'acerca_de':Textarea(attrs={'cols': 30, 'rows': 10,'class': 'form-control','placeholder': _("Escribe una reseña breve de tu historial médico")}),
+            'acerca_de':Textarea(attrs={'cols': 30, 'rows': 10,'class': 'form-control','placeholder': _("historial ")}),
         }
         labels = {
             'dni': _('Documento de Identidad'),
