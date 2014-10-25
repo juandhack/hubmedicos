@@ -102,6 +102,18 @@ class TipoSangre(models.Model):
     
     def __unicode__(self):
         return self.descripcion
+      
+class RelacionFamiliar(models.Model):
+    descripcion = models.CharField(max_length = 160)
+    
+    def __unicode__(self):
+        return self.descripcion
+      
+class ReaccionAlergia(models.Model):
+    descripcion = models.CharField(max_length = 160)
+    
+    def __unicode__(self):
+        return self.descripcion
 
 
 class PerfilBasico(models.Model):
@@ -678,7 +690,7 @@ class Cita(models.Model):
     proposito = models.CharField("Propósito",max_length=100,null=True, blank=True)
     nombre_especialista = models.CharField(max_length=100,null=True, blank=True)
     especialidad = models.CharField(max_length=100,null=True, blank=True)
-    fecha = models.DateField(unique=True)
+    fecha = models.DateTimeField(unique=True, null=True, blank=True)
     hora = models.CharField(max_length=30,null=True,blank=True)
     nota = models.TextField(null=True, blank=True)
     class Meta:
@@ -726,12 +738,12 @@ ESTADO_ENFERMEDAD = (
     
 class Enfermedad(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, null=True,blank=True)
     estado = models.ForeignKey(EstadoEnfermedad, null=True, blank=True)
-    fecha_inicio = models.DateField(unique=True)
-    fecha_final = models.DateField(unique=True)
+    fecha_inicio = models.DateTimeField(unique=True, null=True, blank=True)
+    fecha_final = models.DateTimeField(unique=True, null=True, blank=True)
     evolucion = models.CharField("Evolución",max_length=100,null=True,blank=True)
-    actual = models.CharField(max_length=100,null=True,blank=True)
+    actual = models.BooleanField(default=False)
     nota = models.TextField(null=True, blank=True)
     
     class Meta:
@@ -754,8 +766,7 @@ class Enfermedad(models.Model):
 class Cirugia(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
     nombre = models.CharField(max_length=100)
-    fecha = models.DateField(unique=True)
-    hora = models.CharField(max_length=30,null=True,blank=True)
+    fecha = models.DateTimeField(unique=True)
     ubicacion_cuerpo = models.CharField("Ubicación en el cuerpo",max_length=100,null=True,blank=True)
     proveedor = models.CharField("Nombre especialista",max_length=100,null=True,blank=True)
     nota = models.TextField(null=True, blank=True)
@@ -775,17 +786,19 @@ class Cirugia(models.Model):
     def get_delete_url(self):
                 return ('eliminar_cirugia_paciente', [self.id, ])
     #code
-    
+ 
+   
 class AntecedentesFamiliares(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
-    relacion = models.CharField(max_length=100)
+    relacion = models.ForeignKey(RelacionFamiliar, null=True, blank=True)
     nombre_familiar = models.CharField(max_length=100)
     enfermedad = models.CharField(max_length=100)
-    fecha_inicio = models.DateField(unique=True, null=True, blank=True)
-    fecha_final = models.DateField(unique=True, null=True, blank=True)
-    estado = models.CharField(max_length=100,null=True,blank=True)
+    fecha_inicio = models.DateField(null=True, blank=True)
+    fecha_final = models.DateField(null=True, blank=True)
+    estado = models.ForeignKey(EstadoEnfermedad, null=True, blank=True)
     como_finalizo = models.CharField(max_length=100,null=True,blank=True)
     nota = models.TextField(null=True, blank=True)
+    
 
     class Meta:
 		verbose_name = 'Antecedentes Familiares'
@@ -801,16 +814,25 @@ class AntecedentesFamiliares(models.Model):
     @models.permalink
     def get_delete_url(self):
                 return ('eliminar_familiar_paciente', [self.id, ])
+
     #code
+ 
+ESTADO_BEBEDOR = (
     
+    ('Social','Social'),
+    ('Ocasional','Ocasional'),
+    ('Frecuente','Frecuente'),
+    
+    )
+ 
 class Toxico(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
-    fumador = models.CharField(max_length=100)
-    num_cigarrillos = models.CharField(max_length=100)
-    num_anios_fumador = models.CharField(max_length=100)
-    bebedor = models.CharField(max_length=100)
-    tipo_bebedor = models.CharField(max_length=100)
-    drogadicto = models.CharField(max_length=100)
+    fumador = models.BooleanField(default=False)
+    num_cigarrillos = models.SmallIntegerField(max_length=100, null=True, blank=True)
+    num_anios_fumador = models.SmallIntegerField(max_length=100, null=True, blank=True)
+    bebedor = models.BooleanField(default=False)
+    tipo_bebedor = models.CharField(max_length=100,null=True,blank=True,choices=ESTADO_BEBEDOR)
+    drogadicto = models.BooleanField(default=False)
     tipo_droga = models.CharField(max_length=100)
 
     class Meta:
@@ -829,13 +851,22 @@ class Toxico(models.Model):
                 return ('eliminar_toxicos_paciente', [self.id, ])
     #code
     
+ 
+TIPO_ALERGIAS = (
     
+    ('Alimento','Alimento'),
+    ('Ambiental','Ambiental'),
+    ('Animal','Animal'),
+    ('Vegetal','Vegetal'),
+    
+    )
+ 
 class Alergia(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
-    nombre = models.CharField(max_length=100)
-    reaccion = models.CharField(max_length=100)
-    tipo = models.CharField(max_length=100)
-    fecha_inicio = models.DateField(unique=True, null=True, blank=True)
+    nombre = models.CharField(max_length=100, null=True, blank=True)
+    reaccion = models.ForeignKey(ReaccionAlergia, null=True, blank=True)
+    tipo = models.CharField(max_length=100, null=True, blank=True, choices=TIPO_ALERGIAS)
+    fecha_inicio = models.DateTimeField(unique=True, null=True, blank=True)
     nota = models.TextField(null=True, blank=True)
 
     class Meta:
@@ -857,9 +888,9 @@ class Alergia(models.Model):
 
 class Inmunizacion(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
-    nombre = models.CharField(max_length=100)
-    fecha_inicio = models.DateField(unique=True, null=True, blank=True)
-    num_secuencia = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, null=True, blank=True)
+    fecha_recepcion = models.DateTimeField(unique=True, null=True, blank=True)
+    num_secuencia = models.SmallIntegerField(max_length=100, null=True, blank=True)
     efectos_secundarios = models.CharField(max_length=100)
     nota = models.TextField(null=True, blank=True)
 
@@ -883,10 +914,10 @@ class Inmunizacion(models.Model):
  
 class MedicamentoHistorial(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
-    nombre = models.CharField(max_length=100)
-    motivo = models.CharField(max_length=100)
-    fecha_inicio = models.DateField(unique=True, null=True, blank=True)
-    fecha_fin = models.DateField(unique=True, null=True, blank=True)
+    nombre = models.CharField(max_length=100, null=True, blank=True)
+    motivo = models.CharField(max_length=100, null=True, blank=True)
+    fecha_inicio = models.DateTimeField(unique=True, null=True, blank=True)
+    fecha_fin = models.DateTimeField(unique=True, null=True, blank=True)
     nota = models.TextField(null=True, blank=True)
 
     class Meta:
@@ -907,16 +938,16 @@ class MedicamentoHistorial(models.Model):
     
 class GinecoHistorial(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
-    edad_primera_menstruacion = models.CharField(max_length=100)
-    edad_menupausia = models.CharField(max_length=100)
-    edad_inicio_vida_sexual = models.CharField(max_length=100)
-    num_embarazos = models.CharField(max_length=100)
-    num_partos_vaginales = models.CharField(max_length=100)
-    num_abortos = models.CharField(max_length=100)
-    num_hijos_vivos = models.CharField(max_length=100)
-    num_cesareas = models.CharField(max_length=100)
-    num_embarazos_ectopicos = models.CharField(max_length=100)
-    sangrados_vaginales = models.CharField(max_length=100)
+    edad_primera_menstruacion = models.SmallIntegerField(null=True, blank=True)
+    edad_menupausia = models.SmallIntegerField(null=True, blank=True)
+    edad_inicio_vida_sexual = models.SmallIntegerField(null=True, blank=True)
+    num_embarazos = models.SmallIntegerField(null=True, blank=True)
+    num_partos_vaginales = models.SmallIntegerField(null=True, blank=True)
+    num_abortos = models.SmallIntegerField(null=True, blank=True)
+    num_hijos_vivos = models.SmallIntegerField(null=True, blank=True)
+    num_cesareas = models.SmallIntegerField(null=True, blank=True)
+    num_embarazos_ectopicos = models.SmallIntegerField(null=True, blank=True)
+    sangrados_vaginales = models.BooleanField(default=False)
     causas_sangrados_vaginales = models.CharField(max_length=100)
     duracion_sangrados_vaginales = models.CharField(max_length=100)
     
@@ -935,18 +966,41 @@ class GinecoHistorial(models.Model):
     def get_delete_url(self):
                 return ('eliminar_gineco_historial_paciente', [self.id, ])
     #code
+  
+  
+TIPO_CICLOS_MENSTRUALES = (
     
+    ('Regulares','Regulares'),
+    ('Regulares','Regualares'),
+
+    )
+
+
+TIPO_ANTICONCEPTIVOS = (
+    
+    ('Orales','Orales'),
+    ('Preservativos','Preservativos'),
+    ('Implantes','Implantes'),
+    ('Ligaduras','Ligaduras'),
+    ('Espermicidas','Espermicidas'),
+    ('Ritmo','Ritmo'),
+    ('Otros','Otros'),
+     
+    )
+
+
 class GinecoDiario(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
-    ciclos_menstruales = models.CharField(max_length=100)
-    duracion_ciclos = models.CharField(max_length=100)
-    tipo_anticonceptivos = models.CharField(max_length=100)
-    tiempo_uso_anticonceptivos = models.CharField(max_length=100)
+    ciclos_menstruales = models.CharField(max_length=100, null=True, blank=True, choices=TIPO_CICLOS_MENSTRUALES)
+    duracion_ciclos = models.SmallIntegerField(null=True, blank=True)
+    anticonceptivo = models.BooleanField(default=False)
+    tipo_anticonceptivos = models.CharField(max_length=100,null=True, blank=True, choices=TIPO_ANTICONCEPTIVOS)
+    tiempo_uso_anticonceptivos = models.SmallIntegerField(null=True, blank=True)
     resultado_citologia = models.CharField(max_length=100)
     resultado_mamografia = models.CharField(max_length=100)
-    fecha_ultima_mestruacion = models.DateField(unique=True, null=True, blank=True)
-    fecha_ultima_citologia = models.DateField(unique=True, null=True, blank=True)
-    fecha_ultima_mamografia = models.DateField(unique=True, null=True, blank=True)
+    fecha_ultima_mestruacion = models.DateTimeField(unique=True, null=True, blank=True)
+    fecha_ultima_citologia = models.DateTimeField(unique=True, null=True, blank=True)
+    fecha_ultima_mamografia = models.DateTimeField(unique=True, null=True, blank=True)
      
     class Meta:
 		verbose_name = 'Diario Ginecologico'

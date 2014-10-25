@@ -13,6 +13,7 @@
 
     {% endblock title %}</title>
 
+
     <!-- Bootstrap Core CSS -->
     <link href="{{STATIC_URL}}pacientes2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -27,6 +28,10 @@
 
     <!-- Morris Charts CSS -->
     <link href="{{STATIC_URL}}pacientes2/css/plugins/morris.css" rel="stylesheet">
+
+   <!-- Jquery Charts CSS -->
+    <link href="{{STATIC_URL}}pacientes2/jquery/jquery-ui.css" rel="stylesheet">
+  
 
     <!-- Custom Fonts -->
     <link href="{{STATIC_URL}}pacientes2/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -107,7 +112,7 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                
+               
                         <li>
                             <a href="#"><i class="fa fa-home fa-fw"></i> Actividad</a>
                         </li>
@@ -171,6 +176,10 @@
     <script src="{{STATIC_URL}}pacientes2/js/plugins/morris/morris.min.js"></script>
     <script src="{{STATIC_URL}}pacientes2/js/plugins/morris/morris-data.js"></script>
 
+     <!-- jQuery UI Version 1.11.2 -->
+    <script src="{{STATIC_URL}}pacientes2/jquery/jquery-ui.js"></script>
+
+
     <!-- Custom Theme JavaScript -->
     <script src="{{STATIC_URL}}pacientes2/js/sb-admin-2.js"></script>
     <script>
@@ -185,6 +194,11 @@
         .popover()
     </script>
 
+<script>
+$( "#datePicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
+$( "#datePicker2" ).datepicker({ dateFormat: 'dd/mm/yy' });
+$( ".selectMenu" ).selectmenu();
+</script>
 </body>
 
 </html>

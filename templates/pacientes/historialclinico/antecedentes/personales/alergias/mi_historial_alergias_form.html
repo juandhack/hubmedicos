@@ -1,7 +1,7 @@
 {% extends "pacientes/index.html" %}
 
 {% block title %}
-Historial Clínico- Listar Historial de Alergias
+Historial Clínico - Mis Alergias
 {% endblock %}
 
 {% block content %}
@@ -15,41 +15,20 @@ Historial Clínico- Listar Historial de Alergias
                                {% include 'pacientes/menu_historia_clinica_antecedentes_personales.html' %}
                             </div>
                             <div class="panel-body">
-                           <div class="col-lg-6">
-              <div class="panel panel-default">
-                        <div class="panel-heading">
-                           <a href="{% url 'ingresar_alergias_paciente' %}"><h4><i class="fa fa-plus-square"></i> Adicionar Alergia</h4></a>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-          
-                                            <th>Alergia</th>
-                                         
-                                        </tr>
-                                    </thead>
-                                    {% for alergia in object_list %}
-                                    <tbody>
-                                        <tr>
-                                            <td>{{alergia.nombre}}</td>
-                                             <td>
-                                                 <a href={% url 'eliminar_alergias_paciente' alergia.id %}>Eliminar</a>
-                                               
-                                            </td>
-                                            
-                                        </tr>
-                                    </tbody>
-                                    {% endfor %}
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
+                                <div class="col-lg-4">
+                    <div class="well well-sm">
+                    <div class="alert alert-info">
+                        <h5><label>Alergia: </label></h5></div>
+                                     <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
+              {{ form }}
+              <p></p>
+              <div class="tooltip-demo">
+ <button type="submit" class="btn btn-info btn-circle" data-toggle="tooltip" data-placement="right" title="" data-original-title="Ingresar alergia"><i class="fa fa-check"></i></button>
+ </div>
+ <p></p>
+              </form>
                     </div>
-            </div>
+                </div>
                
   </div>
                                

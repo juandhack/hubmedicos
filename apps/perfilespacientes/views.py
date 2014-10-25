@@ -738,7 +738,7 @@ class IngresarFamiliarPaciente(CreateView):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
-	return super(IngresarCirugiaPaciente,self).form_valid(form)
+	return super(IngresarFamiliarPaciente,self).form_valid(form)
     success_url = reverse_lazy('listar_familiar_paciente') 
      
 class ListarFamiliarPaciente(ListView):
@@ -748,7 +748,7 @@ class ListarFamiliarPaciente(ListView):
     success_url = reverse_lazy('listar_familiar_paciente')
     
     def get_queryset(self):
-        return Cirugia.objects.filter(user_id = self.request.user)
+        return AntecedentesFamiliares.objects.filter(user_id = self.request.user)
     
 class ActualizarFamiliarPaciente(UpdateView):
     template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
@@ -807,40 +807,40 @@ class EliminarEnfermedadActualPaciente(DeleteView):
 
 #--------------Historia Clinica - Toxicos -----------------------------------------------------------------# 
 class IngresarToxicosPaciente(CreateView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
-    form_class = AntecedentesFamiliaresForm
-    model = AntecedentesFamiliares
+    template_name = 'pacientes/historialclinico/antecedentes/personales/toxicos/mi_historial_toxicos_form.html'
+    form_class = ToxicoForm
+    model = Toxico
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
 	return super(IngresarCirugiaPaciente,self).form_valid(form)
-    success_url = reverse_lazy('listar_familiar_paciente') 
+    success_url = reverse_lazy('listar_toxicos_paciente') 
      
 class ListarToxicosPaciente(ListView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_listar_form.html'
-    form_class = AntecedentesFamiliaresForm
+    template_name = 'pacientes/historialclinico/antecedentes/personales/toxicos/mi_historial_toxicos_listar_form.html'
+    form_class = ToxicoForm
     #model = Cirugia
-    success_url = reverse_lazy('listar_familiar_paciente')
+    success_url = reverse_lazy('listar_toxicos_paciente')
     
     def get_queryset(self):
         return Cirugia.objects.filter(user_id = self.request.user)
     
 class ActualizarToxicosPaciente(UpdateView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
-    form_class = AntecedentesFamiliaresForm
-    model = AntecedentesFamiliares
+    template_name = 'pacientes/historialclinico/antecedentes/personales/toxicos/mi_historial_toxicos_form.html'
+    form_class = ToxicoForm
+    model = Toxico
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
 	return super(ActualizarCirugiaPaciente,self).form_valid(form)
-    success_url = reverse_lazy('listar_familiar_paciente')
+    success_url = reverse_lazy('listar_toxicos_paciente')
     
 class EliminarToxicosPaciente(DeleteView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_confirmar_delete_form.html'
-    model = AntecedentesFamiliares
-    success_url = reverse_lazy('listar_familiar_paciente')
+    template_name = 'pacientes/historialclinico/antecedentes/personales/toxicos/mi_historial_toxicos_confirmar_delete_form.html'
+    model = Toxico
+    success_url = reverse_lazy('listar_toxicos_paciente')
     
  #--------------Historia Clinica - Alergias -----------------------------------------------------------------# 
 class IngresarAlergiasPaciente(CreateView):
@@ -959,40 +959,40 @@ class EliminarMedicamentoHistorialPaciente(DeleteView):
 
  #--------------Historia Clinica - Gineco Historial -----------------------------------------------------------# 
 class IngresarGinecoHistorialPaciente(CreateView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
-    form_class = AntecedentesFamiliaresForm
-    model = AntecedentesFamiliares
+    template_name = 'pacientes/historialclinico/antecedentes/personales/gineco_historial/mi_historial_gineco_historial_form.html'
+    form_class = GinecoHistorialForm
+    model = GinecoHistorial
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
 	return super(IngresarCirugiaPaciente,self).form_valid(form)
-    success_url = reverse_lazy('listar_familiar_paciente') 
+    success_url = reverse_lazy('listar_gineco_historial_paciente') 
      
 class ListarGinecoHistorialPaciente(ListView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_listar_form.html'
-    form_class = AntecedentesFamiliaresForm
+    template_name = 'pacientes/historialclinico/antecedentes/personales/gineco_historial/mi_historial_gineco_historial_listar_form.html'
+    form_class = GinecoHistorialForm
     #model = Cirugia
-    success_url = reverse_lazy('listar_familiar_paciente')
+    success_url = reverse_lazy('listar_gineco_historial_paciente')
     
     def get_queryset(self):
         return Cirugia.objects.filter(user_id = self.request.user)
     
 class ActualizarGinecoHistorialPaciente(UpdateView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
-    form_class = AntecedentesFamiliaresForm
-    model = AntecedentesFamiliares
+    template_name = 'pacientes/historialclinico/antecedentes/personales/gineco_historial/mi_historial_gineco_historial_form.html'
+    form_class = GinecoHistorialForm
+    model = GinecoHistorial
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
 	return super(ActualizarCirugiaPaciente,self).form_valid(form)
-    success_url = reverse_lazy('listar_familiar_paciente')
+    success_url = reverse_lazy('listar_gineco_historial_paciente')
     
 class EliminarGinecoHistorialPaciente(DeleteView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_confirmar_delete_form.html'
-    model = AntecedentesFamiliares
-    success_url = reverse_lazy('listar_familiar_paciente')
+    template_name = 'pacientes/historialclinico/antecedentes/personales/gineco_historial/mi_historial_gineco_historial_confirmar_delete_form.html'
+    model = GinecoHistorial
+    success_url = reverse_lazy('listar_gineco_historial_paciente')
     
   
 #--------------Historia Clinica - Gineco Diario-----------------------------------------------------------# 

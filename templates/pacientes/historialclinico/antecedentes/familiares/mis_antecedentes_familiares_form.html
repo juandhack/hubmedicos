@@ -15,11 +15,12 @@ Diario Médico - Mis Historia Familiar
                                {% include 'pacientes/menu_historia_clinica_antecedentes_familiares.html' %}
                             </div>
                             <div class="panel-body">
-                                <div class="col-lg-5">
+                                <div class="col-lg-4">
                     <div class="well well-sm">
                     <div class="alert alert-info">
                         <h5><label>Historia Familiar: </label></h5></div>
                                      <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
+                                 
               {{ form }}
               <p></p>
               <div class="tooltip-demo">

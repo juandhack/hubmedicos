@@ -31,12 +31,12 @@ Diario Médico - Listar Historia Familiar
                                          
                                         </tr>
                                     </thead>
-                                    {% for historia in object_list %}
+                                    {% for historia_familiar in object_list %}
                                     <tbody>
                                         <tr>
-                                            <td>{{historia.resumen}}</td>
+                                            <td>{{historia_familiar.nombre_familiar}}</td>
                                              <td>
-                                                 <a href={% url 'eliminar_familiar_paciente' historia.id %}>Eliminar</a>
+                                                 <a href={% url 'eliminar_familiar_paciente' historia_familiar.id %}>Eliminar</a>
                                                
                                             </td>
                                             

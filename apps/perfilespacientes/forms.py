@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from .models import *
 from apps.perfilesmedicos.models import RedesSociales
-from django.forms import Textarea,TextInput, URLInput, CharField, DateTimeInput, NumberInput
+from django.forms import Textarea,TextInput, URLInput, CharField, DateTimeInput, NumberInput, DateInput
 from django.forms.extras import SelectDateWidget
 
 class PerfilBasicoForm(forms.ModelForm):
@@ -257,6 +257,7 @@ class ResumenClinicoPacienteForm(forms.ModelForm):
         widgets = {
             'resumen': Textarea(attrs={'cols': 40, 'rows': 10}),
             
+        
         }
         
 
@@ -275,7 +276,7 @@ class EnfermedadPacienteForm(forms.ModelForm):
 class CirugiaPacienteForm(forms.ModelForm):
     class Meta:
         model = Cirugia
-        fields = ('nombre','fecha','hora','ubicacion_cuerpo','proveedor','nota')
+        fields = ('nombre','fecha','ubicacion_cuerpo','proveedor','nota')
                 
         widgets = {
             'nombre': TextInput(attrs={'size':25}),
@@ -285,12 +286,33 @@ class CirugiaPacienteForm(forms.ModelForm):
             'proveedor': TextInput(attrs={'size':30}),
             'nota': Textarea(attrs={'cols': 30, 'rows': 5}),
         }
-        
+ 
+
+
 class AntecedentesFamiliaresForm(forms.ModelForm):
     class Meta:
+      
         model = AntecedentesFamiliares
         exclude = ('user',)
-       
+                
+        widgets = {
+            
+            'nombre_familiar': TextInput(attrs={'maxlength': 30, 'class': 'form-control'}),
+            'relacion':forms.Select(attrs={'class':'selectMenu'}),
+            'enfermedad': TextInput(attrs={'maxlength': 30, 'class': 'form-control'}),
+            'fecha_inicio': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker'}),
+            'fecha_final': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker2'}),
+            'estado':forms.Select(attrs={'class':'selectMenu'}),
+            'como_finalizo': TextInput(attrs={'size':25,'class': 'form-control'}),
+            'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
+        }
+        
+        labels = {
+            'relacion': ('Relación'),
+            'como_finalizo':('Cómo evolucionó')
+        }
+        
+    
        
 class ToxicoForm(forms.ModelForm):
     class Meta:
