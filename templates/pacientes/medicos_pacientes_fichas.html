@@ -17,150 +17,68 @@ Perfil - Personal
                                     <b>Todos</b>
                                 </a>
                             </li>
-
+{% for paciente in paciente %}
                                 <li>
+                                
                                     <a href="#Person-1">
                                         <i class="icon-chevron-right pull-right"></i>
-                                        Alina Gómez
+                                        {{ paciente.nombres }} {{ paciente.apellidos }}
                                     </a>
+                                    
                                 </li>
-
-                                <li>
-                                    <a href="#Person-2">
-                                        <i class="icon-chevron-right pull-right"></i>
-                                        Victor Pérez
-                                    </a>
-                                </li>
+ {% endfor %}
 
                         </ul>
                     </div>
                 </div>
-                <div class="span12">
-
-                    <div id="Person-1" class="box">
-                        <div class="box-header">
-                            <i class="icon-user icon-large"></i>
-                            <h5>Alina Gómez</h5>
-
-                        </div>
-                        <div class="box-content box-table">
-                            <ul id="myTab" class="nav nav-tabs" role="tablist">
-                              <li class="active"><a href="#" role"tab" data-toogle="tab">Perfil</a></li>
-                              <li><a href="#" role"tab" data-toogle="tab">Calendario</a></li>
-                              <li><a href="#" role"tab" data-toogle="tab">Medicación</a></li>
-                              <li><a href="#" role"tab" data-toogle="tab">Mensajes</a></li>
-                              <li><a href="#" role"tab" data-toogle="tab">Archivos</a></li>
-                              <li><a href="#" role"tab" data-toogle="tab">Observaciones</a></li>
-                            </ul>
-                            <!-- Tab panes -->
-                          <div class="tab-content">
-                            <div class="tab-pane active" id="Perfil"><div class="box">
+                <div class="span5">
+{% for paciente in paciente %}{% for contacto in contacto %}{% for social in social %}
+             <div class="span8">
+                        <div class="box">
                             <div class="box-header">
-                                <i class="icon-folder-open"></i>
-                                <h5>Datos Personales</h5>
+                                <i class="icon-user"></i>
+                                <h5> {{ paciente.nombres }} {{ paciente.apellidos }}</h5>
                             </div>
                             <div class="box-content">
-
+                            <div class="box"> 
+     <div class="box-content"> 
+      Extracto: <a>{{paciente.acerca_de}}</a>
+                            <br>
+                            Sexo: <a>{{paciente.sexo}}</a>
+                            <br>
+                            Grupo Sanguíneo: <a>{{paciente.grupo_sanguineo}}</a>
+                            <br>
+     </div> 
+</div> 
+                          <div class="box"> 
+     <div class="box-content"> 
+     Teléfono: <a>{{contacto.telefono}}</a>
+                            <br>
+                            Celular: <a>{{contacto.celular}}</a>
+                            <br>
+                            Correo: <a>{{contacto.correo}}</a>
+                            <br>
+     </div> 
+</div>
+                        <div class="box"> 
+     <div class="box-content"> 
+     Blog: <a>{{social.blog}}</a>
+                            <br>
+                            Twitter: <a>{{social.twitter}}</a>
+                            <br>
+                            Facebook: <a>{{social.facebook}}</a>
+                            <br>
+                            Linkedin: <a>{{social.linkedin}}</a>
+                            <br>
+                            YouTube: <a>{{social.you_tube}}</a>
+                            <br>
+     </div> 
+</div>
+                     
                             </div>
-                        </div><div class="box pattern pattern-sandstone">
-                    <div class="box-header">
-                        <i class="icon-list"></i>
-                        <h5>Variables de Seguimiento</h5>
-                        <button class="btn btn-box-right" data-toggle="collapse" data-target=".box-list">
-                            <i class="icon-reorder"></i>
-                        </button>
-                    </div>
-                    <div class="box-content box-list in collapse" style="height: auto;">
-                        <ul>
-                            <li>
-                                <div>
-                                                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                              </div>
-                            </li>
-                            <li>
-                                <div>
-
-                                </div>
-                            </li>
-                        </ul>
-                      </div>
-
-                </div></div>
-                            <div class="tab-pane" id="Calendario">...</div>
-                            <div class="tab-pane" id="Medicación">...</div>
-                            <div class="tab-pane" id="Mensajes">...</div>
-                            <div class="tab-pane" id="Archivos">...</div>
-                            <div class="tab-pane" id="Observaciones">...</div>
-                          </div>
                         </div>
-
                     </div>
-
-                    <div id="Person-5" class="box">
-                        <div class="box-header">
-                            <i class="icon-user icon-large"></i>
-                            <h5>Victor Pérez</h5>
-
-                        </div>
-                <div class="box-content box-table">
-                    <ul id="myTab" class="nav nav-tabs" role="tablist">
-                      <li class="active"><a href="#" role"tab" data-toogle="tab">Perfil</a></li>
-                      <li><a href="#" role"tab" data-toogle="tab">Calendario</a></li>
-                      <li><a href="#" role"tab" data-toogle="tab">Medicación</a></li>
-                      <li><a href="#" role"tab" data-toogle="tab">Mensajes</a></li>
-                      <li><a href="#" role"tab" data-toogle="tab">Archivos</a></li>
-                      <li><a href="#" role"tab" data-toogle="tab">Observaciones</a></li>
-                    </ul>
-                    <!-- Tab panes -->
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="Perfil"><div class="box">
-                    <div class="box-header">
-                        <i class="icon-folder-open"></i>
-                        <h5>Datos Personales</h5>
-                    </div>
-                    <div class="box-content">
-
-                    </div>
-                </div><div class="box pattern pattern-sandstone">
-            <div class="box-header">
-                <i class="icon-list"></i>
-                <h5>Variables de Seguimiento</h5>
-                <button class="btn btn-box-right" data-toggle="collapse" data-target=".box-list">
-                    <i class="icon-reorder"></i>
-                </button>
-            </div>
-            <div class="box-content box-list in collapse" style="height: auto;">
-                <ul>
-                    <li>
-                        <div>
-                                                        </div>
-                    </li>
-                    <li>
-                        <div>
-                                      </div>
-                    </li>
-                    <li>
-                        <div>
-
-                        </div>
-                    </li>
-                </ul>
-              </div>
-
-        </div></div>
-                    <div class="tab-pane" id="Calendario">...</div>
-                    <div class="tab-pane" id="Medicación">...</div>
-                    <div class="tab-pane" id="Mensajes">...</div>
-                    <div class="tab-pane" id="Archivos">...</div>
-                    <div class="tab-pane" id="Observaciones">...</div>
-                  </div>
-                </div>
-
-                    </div>
-
+                    {% endfor %}{% endfor %}{% endfor %}
               </div>
             </div>
 

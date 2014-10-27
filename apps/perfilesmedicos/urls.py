@@ -27,7 +27,7 @@ urlpatterns = patterns('',
         url(r'^home/pr/eliminacion/(?P<pk>\d+)/$' ,EliminarPregunta.as_view(), name='eliminar_pregunta'),
         url(r'^home/pr/listados/$' ,ListarPreguntas.as_view(), name='listar_preguntas'),
 	url(r'^home/perfilpublico/(?P<userid>(\d)+)/$' ,'apps.perfilesmedicos.views.user_perfil_publico', name='social'),
-	url(r'^home/pacientes/$',PacientesHome.as_view()),
+	url(r'^home/pacientes/$','apps.perfilesmedicos.views.listar_pacientes',name="listar_pacientes"),
         
         url(r'^home/blog/entrada/add$' ,IngresarEntradaBlog.as_view(), name='ingresar_entrada_blog'),
 	#url(r'^home/pr/$',PacientesHome.as_view()),

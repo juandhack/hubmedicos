@@ -5,6 +5,7 @@ from django.shortcuts import render, render_to_response, RequestContext
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 from .models import *
+from apps.perfilespacientes.models import *
 from admin.forms import *
 from django.contrib.auth.decorators import login_required
 from django.views.generic.base import *
@@ -170,8 +171,22 @@ class ListarPreguntas(ListView):
         return PreguntasRespuestas.objects.filter(user_id = self.request.user)
    
 
-class PacientesHome(TemplateView):
-	template_name = 'pacientes/medicos_pacientes_fichas.html'
+def listar_pacientes(request):
+        paciente = PerfilBasico.objects.all()
+        contacto = ContactosBasico.objects.all()
+        social = RedesSociales.objects.all()
+        data = {}
+  
+	data['paciente'] = paciente
+	data['contacto'] = contacto
+	data['social'] = social
+
+
+	return render_to_response('pacientes/medicos_pacientes_fichas.html',data,context_instance=RequestContext(request))
+	
+	
+	
+	
 	
     
 class IngresarInfoProfesional(CreateView):
