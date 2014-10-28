@@ -218,8 +218,8 @@ class RutinaAlimentacionPacienteForm(forms.ModelForm):
         exclude = ('user',)
                 
         widgets = {
-            'nombre': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px'}),
-            'tipo_comida':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
+            'nombre': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
+            'tipo_comida':forms.Select(attrs={'class':'selectMenu','style':'width:300px'}),
             'tamanio_porcion': NumberInput(attrs={'class': 'form-control','style':'width:200px'}),
             'cantidad_porcion': NumberInput(attrs={'class': 'form-control','placeholder': _("ej: 2"),'style':'width:200px'}),
             'calorias': NumberInput(attrs={'class': 'form-control','style':'width:200px'}),
@@ -235,14 +235,14 @@ class MedicamentoPacienteForm(forms.ModelForm):
         exclude = ('user',)
                 
         widgets = {
-            'nombre': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px','placeholder': _("ej: albuterol")}),
-            'concentracion': NumberInput(attrs={'class': 'form-control','style':'width:200px','placeholder': _("ej: 500")}),
-            'tipo_concentracion':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
-            'dosis': NumberInput(attrs={'class': 'form-control','style':'width:200px','placeholder': _("ej: 2")}),
-            'tipo_dosis':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
-            'frecuencia_admin': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px','placeholder': _("ej: 2 veces al dia")}),
-            'modo_admin':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
-            'motivo_admin': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px'}),
+            'nombre': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px','placeholder': _("ej: albuterol")}),
+            'concentracion': NumberInput(attrs={'class': 'form-control','style':'width:100px','placeholder': _("ej: 500")}),
+            'tipo_concentracion':forms.Select(attrs={'class':'selectMenu','style':'width:300px'}),
+            'dosis': NumberInput(attrs={'class': 'form-control','style':'width:100px','placeholder': _("ej: 2")}),
+            'tipo_dosis':forms.Select(attrs={'class':'selectMenu','style':'width:300px'}),
+            'frecuencia_admin': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px','placeholder': _("ej: 2 veces al dia")}),
+            'modo_admin':forms.Select(attrs={'class':'selectMenu','style':'width:300px'}),
+            'motivo_admin': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
             'fecha_inicio': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:200px'}),
             'fecha_final': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker2','style':'width:200px'}),
             'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
@@ -272,10 +272,10 @@ class ResultadosLabPacienteForm(forms.ModelForm):
         exclude = ('user',)
                 
         widgets = {
-            'nombre_analisis': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px'}),
+            'nombre_analisis': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
             'fecha':  DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:200px'}),
-            'resultado': NumberInput(attrs={'class': 'form-control','style':'width:200px','placeholder': _("ej: valor")}),
-            'marca':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
+            'resultado': NumberInput(attrs={'class': 'form-control','style':'width:300px','placeholder': _("ej: 5")}),
+            'marca':forms.Select(attrs={'class':'selectMenu','style':'width:300px'}),
             'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
             
         }
@@ -287,12 +287,12 @@ class CitaPacienteForm(forms.ModelForm):
         exclude = ('user',)
                 
         widgets = {
-            'proveedor': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px'}),
-            'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:200px'}),
-            'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),
-            'proposito': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px'}),
-            'nombre_especialista': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px'}),
-            'especialidad': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px'}),
+            'proveedor': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
+            'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:300px'}),
+            'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:150px','placeholder': _("ej: 11:40")}),
+            'proposito': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
+            'nombre_especialista': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
+            'especialidad': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
             'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
         }
       
@@ -319,11 +319,11 @@ class EnfermedadPacienteForm(forms.ModelForm):
         exclude = ('user',)
                 
         widgets = {
-            'nombre': TextInput(attrs={'maxlength': 50, 'class': 'form-control'}),
-            'estado': forms.Select(attrs={'class':'selectMenu'}),
-            'fecha_inicio': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker'}),
-            'fecha_final': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker2'}),
-            'evolucion': TextInput(attrs={'maxlength': 50, 'class': 'form-control'}),
+            'nombre': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
+            'estado': forms.Select(attrs={'class':'selectMenu','style':'width:300px'}),
+            'fecha_inicio': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:300px'}),
+            'fecha_final': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker2','style':'width:300px'}),
+            'evolucion': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
             'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
         }
         
@@ -351,11 +351,11 @@ class AntecedentesFamiliaresForm(forms.ModelForm):
         widgets = {
             
             'nombre_familiar': TextInput(attrs={'maxlength': 30, 'class': 'form-control'}),
-            'relacion':forms.Select(attrs={'class':'selectMenu'}),
+            'relacion':forms.Select(attrs={'class':'selectMenu','style':'width:300px'}),
             'enfermedad': TextInput(attrs={'maxlength': 30, 'class': 'form-control'}),
             'fecha_inicio': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker'}),
             'fecha_final': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker2'}),
-            'estado':forms.Select(attrs={'class':'selectMenu'}),
+            'estado':forms.Select(attrs={'class':'selectMenu','style':'width:300px'}),
             'como_finalizo': TextInput(attrs={'size':25,'class': 'form-control'}),
             'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
         }
@@ -376,7 +376,7 @@ class ToxicoForm(forms.ModelForm):
             
             'num_cigarrillos': TextInput(attrs={'size': 3, 'class': 'form-control','maxlength': 3,'style':'width:50px'}),
             'num_anios_fumador':TextInput(attrs={'size': 3, 'class': 'form-control','maxlength': 3,'style':'width:50px'}),
-            'tipo_bebedor':forms.Select(attrs={'class':'selectMenu'}),
+            'tipo_bebedor':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
             'tipo_droga':Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
             
         }
@@ -396,10 +396,10 @@ class AlergiaForm(forms.ModelForm):
         exclude = ('user',)
         widgets = {
             
-            'nombre': TextInput(attrs={'maxlength': 30, 'class': 'form-control'}),
-            'reaccion': forms.Select(attrs={'class':'selectMenu'}),
-            'tipo':forms.Select(attrs={'class':'selectMenu'}),
-            'fecha_inicio': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker'}),
+            'nombre': TextInput(attrs={'maxlength': 30, 'class': 'form-control','style':'width:320px'}),
+            'reaccion': forms.Select(attrs={'class':'selectMenu','style':'width:320px'}),
+            'tipo':forms.Select(attrs={'class':'selectMenu','style':'width:320px'}),
+            'fecha_inicio': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:320px'}),
             'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
         }
         

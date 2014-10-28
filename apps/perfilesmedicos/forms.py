@@ -19,10 +19,6 @@ class PerfilesForm(forms.ModelForm):
             'acerca_de': Textarea(attrs={'cols': 80, 'rows': 20}),
         }
       
-        
-        
-        
-
 class ContactoForm(forms.ModelForm):
     class Meta:
         model = Contactos

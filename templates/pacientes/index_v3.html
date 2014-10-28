@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}
+
+    {% endblock title %}</title>
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{STATIC_URL}}pacientes2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="{{STATIC_URL}}pacientes2/css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="{{STATIC_URL}}pacientes2/css/plugins/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{STATIC_URL}}pacientes2/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="{{STATIC_URL}}pacientes2/css/plugins/morris.css" rel="stylesheet">
+
+   <!-- Jquery Charts CSS -->
+    <link href="{{STATIC_URL}}pacientes2/jquery/jquery-ui.css" rel="stylesheet">
+  
+
+    <!-- Custom Fonts -->
+    <link href="{{STATIC_URL}}pacientes2/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="{{MEDIA_URL}}images/registro_menu.png">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/paciente/perfilbasico/">Hub Salud</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i> 
+                        Mensajes <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                   {% if user.is_authenticated %}
+                      Bienvenido apreciado paciente
+                      {% else %}
+                      {% endif %}
+                        <li class="divider"></li>
+                   
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Todos los mensajes</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+         
+                <!-- /.dropdown -->
+               
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="{% url 'perfil_basico_contactos_paciente' %}"><i class="fa fa-user fa-fw"></i> Perfil </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="/logout/"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+               
+                        <li>
+                            <a href="#"><i class="fa fa-home fa-fw"></i> Actividad</a>
+                        </li>
+                         <li>
+                            <a href="{% url 'perfil_basico_contactos_paciente' %}"><i class="fa fa-user fa-fw"></i> Mi perfil</a>
+                        </li>
+                                
+                        <li>
+                            <a href="{% url 'listar_sintomas_paciente' %}"><i class="fa fa-edit fa-fw"></i> Mi diario médico</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'listar_resumenclinico_paciente' %}"><i class="fa fa-stethoscope fa-fw"></i> Mi historia clínica</a>
+                        </li>
+                         <li>
+                            <a href="#"><i class="fa fa-medkit fa-fw"></i> Mi hub de salud</a>
+                        </li>
+                      
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+              {% block content %}
+
+              {% endblock content %}
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <div>
+                    <div class="panel-footer">
+                           <footer class="application-footer">
+            <div class="container">
+                <h4> Powered by Digitalsmark Latinoamérica | Copyright © 2002 - 2014</h4>
+                <div class="disclaimer">
+                    <label> © Tech Mobile Software 2014 |</label>
+                    <label>Términos de uso |</label>
+                    <label>Políticas de privacidad |</label>
+                    <label>Condiciones de servicio |</label>
+                </div>
+            </div>
+        </footer>
+                        </div>
+                </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="{{STATIC_URL}}pacientes2/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{STATIC_URL}}pacientes2/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{{STATIC_URL}}pacientes2/js/plugins/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="{{STATIC_URL}}pacientes2/js/plugins/morris/raphael.min.js"></script>
+    <script src="{{STATIC_URL}}pacientes2/js/plugins/morris/morris.min.js"></script>
+    <script src="{{STATIC_URL}}pacientes2/js/plugins/morris/morris-data.js"></script>
+
+     <!-- jQuery UI Version 1.11.2 -->
+    <script src="{{STATIC_URL}}pacientes2/jquery/jquery-ui.js"></script>
+
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{STATIC_URL}}pacientes2/js/sb-admin-2.js"></script>
+    <script>
+    // tooltip demo
+    $('.tooltip-demo').tooltip({
+        selector: "[data-toggle=tooltip]",
+        container: "body"
+    })
+
+    // popover demo
+    $("[data-toggle=popover]")
+        .popover()
+    </script>
+
+<script>
+$( "#datePicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
+$( "#datePicker2" ).datepicker({ dateFormat: 'dd/mm/yy' });
+$( ".selectMenu" ).selectmenu();
+</script>
+
+</body>
+
+</html>

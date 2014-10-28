@@ -142,6 +142,13 @@ class ContactosBasico(models.Model):
 
 	def __unicode__(self):
 	     return u'%s %s' % (self.dpto, self.ciudad)
+            
+class ClubMedico(models.Model):
+
+    nombre_club = models.CharField(max_length=100)		
+    def __unicode__(self):
+		return self.nombre_club
+	
 
 SINTOMAS_GENERALES = (
     ('Malestar general','Malestar general'),
@@ -1018,25 +1025,8 @@ class GinecoDiario(models.Model):
     #code
     
     
-class ClubMedico(models.Model):
-    user = models.ForeignKey(User,null=True,blank=True)
-    nombre_club = models.CharField(max_length=100)
-  
-    class Meta:
-		verbose_name = 'Club Medico'
-		verbose_name_plural = 'Club Medico'
-		
-    def __unicode__(self):
-		return self.edad_primera_menstruacion
-	
-    @models.permalink
-    def get_absolute_url(self):
-		return('listar_club_paciente')
-	
-    @models.permalink
-    def get_delete_url(self):
-                return ('eliminar_club_paciente', [self.id, ])
-    #code
+
+
     
 
     
