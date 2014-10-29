@@ -1123,6 +1123,7 @@ def perfil_basico_social(request):
     args.update(csrf(request))
 
     args['form'] = form
+    
 
     return render_to_response('pacientes/perfil/perfil_basico_social_form.html',args, context_instance=RequestContext(request))
 
@@ -1143,7 +1144,7 @@ def perfil_principal_paciente_home(request):
         data['dpto'] = tipo_dpto
         data['ciudad'] = tipo_ciudad
 
-	return render_to_response('pacientes/perfil/perfil_principal.html',data,context_instance=RequestContext(request))
+	return render_to_response('pacientes/perfil/perfil_principal_publico.html',data,context_instance=RequestContext(request))
     
 
 

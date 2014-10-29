@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView,FormView
 from .forms import *
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.shortcuts import render, render_to_response, RequestContext
+from django.shortcuts import render, render_to_response, RequestContext, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 from .models import *
@@ -184,7 +184,23 @@ def listar_pacientes(request):
 
 	return render_to_response('pacientes/medicos_pacientes_fichas.html',data,context_instance=RequestContext(request))
 	
-	
+def listar_perfil_paciente_principal(request, pk):
+	data = {}
+        paciente = PerfilBasico.objects.filter(user_id = pk)
+        contacto = ContactosBasico.objects.filter(user_id = pk)
+        social = RedesSociales.objects.filter(user_id = pk)
+        obj_contacto = get_object_or_404(contacto,user_id=pk)
+        tipo_pais = obj_contacto.pais
+        tipo_dpto = obj_contacto.dpto
+        tipo_ciudad = obj_contacto.ciudad
+	data['paciente'] = paciente
+	data['contacto'] = contacto
+	data['social'] = social
+        data['pais'] = tipo_pais
+        data['dpto'] = tipo_dpto
+        data['ciudad'] = tipo_ciudad
+
+	return render_to_response('pacientes/perfil_paciente_en_medico.html',data,context_instance=RequestContext(request))
 	
 	
 	

@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 from apps.perfilesmedicos.models import *
 
 KIND_SEXO = (
-   ('H','Hombre'),
-   ('M','Mujer'),
+   ('Hombre','Hombre'),
+   ('Mujer','Mujer'),
 )
 
 GRUPO_SANGUINEO = (

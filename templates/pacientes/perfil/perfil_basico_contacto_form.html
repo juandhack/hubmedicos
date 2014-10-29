@@ -2,19 +2,20 @@
 {% extends "pacientes/index.html" %}
 
 {% block title %}
-Perfil - Básico
+Perfil - Contactos
 {% endblock %}
 
 {% block content %}
- {% include 'pacientes/menu_perfil_datos.html' %}
 <div class="row">
-         <div class="span8">
+  {% include 'pacientes/menu_perfil_datos.html' %}
+      </div>
+        <div class="span7">
           <div class="panel-group" id="accordion">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <legend class="lead">
-                        Contactos
+                        Mis Contactos
                     </legend>
                 </h4>
               </div>
@@ -32,7 +33,6 @@ Perfil - Básico
         </div>
     </div>
 </div>
-<script>
-$('.collapse').collapse()
-</script>
+
 {% endblock %}
+

@@ -1,0 +1,58 @@
+{% extends "pacientes/index.html" %}
+
+{% block title %}
+Perfil
+{% endblock %}
+
+{% block content %} 
+  
+
+ {% for paciente in paciente %}{% for social in social %}
+<div class="signin-row row">
+                    <div class="span4">
+                    </div>
+                    <div class="span5">
+                        <div class="container-signin">
+                        <div class="span3">
+                            <div class="thumbnail">
+
+      <img src="{{MEDIA_URL}}{{paciente.imagen}}">
+ 
+    </div>
+    </div>
+                            <legend>{{paciente.nombres}} {{paciente.apellidos}}</legend>
+
+                            <form action="dashboard.html" method="POST" id="loginForm" class="form-signin" autocomplete="off">
+                                <div class="form-inner">
+                                    <div class="input-prepend">
+
+                                        <a href='http://{{social.blog}}' target="_blank"><span class="add-on" rel="tooltip"  data-placement="top"><i class="icon-globe icon-large"></i> Web Personal</span></a>
+                                    </div>
+
+                                    
+                                  
+                                </div>
+                                <footer class="signin-actions">
+                                     <a href="{% url 'perfil_basico_paciente' %}" ><input class="btn btn-primary" value="Editar Perfil"></a>
+                                </footer>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="span3"></div>
+
+                </div>
+                <div class="signin-row row">
+                    <div class="span3"></div>
+                    <div class="span8">
+                        <div class="well well-small well-shadow">
+                            <legend class="lead">Sobre Mi</legend>
+                            {{paciente.acerca_de}}
+                        </div>
+                    </div>
+                    <div class="span8"></div>
+                </div>
+
+
+{% endfor %}{% endfor %}
+{% endblock %}

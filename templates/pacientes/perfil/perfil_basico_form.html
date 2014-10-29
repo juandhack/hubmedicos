@@ -2,19 +2,20 @@
 {% extends "pacientes/index.html" %}
 
 {% block title %}
-Perfil - Básico
+Perfil - Datos Personales
 {% endblock %}
 
 {% block content %}
- {% include 'pacientes/menu_perfil_datos.html' %}
 <div class="row">
-         <div class="span8">
+  {% include 'pacientes/menu_perfil_datos.html' %}
+      </div>
+        <div class="span7">
           <div class="panel-group" id="accordion">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="panel-title">
                   <legend class="lead">
-                        Datos Personales
+                        Mis Datos Personales
                     </legend>
                 </h4>
               </div>
@@ -22,7 +23,7 @@ Perfil - Básico
               <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
 
-             <form class="form-horizontal" method="POST">{% csrf_token %}
+             <form class="form-horizontal" enctype="multipart/form-data" method="POST">{% csrf_token %}
               {{ form.as_p }}
                  <input type="submit" value="Actualizar" class="btn btn-primary">
               </form>
@@ -32,8 +33,14 @@ Perfil - Básico
         </div>
     </div>
 </div>
-<script>
-$('.collapse').collapse()
-</script>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
 {% endblock %}
 

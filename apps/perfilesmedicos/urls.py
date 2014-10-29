@@ -28,6 +28,7 @@ urlpatterns = patterns('',
         url(r'^home/pr/listados/$' ,ListarPreguntas.as_view(), name='listar_preguntas'),
 	url(r'^home/perfilpublico/(?P<userid>(\d)+)/$' ,'apps.perfilesmedicos.views.user_perfil_publico', name='social'),
 	url(r'^home/pacientes/$','apps.perfilesmedicos.views.listar_pacientes',name="listar_pacientes"),
+        url(r'^home/pacientes/ver/(?P<pk>\d+)/$','apps.perfilesmedicos.views.listar_perfil_paciente_principal',name="listar_pacientes_perfil"),
         
         url(r'^home/blog/entrada/add$' ,IngresarEntradaBlog.as_view(), name='ingresar_entrada_blog'),
 	#url(r'^home/pr/$',PacientesHome.as_view()),

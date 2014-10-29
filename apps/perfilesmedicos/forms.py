@@ -5,7 +5,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from apps.perfilesmedicos.models import *
-from django.forms import Textarea, TextInput
+from django.forms import Textarea, TextInput, FileInput
 
 class PerfilesForm(forms.ModelForm):
     class Meta:
@@ -16,7 +16,13 @@ class PerfilesForm(forms.ModelForm):
         }
         
         widgets = {
+            
+            'dni':TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
+            'nombres':TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
+            'apellidos':TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
             'acerca_de': Textarea(attrs={'cols': 80, 'rows': 20}),
+            'imagen': FileInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:250px'}),
+            'acerca_de':Textarea(attrs={'cols': 30, 'rows': 10,'class': 'form-control','placeholder': _("Escribe algo sobre ti "),'style':'width:300px'}),
         }
       
 class ContactoForm(forms.ModelForm):

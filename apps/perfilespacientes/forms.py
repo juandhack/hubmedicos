@@ -12,22 +12,23 @@ from django.forms.extras import SelectDateWidget
 class PerfilBasicoForm(forms.ModelForm):
     class Meta:
         model = PerfilBasico
-        fields = ('dni','nombres','apellidos','acerca_de','sexo','fecha_nacimiento','grupo_sanguineo','imagen')
+        fields = ('dni','nombres','apellidos','fecha_nacimiento','acerca_de','grupo_sanguineo','sexo','imagen')
         
         widgets = {
-            'dni': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:250px'}),
+            'dni': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
             'nombres':TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
             'apellidos':TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:300px'}),
-            'fecha_nacimiento': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:300px'}),
-            'sexo': forms.Select(attrs={'class':'selectMenu','style':'width:150px'}),
-            'grupo_sanguineo': forms.Select(attrs={'class':'selectMenu','style':'width:150px'}),
+            'fecha_nacimiento': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker2','style':'width:140px'}),
+            'sexo': forms.Select(attrs={'style':'width:150px'}),
+            'grupo_sanguineo': forms.Select(attrs={'style':'width:150px'}),
             'imagen': FileInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:250px'}),
-            'acerca_de':Textarea(attrs={'cols': 30, 'rows': 10,'class': 'form-control','placeholder': _("historial ")}),
+            'acerca_de':Textarea(attrs={'cols': 30, 'rows': 10,'class': 'form-control','placeholder': _("Escribe un resumen de tu historial medico "),'style':'width:300px'}),
         }
         labels = {
             'dni': _('Documento de Identidad'),
             'fecha_nacimiento': _('Fecha de Nacimiento'),
             'grupo_sanguineo': _('Grupo de Sangre'),
+            'acerca_de':_('Mi resumen medico')
            
         }
         
@@ -39,9 +40,9 @@ class ContactosBasicoForm(forms.ModelForm):
         fields = ('pais','dpto','ciudad','telefono','celular','correo')
         
         widgets = {
-            'pais':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
-            'dpto':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
-            'ciudad':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
+            'pais':forms.Select(attrs={'style':'width:213px'}),
+            'dpto':forms.Select(attrs={'style':'width:213px'}),
+            'ciudad':forms.Select(attrs={'style':'width:213px'}),
             'telefono': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px'}),
             'celular': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px'}),
             'correo': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px'}),
@@ -57,8 +58,7 @@ class RedesSocialesForm(forms.ModelForm):
         fields = ('blog','twitter','facebook','linkedin','you_tube')
         
         widgets = {
-            'pais':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
-            'dpto':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
+           
             'blog':TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px','placeholder': _("ej: miblog.com")}),
             'twitter': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px','placeholder': _("ej: twitter.com/miusuario")}),
             'facebook': TextInput(attrs={'maxlength': 50, 'class': 'form-control','style':'width:200px','placeholder': _("ej: facebook.com/miusuario")}),
