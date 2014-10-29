@@ -7,22 +7,32 @@ Perfil
 {% block content %} 
   
 
- {% for paciente in paciente %}{% for social in social %}
+ 
 <div class="signin-row row">
                     <div class="span4">
                     </div>
                     <div class="span5">
                         <div class="container-signin">
                         <div class="span3">
-                            <div class="thumbnail">
-
-      <img src="{{MEDIA_URL}}{{paciente.imagen}}">
- 
+                        {% if paciente %}
+                        {% for paciente in paciente %}
+                       
+                            <div class="thumbnail">                 
+                            <img src={{MEDIA_URL}}{{paciente.imagen}}>
+                         </div>
+                         {% endfor %}
+                         {% else%}
+                          <div class="thumbnail">                 
+                            <img src="{{MEDIA_URL}}images/silueta.jpg">
+                         </div>
+                         {% endif %}
+    
     </div>
-    </div>
+    {% for paciente in paciente %}
                             <legend>{{paciente.nombres}} {{paciente.apellidos}}</legend>
-
+    {% endfor %}
                             <form action="dashboard.html" method="POST" id="loginForm" class="form-signin" autocomplete="off">
+                            {% for social in social %}
                                 <div class="form-inner">
                                     <div class="input-prepend">
 
@@ -32,10 +42,12 @@ Perfil
                                     
                                   
                                 </div>
+                                 {% endfor %}
                                 <footer class="signin-actions">
                                      <a href="{% url 'perfil_basico_paciente' %}" ><input class="btn btn-primary" value="Editar Perfil"></a>
                                 </footer>
                             </form>
+                           
                         </div>
                     </div>
 
@@ -47,12 +59,14 @@ Perfil
                     <div class="span8">
                         <div class="well well-small well-shadow">
                             <legend class="lead">Sobre Mi</legend>
+                            {% for paciente in paciente %}
                             {{paciente.acerca_de}}
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="span8"></div>
                 </div>
 
 
-{% endfor %}{% endfor %}
+
 {% endblock %}
