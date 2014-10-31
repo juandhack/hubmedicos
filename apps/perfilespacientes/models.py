@@ -123,7 +123,7 @@ class PerfilBasico(models.Model):
 	apellidos = models.CharField(max_length=255, null=True, blank=True)
 	acerca_de = models.TextField("Extracto Personal",null=True, blank=True)
 	sexo = models.CharField(max_length=10,null=True,blank=True, choices=KIND_SEXO)
-        fecha_nacimiento = models.DateField(unique=True, null=True, blank=True)
+        fecha_nacimiento = models.DateField(null=True, blank=True)
         grupo_sanguineo = models.CharField("Grupo Sanguíneo",max_length=4,null=True,blank=True,choices=GRUPO_SANGUINEO)
 	imagen = models.ImageField("Tu foto",upload_to='pictures',null=True,blank=True)
 	def __unicode__(self):
@@ -252,6 +252,7 @@ class SintomasGeneralesPaciente(models.Model):
     
     user = models.ForeignKey(User, null=True, blank=True)
     sintoma =  models.ForeignKey(SintomasGenerales, null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
               
     class Meta:
 		verbose_name = 'Sintomas'
@@ -273,6 +274,7 @@ class SintomasAlteracionGlicemicaPaciente(models.Model):
     
     user = models.ForeignKey(User, null=True, blank=True)
     sintoma = models.ForeignKey(SintomasAlteracionGlicemica, null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
               
     class Meta:
 		verbose_name = 'Sintomas Glicemicos'
@@ -293,7 +295,9 @@ class SintomasAlteracionGlicemicaPaciente(models.Model):
 class EstadosAnimoPaciente(models.Model):
     
     user = models.ForeignKey(User, null=True, blank=True)
-    estado = models.ForeignKey(EstadosAnimo, null=True, blank=True)
+    estado = models.SmallIntegerField(default=1)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
               
     class Meta:
 		verbose_name = 'Estado'
@@ -316,8 +320,7 @@ class Peso(models.Model):
     
     user = models.ForeignKey(User,null=True,blank=True)
     peso = models.SmallIntegerField("Peso",)
-    fecha = models.DateField(unique=True)
-    hora = models.CharField(max_length=30,null=True,blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     nota = models.TextField(null=True, blank=True)
     class Meta:
 		verbose_name = 'Peso'
@@ -340,8 +343,7 @@ class Talla(models.Model):
     
     user = models.ForeignKey(User,null=True,blank=True)
     altura = models.SmallIntegerField("Altura en cm")
-    fecha = models.DateField(unique=True)
-    hora = models.CharField(max_length=30,null=True,blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     nota = models.TextField(null=True, blank=True)
     
     class Meta:
@@ -389,8 +391,7 @@ class Glucemia(models.Model):
     medicion = models.SmallIntegerField("Medición")
     contexto_medicion = models.ForeignKey(ContextoMedicion, null=True, blank=True)
     tipo = models.ForeignKey(TipoSangre, null=True, blank=True)
-    fecha = models.DateField(unique=True)
-    hora = models.CharField(max_length=30,null=True,blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     nota = models.TextField(null=True, blank=True)
     
     class Meta:
@@ -412,6 +413,7 @@ class Glucemia(models.Model):
 class Hemoglobina(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
     porcentaje = models.DecimalField(max_digits=10, decimal_places=2);
+    timestamp = models.DateTimeField(auto_now_add=True)
     
     class Meta:
 		verbose_name = 'Porcentaje'
@@ -435,8 +437,7 @@ class Colesterol(models.Model):
     hdl = models.DecimalField("HDL",max_digits=10, decimal_places=2,null=True,blank=True);
     trigliceridos = models.DecimalField("Triglicéridos",max_digits=10, decimal_places=2,null=True,blank=True);
     colesterol_total = models.DecimalField("Colesterol Total",max_digits=10, decimal_places=2,null=True,blank=True);
-    fecha = models.DateField(unique=True)
-    hora = models.CharField(max_length=30,null=True,blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     nota = models.TextField(null=True, blank=True)
     class Meta:
 		verbose_name = 'Colesterol'
@@ -467,8 +468,7 @@ class Presion(models.Model):
     diastolica = models.SmallIntegerField("Diastólica (número inferior)")
     pulso = models.SmallIntegerField("Pulso (latidos por minuto)",null=True,blank=True);
     latido_irregular = models.ForeignKey(Latido, null=True, blank=True)
-    fecha = models.DateField(unique=True)
-    hora = models.CharField(max_length=30,null=True,blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     nota = models.TextField(null=True, blank=True)
     class Meta:
 		verbose_name = 'Presion arterial'
@@ -494,8 +494,7 @@ class RutinaEjercicio(models.Model):
     distancia = models.SmallIntegerField(null=True,blank=True)
     num_pasos = models.SmallIntegerField(null=True,blank=True)
     calorias_quemadas = models.SmallIntegerField(null=True,blank=True)
-    fecha = models.DateField(unique=True)
-    hora = models.CharField(max_length=30,null=True,blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     nota = models.TextField(null=True, blank=True)
     class Meta:
 		verbose_name = 'Rutinas de Ejercicio'
@@ -526,8 +525,7 @@ class RutinaAlimentacion(models.Model):
     tamanio_porcion = models.SmallIntegerField("Tamaño de la porción",null=True,blank=True)
     cantidad_porcion = models.SmallIntegerField("Cantidad porción",null=True,blank=True)
     calorias = models.SmallIntegerField("Calorías",null=True,blank=True)
-    fecha = models.DateField(unique=True)
-    hora = models.CharField(max_length=30,null=True,blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     nota = models.TextField(null=True, blank=True)
     class Meta:
 		verbose_name = 'Rutinas de Alimentacion'

@@ -6,8 +6,10 @@ Diario Médico - Listar Hemoglobina
 
 {% block content %}
 <br>
-{% include 'pacientes/menu_diario_medico.html' %}
 <div class="row">
+{% include 'pacientes/menu_diario_medico.html' %}
+</div>
+<div class="span12">
   <div class="col-lg-12">
     <div class="panel panel-default">
                             <div class="panel-heading">
@@ -31,13 +33,14 @@ Diario Médico - Listar Hemoglobina
                                         <tr>
           
                                             <th>Hemoglobina</th>
-                                         
+                                            <th>Hace</th>
                                         </tr>
                                     </thead>
                                     {% for hemoglobina in object_list %}
                                     <tbody>
                                         <tr>
                                             <td>{{hemoglobina.porcentaje}}</td>
+                                            <td>{{hemoglobina.timestamp|timesince}}</td>
                                              <td>
                                                  <a href={% url 'eliminar_hemoglobina_paciente' hemoglobina.id %}>Eliminar</a>
                                                

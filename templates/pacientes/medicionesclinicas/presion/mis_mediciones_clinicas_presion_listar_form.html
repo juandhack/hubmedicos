@@ -6,8 +6,10 @@ Diario Médico - Listar Presión Arterial
 
 {% block content %}
 <br>
-{% include 'pacientes/menu_diario_medico.html' %}
 <div class="row">
+{% include 'pacientes/menu_diario_medico.html' %}
+</div>
+<div class="span12">
   <div class="col-lg-12">
     <div class="panel panel-default">
                             <div class="panel-heading">
@@ -31,13 +33,14 @@ Diario Médico - Listar Presión Arterial
                                         <tr>
           
                                             <th>Presión Arterial</th>
-                                         
+                                            <th>Hace</th>
                                         </tr>
                                     </thead>
                                     {% for presion in object_list %}
                                     <tbody>
                                         <tr>
                                             <td>{{presion.sistolica}}</td>
+                                             <td>{{presion.timestamp|timesince}}</td>
                                              <td>
                                                  <a href={% url 'eliminar_presion_paciente' presion.id %}>Eliminar</a>
                                                

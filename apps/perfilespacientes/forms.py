@@ -8,6 +8,7 @@ from .models import *
 from apps.perfilesmedicos.models import RedesSociales
 from django.forms import Textarea,TextInput, URLInput, CharField, DateTimeInput, NumberInput, DateInput, FileInput
 from django.forms.extras import SelectDateWidget
+from django.forms.widgets import HiddenInput
 
 class PerfilBasicoForm(forms.ModelForm):
     class Meta:
@@ -74,7 +75,7 @@ class SintomasGeneralesPacienteForm(forms.ModelForm):
         exclude = ('user',)
         
         widgets = {
-            'sintoma':forms.Select(attrs={'class':'selectMenu'}),
+            'sintoma':forms.Select(attrs={'style':'width:30%'}),
         }
          
         
@@ -84,7 +85,7 @@ class SintomaAlteracionGlicemicaPacienteForm(forms.ModelForm):
         exclude = ('user',)
         
         widgets = {
-            'sintoma':forms.Select(attrs={'class':'selectMenu'}),
+            'sintoma':forms.Select(attrs={'style':'width:30%'}),
         }
          
         
@@ -93,10 +94,7 @@ class EstadoAnimoPacienteForm(forms.ModelForm):
         model = EstadosAnimoPaciente
         exclude = ('user',)
         
-        widgets = {
-            'estado':forms.Select(attrs={'class':'selectMenu'}),
-        }
-         
+    
         
         #code
     
@@ -109,9 +107,9 @@ class PesoPacienteForm(forms.ModelForm):
          
         widgets = {
             'peso': TextInput(attrs={'maxlength': 50, 'class': 'form-control','placeholder': _("Kg"),'style':'width:130px'}),
-            'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:130px'}),     
-            'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),       
-            'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
+            #'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:130px'}),     
+            #'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),       
+            'nota': Textarea(attrs={'cols': 50, 'rows': 6,'class': 'form-control','style':'width:98%'}),
             
         }
         
@@ -122,10 +120,10 @@ class TallaPacienteForm(forms.ModelForm):
         exclude = ('user',)
          
         widgets = {
-            'altura': TextInput(attrs={'maxlength': 50, 'class': 'form-control','placeholder': _("Kg"),'style':'width:130px'}),
-            'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:130px'}),     
-            'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),       
-            'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),  
+            'altura': TextInput(attrs={'maxlength': 50, 'class': 'form-control','placeholder': _("Cm"),'style':'width:130px'}),
+            #'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:130px'}),     
+            #'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),       
+            'nota': Textarea(attrs={'cols': 50, 'rows': 6,'class': 'form-control','style':'width:98%'}),  
         }       
        
         
@@ -133,15 +131,15 @@ class TallaPacienteForm(forms.ModelForm):
 class GlucosaPacienteForm(forms.ModelForm):
     class Meta:
         model = Glucemia
-        fields = ('medicion','contexto_medicion','tipo','fecha','hora','nota')
+        exclude = ('user',)
                 
         widgets = {
             'medicion': NumberInput(attrs={'class': 'form-control','placeholder': _("mg/dl"),'style':'width:200px'}),
-            'contexto_medicion': forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
-            'tipo': forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
-            'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:200px'}),     
-            'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),
-            'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),   
+            'contexto_medicion': forms.Select(attrs={'style':'width:200px'}),
+            'tipo': forms.Select(attrs={'style':'width:200px'}),
+            #'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:200px'}),     
+            #'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),
+            'nota': Textarea(attrs={'cols': 50, 'rows': 6,'class': 'form-control','style':'width:98%'}),   
         }
         
         labels = {
@@ -152,7 +150,7 @@ class GlucosaPacienteForm(forms.ModelForm):
 class HemoglobinaPacienteForm(forms.ModelForm):
     class Meta:
         model = Hemoglobina
-        fields = ('porcentaje',)
+        exclude = ('user',)
                 
         widgets = {
             'porcentaje': NumberInput(attrs={'class': 'form-control','placeholder': _("%"),'style':'width:130px'}),
@@ -170,9 +168,9 @@ class ColesterolPacienteForm(forms.ModelForm):
             'hdl': NumberInput(attrs={'class': 'form-control','placeholder': _("mg/dL"),'style':'width:130px'}),     
             'trigliceridos': NumberInput(attrs={'class': 'form-control','placeholder': _("mg/dL"),'style':'width:130px'}),
             'colesterol_total':NumberInput(attrs={'class': 'form-control','placeholder': _("mg/dL"),'style':'width:130px'}),
-            'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:130px'}),     
-            'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),
-            'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
+            #'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:130px'}),     
+            #'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),
+            'nota': Textarea(attrs={'cols': 50, 'rows': 5,'class': 'form-control','style':'width:98%'}),
             
         }       
                
@@ -186,10 +184,10 @@ class PresionPacienteForm(forms.ModelForm):
             'sistolica': NumberInput(attrs={'class': 'form-control','placeholder': _("mmHg"),'style':'width:200px'}),
             'diastolica': NumberInput(attrs={'class': 'form-control','placeholder': _("mmHg"),'style':'width:200px'}),     
             'pulso': NumberInput(attrs={'class': 'form-control','placeholder': _("mmHg"),'style':'width:200px'}),
-            'latido_irregular':forms.Select(attrs={'class':'selectMenu','style':'width:200px'}),
-            'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:200px'}),     
-            'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),
-            'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
+            'latido_irregular':forms.Select(attrs={'style':'width:200px'}),
+            #'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:200px'}),     
+            #'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),
+            'nota': Textarea(attrs={'cols': 50, 'rows': 5,'class': 'form-control','style':'width:98%'}),
             
         }           
         
@@ -206,9 +204,9 @@ class RutinaEjercicioPacienteForm(forms.ModelForm):
             'distancia': NumberInput(attrs={'class': 'form-control','placeholder': _("km"),'style':'width:200px'}),
             'num_pasos': NumberInput(attrs={'class': 'form-control','style':'width:200px'}),
             'calorias_quemadas': NumberInput(attrs={'class': 'form-control','style':'width:200px'}),
-            'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:200px'}),     
-            'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),
-            'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
+            #'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:200px'}),     
+            #'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),
+            'nota': Textarea(attrs={'cols': 50, 'rows': 5,'class': 'form-control'}),
             
         }
         
@@ -223,9 +221,9 @@ class RutinaAlimentacionPacienteForm(forms.ModelForm):
             'tamanio_porcion': NumberInput(attrs={'class': 'form-control','style':'width:200px'}),
             'cantidad_porcion': NumberInput(attrs={'class': 'form-control','placeholder': _("ej: 2"),'style':'width:200px'}),
             'calorias': NumberInput(attrs={'class': 'form-control','style':'width:200px'}),
-            'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:200px'}),     
-            'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),
-            'nota': Textarea(attrs={'cols': 30, 'rows': 5,'class': 'form-control'}),
+            #'fecha': DateInput(format='%d/%m/%Y',attrs={'class': 'form-control', 'id':'datePicker','style':'width:200px'}),     
+            #'hora': TextInput(attrs={'size': 6, 'class': 'form-control','maxlength': 3,'style':'width:130px','placeholder': _("ej: 11:40")}),
+            'nota': Textarea(attrs={'cols': 50, 'rows': 5,'class': 'form-control'}),
             
         }
         

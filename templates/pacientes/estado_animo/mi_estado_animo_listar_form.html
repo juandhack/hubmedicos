@@ -6,13 +6,15 @@ Diario Médico - Listar Estado de Ánimo
 
 {% block content %}
 <br>
-{% include 'pacientes/menu_diario_medico.html' %}
 <div class="row">
+{% include 'pacientes/menu_diario_medico.html' %}
+</div>
+<div class="span8">
   <div class="col-lg-12">
     <div class="panel panel-default">
                                <div class="panel-heading">
                              <h3 class="panel-title"> </h3>
-                  <a href="{% url 'listar_estado_animo_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Estado de ánimo actual</button></a>
+                  <a href="{% url 'listar_estado_animo_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-thumbs-up"></i> Estado de ánimo actual</button></a>
                           
                             </div>
                             <div class="panel-body">
@@ -28,7 +30,8 @@ Diario Médico - Listar Estado de Ánimo
                                     <thead>
                                         <tr>
           
-                                            <th>Descripción del Estado de Ánimo</th>
+                                            <th>Puntuación</th>
+                                            <th>Hace</th>
                                          
                                         </tr>
                                     </thead>
@@ -36,9 +39,10 @@ Diario Médico - Listar Estado de Ánimo
                                     <tbody>
                                         <tr>
                                             <td>{{estado.estado}}</td>
+                                            <td>{{estado.timestamp|timesince}}</td>
                                              <td>
                                                  <a href="{% url 'eliminar_estado_animo_paciente' estado.id %}">Eliminar</a>
-                                               
+   
                                             </td>
                                             
                                         </tr>

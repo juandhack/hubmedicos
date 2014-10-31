@@ -1,4 +1,4 @@
-  <div class="span8">
+  <div class="span4">
       <div class="box">
           <div class="box-header">
               <i class="icon-bookmark"></i>
@@ -6,12 +6,13 @@
           </div>
           <div class="box-content">
               <div class="btn-group-box">
-                  <a href="/home/"><button class="btn"><i class="icon-user icon-large"></i><br>Mis Síntomas</button></a>
-                  <a href="/home/contacto"><button class="btn"><i class="icon-users icon-large"></i><br>Mi estado de ánimo</button></a>
-                  <a href="/home/academico"><button class="btn"><i class="icon-book icon-large"></i><br>Mis mediciones médicas</button></a>
-                  <a href="/home/profesional/"><button class="btn"><i class="icon-tasks icon-large"></i><br>Mis rutinas de salud</button></a>
-                  <a href="/home/social"><button class="btn"><i class="icon-comments icon-large"></i><br>Mis citas</button></a>
+                  <a href="{% url 'listar_estado_animo_paciente' %}"><button class="btn"><i class="icon-thumbs-up icon-large"></i><br>Mi estado de ánimo</button></a>
+                  <a href="{% url 'listar_sintomas_paciente' %}"><button class="btn"><i class="icon-book icon-large"></i><br>Mis síntomas</button></a>
+                  <a href="{% url 'listar_peso_paciente' %}"><button class="btn"><i class="icon-user-md icon-large"></i><br>Mis mediciones médicas</button></a>
+                  <a href="/home/profesional/"><button class="btn"><i class="icon-th-list icon-large"></i><br>Mis rutinas de salud</button></a>
+                  <a href="/home/social"><button class="btn"><i class="icon-time icon-large"></i><br>Mis citas</button></a>
 
               </div>
           </div>
       </div>
+      

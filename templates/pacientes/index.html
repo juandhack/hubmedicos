@@ -85,8 +85,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <i class="icon-book icon-large"></i> Mi Diario Médico
+                                    <a href="{% url 'listar_estado_animo_paciente' %}">
+                                        <i class="icon-calendar icon-large"></i> Mi Diario Médico
                                     </a>
                                 </li>
                                 <li>
@@ -151,5 +151,20 @@ $( "#datePicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
 $( "#datePicker2" ).datepicker({ dateFormat: 'dd/mm/yy' });
 $( ".selectMenu" ).selectmenu();
 </script>
+<script>
+  $(function() {
+    $( "#slider-vertical" ).slider({
+      orientation: "horizontal",
+      range: "min",
+      min: 1,
+      max: 10,
+      value: 5,
+      slide: function( event, ui ) {
+        $( "#estado" ).val( ui.value );
+      }
+    });
+    $( "#estado" ).val( $( "#slider-vertical" ).slider( "value" ) );
+  });
+  </script>
     </body>
 </html>
