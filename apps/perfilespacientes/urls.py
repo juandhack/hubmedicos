@@ -42,18 +42,21 @@ urlpatterns = patterns('',
     url(r'^paciente/diariomedico/mediciones/colesterol/listar/$',ListarColesterolPaciente.as_view(), name='listar_colesterol_paciente'),
     url(r'^paciente/diariomedico/mediciones/colesterol/actualizar/(?P<pk>\d+)/$',ActualizarColesterolPaciente.as_view(), name='actualizar_colesterol_paciente'),
     url(r'^paciente/diariomedico/mediciones/colesterol/eliminar/(?P<pk>\d+)/$' ,EliminarColesterolPaciente.as_view(), name='eliminar_colesterol_paciente'),
+    url(r'^paciente/diariomedico/mediciones/colesterol/ver_detalle/(?P<pk>\d+)/$' ,'apps.perfilespacientes.views.ver_detalles_colesterol_paciente', name='ver_detalles_colesterol_paciente'),
     
     #Mediciones presion
     url(r'^paciente/diariomedico/mediciones/presion/ingresar$',IngresarPresionPaciente.as_view(), name='ingresar_presion_paciente'),
     url(r'^paciente/diariomedico/mediciones/presion/listar/$',ListarPresionPaciente.as_view(), name='listar_presion_paciente'),
     url(r'^paciente/diariomedico/mediciones/presion/actualizar/(?P<pk>\d+)/$',ActualizarPresionPaciente.as_view(), name='actualizar_presion_paciente'),
     url(r'^paciente/diariomedico/mediciones/presion/eliminar/(?P<pk>\d+)/$' ,EliminarPresionPaciente.as_view(), name='eliminar_presion_paciente'),
+    url(r'^paciente/diariomedico/mediciones/presion/ver_detalle/(?P<pk>\d+)/$' ,'apps.perfilespacientes.views.ver_detalles_presion_paciente', name='ver_detalles_presion_paciente'),
     
      #Mediciones glucoday
     url(r'^paciente/diariomedico/mediciones/gluco/ingresar$',IngresarGlucosaPaciente.as_view(), name='ingresar_gluco_paciente'),
     url(r'^paciente/diariomedico/mediciones/gluco/listar/$',ListarGlucosaPaciente.as_view(), name='listar_gluco_paciente'),
     url(r'^paciente/diariomedico/mediciones/gluco/actualizar/(?P<pk>\d+)/$',ActualizarGlucosaPaciente.as_view(), name='actualizar_gluco_paciente'),
     url(r'^paciente/diariomedico/mediciones/gluco/eliminar/(?P<pk>\d+)/$' ,EliminarGlucosaPaciente.as_view(), name='eliminar_gluco_paciente'),
+    url(r'^paciente/diariomedico/mediciones/gluco/ver_detalle/(?P<pk>\d+)/$' ,'apps.perfilespacientes.views.ver_detalles_glucemia_paciente', name='ver_detalles_glucemia_paciente'),
     
     #Rutinas ejercicio
     url(r'^paciente/diariomedico/rutinas/ejercicio/ingresar$',IngresarRutinaEjercicioPaciente.as_view(), name='ingresar_ejercicio_paciente'),
@@ -66,12 +69,13 @@ urlpatterns = patterns('',
     url(r'^paciente/diariomedico/rutinas/alimentacion/listar/$',ListarRutinaAlimentacionPaciente.as_view(), name='listar_alimentacion_paciente'),
     url(r'^paciente/diariomedico/rutinas/alimentacion/actualizar/(?P<pk>\d+)/$',ActualizarRutinaAlimentacionPaciente.as_view(), name='actualizar_alimentacion_paciente'),
     url(r'^paciente/diariomedico/rutinas/alimentacion/eliminar/(?P<pk>\d+)/$' ,EliminarRutinaAlimentacionPaciente.as_view(), name='eliminar_alimentacion_paciente'),
-    
+    url(r'^paciente/diariomedico/rutinas/alimentacion/ver_detalles/(?P<pk>\d+)/$' ,'apps.perfilespacientes.views.ver_detalles_alimentacion_paciente', name='ver_detalles_alimentacion_paciente'),
     #Tratamientos medicamentos
     url(r'^paciente/diariomedico/tratamientos/medicamentos/ingresar$',IngresarMedicamentoPaciente.as_view(), name='ingresar_medicamento_paciente'),
     url(r'^paciente/diariomedico/tratamientos/medicamentos/listar/$',ListarMedicamentoPaciente.as_view(), name='listar_medicamento_paciente'),
     url(r'^paciente/diariomedico/tratamientos/medicamentos/actualizar/(?P<pk>\d+)/$',ActualizarMedicamentoPaciente.as_view(), name='actualizar_medicamento_paciente'),
     url(r'^paciente/diariomedico/tratamientos/medicamentos/eliminar/(?P<pk>\d+)/$' ,EliminarMedicamentoPaciente.as_view(), name='eliminar_medicamento_paciente'),
+    url(r'^paciente/diariomedico/tratamientos/medicamentos/ver_detalle/(?P<pk>\d+)/$' ,'apps.perfilespacientes.views.ver_detalles_medicamento_paciente', name='ver_detalles_medicamento_paciente'),
     
     #Tratamientos terapias
     url(r'^paciente/diariomedico/tratamientos/terapias/ingresar$',IngresarTerapiaPaciente.as_view(), name='ingresar_terapia_paciente'),

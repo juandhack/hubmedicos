@@ -1,0 +1,65 @@
+{% extends "pacientes/index.html" %}
+
+{% block title %}
+Diario Médico - Ver Detalle Medicamentos
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="row">
+{% include 'pacientes/menu_diario_medico.html' %}
+</div>
+<div class="span12">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+                       {% include 'pacientes/menu_diario_medico_tratamientos.html' %}         
+                            </div>
+                            <div class="panel-body">
+                            <p class="navbar-text">Medicamentos</p>
+            <div class="col-lg-6">
+            <div class="well">
+           {% for medicamento in medicamento_detalle %}              
+                    <p>
+                     <h4>Concentración: </h4>{{medicamento.concentracion}} 
+                    </p>
+                     <p>
+                     <h4>Tipo: </h4>{{medicamento.tipo_concentracion}} 
+                    </p>
+                      <p>
+                     <h4>Frecuencia de administración: </h4>{{medicamento.frecuencia_admin}}
+                      <p>
+                     <h4>Fecha Inicial: </h4>{{medicamento.fecha_inicio}} 
+                    </p>
+                      <p>
+                     <h4>Fecha Final: </h4>{{medicamento.fecha_final}} 
+                    </p>
+                      <p>
+                     <h4>Nota: </h4>{{medicamento.nota}} 
+                    </p>
+          {% endfor %}                      
+                               
+ <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
+             
+                           
+                         
+                    
+              </form>
+ <p></p>
+ <div class="tooltip-demo">
+   <a href="{% url 'listar_medicamento_paciente' %}">
+   <button type="button" class="btn btn-primary btn-circle btn-lg" data-toggle="tooltip" data-placement="right" title="" data-original-title="Regresar"><i class="fa fa-list"></i> 
+                            </button></a></div><p></p>
+                    </div>
+             
+            </div>
+               
+  </div>
+                               
+                            </div>
+
+   </div>
+
+</div><!-- /.row -->
+
+{% endblock %}

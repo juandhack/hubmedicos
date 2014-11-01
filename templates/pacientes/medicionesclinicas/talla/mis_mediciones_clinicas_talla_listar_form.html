@@ -20,6 +20,7 @@ Diario Médico - Listar Talla
                    
                             </div>
                             <div class="panel-body">
+                             <p class="navbar-text">Talla</p>
                         <div class="col-lg-6">
               <div class="panel panel-default">
                         <div class="panel-heading">
@@ -34,6 +35,7 @@ Diario Médico - Listar Talla
           
                                             <th>Talla</th>
                                             <th>Hace</th>
+                                            <th>Nota</th>
                                         </tr>
                                     </thead>
                                     {% for talla in object_list %}
@@ -41,6 +43,7 @@ Diario Médico - Listar Talla
                                         <tr>
                                             <td>{{talla.altura}}</td>
                                              <td>{{talla.timestamp|timesince}}</td>
+                                             <td>{{talla.nota}}</td>
                                              <td>
                                                  <a href={% url 'eliminar_talla_paciente' talla.id %}>Eliminar</a>
                                                

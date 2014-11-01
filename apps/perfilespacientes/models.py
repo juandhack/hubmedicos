@@ -617,8 +617,8 @@ class Medicamento(models.Model):
     modo_admin = models.ForeignKey(ModoAdministracion, null=True, blank=True)
     frecuencia_admin = models.CharField(max_length=100,null=True,blank=True)
     motivo_admin = models.CharField(max_length=100,null=True,blank=True)
-    fecha_inicio = models.DateField(unique=True, null=True, blank=True)
-    fecha_final = models.DateField(unique=True, null=True, blank=True)
+    fecha_inicio = models.DateField(null=True, blank=True)
+    fecha_final = models.DateField(null=True, blank=True)
     nota = models.TextField(null=True, blank=True)
     class Meta:
 		verbose_name = 'Medicamento'
@@ -688,14 +688,18 @@ class ResultadosLab(models.Model):
     def get_delete_url(self):
                 return ('eliminar_resultado_lab_paciente', [self.id, ])
     #code
-    
+PROPOSITO_CITA = (
+   ('Primera vez','Primera vez'),
+   ('Control','Control'),
+   ('Procedimiento','Procedimiento'),  
+)   
 class Cita(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
     proveedor = models.CharField(max_length=100,null=True, blank=True)
-    proposito = models.CharField("Propósito",max_length=100,null=True, blank=True)
+    proposito = models.CharField(max_length=100,null=True,blank=True, choices=PROPOSITO_CITA)
     nombre_especialista = models.CharField(max_length=100,null=True, blank=True)
-    especialidad = models.CharField(max_length=100,null=True, blank=True)
-    fecha = models.DateTimeField(unique=True, null=True, blank=True)
+    especialidad = models.ForeignKey(Especialidad, null=True, blank=True)
+    fecha = models.DateField(null=True, blank=True)
     hora = models.CharField(max_length=30,null=True,blank=True)
     nota = models.TextField(null=True, blank=True)
     class Meta:

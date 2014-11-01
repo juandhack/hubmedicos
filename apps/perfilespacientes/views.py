@@ -1148,8 +1148,57 @@ def perfil_principal_paciente_home(request):
     
 
 
+def ver_detalles_alimentacion_paciente(request, pk):
 
+	data = {}
+        alimentacion = RutinaAlimentacion.objects.filter(id = pk)
+  
+	data['alimentacion_detalle'] = alimentacion
+
+
+	return render_to_response('pacientes/rutinas/mis_rutinas_alimentacion_ver_detalle_form.html',data,context_instance=RequestContext(request))
     
+def ver_detalles_colesterol_paciente(request, pk):
+
+	data = {}
+        colesterol = Colesterol.objects.filter(id = pk)
+  
+	data['colesterol_detalle'] = colesterol
+
+
+	return render_to_response('pacientes/medicionesclinicas/colesterol/mis_mediciones_clinicas_colesterol_ver_detalle.html',data,context_instance=RequestContext(request))
+
+
+def ver_detalles_presion_paciente(request, pk):
+
+	data = {}
+        presion = Presion.objects.filter(id = pk)
+  
+	data['presion_detalle'] = presion
+
+
+	return render_to_response('pacientes/medicionesclinicas/presion/mis_mediciones_clinicas_presion_ver_detalle.html',data,context_instance=RequestContext(request))
+    
+    
+def ver_detalles_glucemia_paciente(request, pk):
+
+	data = {}
+        glucemia = Glucemia.objects.filter(id = pk)
+  
+	data['glucemia_detalle'] = glucemia
+
+
+	return render_to_response('pacientes/medicionesclinicas/gluco/mis_mediciones_clinicas_gluco_ver_detalle.html',data,context_instance=RequestContext(request))
+    
+def ver_detalles_medicamento_paciente(request, pk):
+
+	data = {}
+        medicamento = Medicamento.objects.filter(id = pk)
+  
+	data['medicamento_detalle'] = medicamento
+
+
+	return render_to_response('pacientes/tratamientos/mis_medicamentos_ver_detalle.html',data,context_instance=RequestContext(request)) 
     
     
     

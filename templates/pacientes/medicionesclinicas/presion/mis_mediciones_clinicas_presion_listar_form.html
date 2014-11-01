@@ -20,6 +20,7 @@ Diario Médico - Listar Presión Arterial
                    
                             </div>
                             <div class="panel-body">
+                            <p class="navbar-text">Presión arterial</p>
                         <div class="col-lg-6">
               <div class="panel panel-default">
                         <div class="panel-heading">
@@ -44,6 +45,9 @@ Diario Médico - Listar Presión Arterial
                                              <td>
                                                  <a href={% url 'eliminar_presion_paciente' presion.id %}>Eliminar</a>
                                                
+                                            </td>
+                                            <td>
+                                             <a href={% url 'ver_detalles_presion_paciente' presion.id %}>Ver detalle</a>
                                             </td>
                                             
                                         </tr>

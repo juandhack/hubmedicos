@@ -15,7 +15,7 @@
 
    <!-- Jquery Charts CSS -->
     <link href="{{STATIC_URL}}pacientes2/jquery/jquery-ui.css" rel="stylesheet">
-  
+ 
 
     <!-- Custom Fonts -->
     <link href="{{STATIC_URL}}pacientes2/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -134,11 +134,7 @@
  
       
     <!-- jQuery Version 1.11.0 -->
-    <script src="{{STATIC_URL}}pacientes2/js/jquery-1.11.0.js"></script>
-
-
-
-  
+    <script src="{{STATIC_URL}}pacientes2/js/jquery-1.11.0.js"></script> 
 
 
      <!-- jQuery UI Version 1.11.2 -->
@@ -147,8 +143,10 @@
       
        
     <script>
-$( "#datePicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
-$( "#datePicker2" ).datepicker({ dateFormat: 'dd/mm/yy' });
+$( "#datePicker" ).datepicker({ dateFormat: 'dd/mm/yy',  changeMonth: true,
+      changeYear: true });
+$( "#datePicker2" ).datepicker({ dateFormat: 'dd/mm/yy',  changeMonth: true,
+      changeYear: true });
 $( ".selectMenu" ).selectmenu();
 </script>
 <script>
@@ -164,6 +162,25 @@ $( ".selectMenu" ).selectmenu();
       }
     });
     $( "#estado" ).val( $( "#slider-vertical" ).slider( "value" ) );
+  });
+  </script>
+ <script>
+  $(function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+ 
+    $( "#opener" ).click(function() {
+      $( "#dialog" ).dialog( "open" );
+    });
   });
   </script>
     </body>

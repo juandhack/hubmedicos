@@ -1,0 +1,66 @@
+{% extends "pacientes/index.html" %}
+
+{% block title %}
+Diario Médico - Ver Detalle Colesterol
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="row">
+{% include 'pacientes/menu_diario_medico.html' %}
+</div>
+<div class="span12">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+                            <div class="panel-heading">
+                    {% include 'pacientes/menu_diario_medico_mediciones.html' %}
+                            </div>
+                                 <div class="panel-heading">
+                                
+                   
+                            </div>
+                            <div class="panel-body">
+                          <p class="navbar-text">Colesterol & Triglicéridos</p>
+                   <div class="col-lg-6">
+            <div class="well">
+                       
+                    {% for colesterol in colesterol_detalle %}              
+                    <p>
+                     <h4>LDL: </h4>{{colesterol.ldl}} 
+                    </p>
+                     <p>
+                     <h4>HDL: </h4>{{colesterol.hdl}} 
+                    </p>
+                      <p>
+                     <h4>Triglicéridos: </h4>{{colesterol.trigliceridos}}
+                      <p>
+                     <h4>Calesterol Total: </h4>{{colesterol.colesterol_total}} 
+                    </p>
+                      <p>
+                     <h4>Nota: </h4>{{colesterol.nota}} 
+                    </p>
+                    {% endfor %}
+ <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
+             
+                           
+                         
+                    
+              </form>
+ <p></p>
+ <div class="tooltip-demo">
+   <a href="{% url 'listar_colesterol_paciente' %}">
+   <button type="button" class="btn btn-primary btn-circle btn-lg" data-toggle="tooltip" data-placement="right" title="" data-original-title="Regresar"><i class="fa fa-list"></i> 
+                            </button></a></div><p></p>
+                    </div>
+             
+            </div>
+               
+  </div>
+                               
+                            </div>
+
+   </div>
+
+</div><!-- /.row -->
+
+{% endblock %}

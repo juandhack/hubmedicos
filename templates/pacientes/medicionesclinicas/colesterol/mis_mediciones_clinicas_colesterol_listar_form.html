@@ -20,6 +20,7 @@ Diario Médico - Listar Colesterol
                    
                             </div>
                             <div class="panel-body">
+                            <p class="navbar-text">Colesterol & Triglicéridos</p>
                         <div class="col-lg-6">
               <div class="panel panel-default">
                         <div class="panel-heading">
@@ -45,6 +46,9 @@ Diario Médico - Listar Colesterol
                                              <td>
                                                  <a href={% url 'eliminar_colesterol_paciente' colesterol.id %}>Eliminar</a>
                                                
+                                            </td>
+                                            <td>
+                                             <a href={% url 'ver_detalles_colesterol_paciente' colesterol.id %}>Ver detalle</a>
                                             </td>
                                             
                                         </tr>

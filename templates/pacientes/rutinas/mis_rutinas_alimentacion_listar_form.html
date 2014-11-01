@@ -6,16 +6,17 @@ Diario Médico - Listar Rutinas de Alimentación
 
 {% block content %}
 <br>
-{% include 'pacientes/menu_diario_medico.html' %}
-
 <div class="row">
+{% include 'pacientes/menu_diario_medico.html' %}
+</div>
+<div class="span12">
   <div class="col-lg-12">
     <div class="panel panel-default">
                             <div class="panel-heading">
                             {% include 'pacientes/menu_diario_medico_rutinas.html' %}
                                 
                             </div>
-                            <div class="panel-body">
+                            <p class="navbar-text">Alimentación</p>
                           <div class="col-lg-6">
               <div class="panel panel-default">
                         <div class="panel-heading">
@@ -28,17 +29,22 @@ Diario Médico - Listar Rutinas de Alimentación
                                     <thead>
                                         <tr>
           
-                                            <th>Alimentación</th>
-                                         
+                                            <th>Nombre Alimento</th>
+                                            <th>Hace</th>
+
                                         </tr>
                                     </thead>
                                     {% for alimentacion in object_list %}
                                     <tbody>
                                         <tr>
                                             <td>{{alimentacion.nombre}}</td>
+                                             <td>{{alimentacion.timestamp|timesince}}</td>
                                              <td>
                                                  <a href={% url 'eliminar_alimentacion_paciente' alimentacion.id %}>Eliminar</a>
                                                
+                                            </td>
+                                            <td>
+                                                <a href={% url 'ver_detalles_alimentacion_paciente' alimentacion.id %}>Ver detalle</a>
                                             </td>
                                             
                                         </tr>

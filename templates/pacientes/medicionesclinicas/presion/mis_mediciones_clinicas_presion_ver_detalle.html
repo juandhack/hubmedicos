@@ -1,0 +1,66 @@
+{% extends "pacientes/index.html" %}
+
+{% block title %}
+Diario Médico - Ver Detalle Presión Arterial
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="row">
+{% include 'pacientes/menu_diario_medico.html' %}
+</div>
+<div class="span12">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+                            <div class="panel-heading">
+                   {% include 'pacientes/menu_diario_medico_mediciones.html' %}
+                            </div>
+                                 <div class="panel-heading">
+                                
+                   
+                            </div>
+                            <div class="panel-body">
+                            <p class="navbar-text">Presión arterial</p>
+                   <div class="col-lg-6">
+            <div class="well">
+                    {% for presion in presion_detalle %}              
+                    <p>
+                     <h4>Sistólica: </h4>{{presion.sistolica}} 
+                    </p>
+                     <p>
+                     <h4>Diastólica: </h4>{{presion.diastolica}} 
+                    </p>
+                      <p>
+                     <h4>Pulso: </h4>{{presion.pulso}}
+                      <p>
+                     <h4>Latido Irregular: </h4>{{presion.latido_irregular}} 
+                    </p>
+                      <p>
+                     <h4>Nota: </h4>{{presion.nota}} 
+                    </p>
+                    {% endfor %} 
+                               
+ <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
+      
+                           
+                         
+                    
+              </form>
+ <p></p>
+ <div class="tooltip-demo">
+   <a href="{% url 'listar_presion_paciente' %}">
+   <button type="button" class="btn btn-primary btn-circle btn-lg" data-toggle="tooltip" data-placement="right" title="" data-original-title="Regresar"><i class="fa fa-list"></i> 
+                            </button></a></div><p></p>
+                    </div>
+             
+            </div>
+               
+  </div>
+                               
+                            </div>
+
+   </div>
+
+</div><!-- /.row -->
+
+{% endblock %}

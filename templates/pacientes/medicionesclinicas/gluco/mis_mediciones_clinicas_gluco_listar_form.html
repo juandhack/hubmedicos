@@ -1,7 +1,7 @@
 {% extends "pacientes/index.html" %}
 
 {% block title %}
-Diario Médico - Listar Glicemia
+Diario Médico - Listar Glucemia
 {% endblock %}
 
 {% block content %}
@@ -20,10 +20,11 @@ Diario Médico - Listar Glicemia
                    
                             </div>
                             <div class="panel-body">
+                            <p class="navbar-text">Glucemia</p>
                         <div class="col-lg-6">
               <div class="panel panel-default">
                         <div class="panel-heading">
-                           <a href="{% url 'ingresar_gluco_paciente' %}"><h4><i class="fa fa-plus-square"></i> Adicionar glicemia</h4></a>
+                           <a href="{% url 'ingresar_gluco_paciente' %}"><h4><i class="fa fa-plus-square"></i> Adicionar glucemia</h4></a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -32,7 +33,7 @@ Diario Médico - Listar Glicemia
                                     <thead>
                                         <tr>
           
-                                            <th>Glicemia</th>
+                                            <th>Glucemia</th>
                                             <th>Hace</th>
                                         </tr>
                                     </thead>
@@ -44,6 +45,9 @@ Diario Médico - Listar Glicemia
                                              <td>
                                                  <a href={% url 'eliminar_gluco_paciente' glicemia.id %}>Eliminar</a>
                                                
+                                            </td>
+                                             <td>
+                                             <a href={% url 'ver_detalles_glucemia_paciente' glicemia.id %}>Ver detalle</a>
                                             </td>
                                             
                                         </tr>

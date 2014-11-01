@@ -6,14 +6,17 @@ Diario Médico - Eliminar Próximas Citas
 
 {% block content %}
 <br>
-{% include 'pacientes/menu_diario_medico.html' %}
 <div class="row">
+{% include 'pacientes/menu_diario_medico.html' %}
+</div>
+<div class="span12">
   <div class="col-lg-12">
     <div class="panel panel-default">
                            <div class="panel-heading">
-                                <a href="{% url 'listar_cita_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-user-md"></i> Citas</button></a>
+                                <a href="{% url 'listar_cita_paciente' %}"><button type="button" class="btn btn-outline btn-info"><i class="fa fa-clock-o"></i> Citas</button></a>
                             </div>
                             <div class="panel-body">
+                            <p class="navbar-text">Citas</p>
     <div class="col-lg-6">
             <div class="well">
                        

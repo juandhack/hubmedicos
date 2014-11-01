@@ -20,6 +20,7 @@ Diario Médico - Listar Peso
                    
                             </div>
                             <div class="panel-body">
+                            <p class="navbar-text">Peso</p>
                         <div class="col-lg-6">
               <div class="panel panel-default">
                         <div class="panel-heading">
@@ -34,6 +35,7 @@ Diario Médico - Listar Peso
           
                                             <th>Peso</th>
                                             <th>Hace</th>
+                                            <th>Nota</th>
                                          
                                         </tr>
                                     </thead>
@@ -42,6 +44,7 @@ Diario Médico - Listar Peso
                                         <tr>
                                             <td>{{peso.peso}}</td>
                                             <td>{{peso.timestamp|timesince}}</td>
+                                            <td>{{peso.nota}}</td>
                                              <td>
                                                  <a href={% url 'eliminar_peso_paciente' peso.id %}>Eliminar</a>
                                                

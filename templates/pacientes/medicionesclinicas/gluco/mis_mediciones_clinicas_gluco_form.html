@@ -1,7 +1,7 @@
 {% extends "pacientes/index.html" %}
 
 {% block title %}
-Diario Médico - Ingresar Glicemia
+Diario Médico - Ingresar Glucemia
 {% endblock %}
 
 {% block content %}
@@ -21,10 +21,11 @@ Diario Médico - Ingresar Glicemia
                    
                             </div>
                             <div class="panel-body">
+                            <p class="navbar-text">Glucemia</p>
                                          <div class="col-lg-3">
                     <div class="well well-sm">
                     <div class="alert alert-info">
-                        <h5><label>Glicemia: </label></h5></div>
+                        <h5><label>Glucemia: </label></h5></div>
                                      <form enctype="multipart/form-data" class="form-horizontal" method="POST">{% csrf_token %}
               {{ form }}
               <p></p>
