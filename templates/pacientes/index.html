@@ -1,187 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{% block title %}
-
-    {% endblock title %}</title>
+    <title>{% block title %} {% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="layout" content="main"/>
+    <meta name="layout" content="main" />
 
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 
 
-   <!-- Jquery Charts CSS -->
+    <!-- Jquery Charts CSS -->
     <link href="{{STATIC_URL}}pacientes2/jquery/jquery-ui.css" rel="stylesheet">
- 
+
 
     <!-- Custom Fonts -->
     <link href="{{STATIC_URL}}pacientes2/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="{{STATIC_URL}}css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
-<link rel="shortcut icon" href="{{MEDIA_URL}}images/registro_menu.png">
-  <!-- Jquery Charts CSS -->
-     <!-- Jquery Charts CSS -->
-<link href="{{STATIC_URL}}pacientes2/jquery/jquery-ui.css" rel="stylesheet">
+    <link rel="shortcut icon" href="{{MEDIA_URL}}images/registro_menu.png">
+    <!-- Jquery Charts CSS -->
+    <!-- Jquery Charts CSS -->
+    <link href="{{STATIC_URL}}pacientes2/jquery/jquery-ui.css" rel="stylesheet">
 
- 
+
     <style>
     </style>
 </head>
-    <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="dashboard.html" class="brand"><i class="icon-leaf">Hub Salud</i></a>
-                    <div id="app-nav-top-bar" class="nav-collapse">
-                        <ul class="nav">
-                            
-                                       <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">  {% if user.is_authenticated %}
+
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="dashboard.html" class="brand"><i class="icon-leaf">Hub Salud</i></a>
+                <div id="app-nav-top-bar" class="nav-collapse">
+                    <ul class="nav">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">  {% if user.is_authenticated %}
                       Bienvenido apreciado paciente
                       {% else %}
                       {% endif %}
                                        <b class="caret hidden-phone"></b>
                                     </a>
-                                 <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="dashboard.html">Editar Cuenta</a>
-                                        </li>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="dashboard.html">Editar Cuenta</a>
+                                </li>
 
-                                    </ul>
-                                </li>
-                        </ul>
-                        <ul class="nav pull-right">
-                            <li>
-                                <a href="/logout/">Salir</a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="body-container">
-            <div id="body-content">
-                
-                    <div class="body-nav body-nav-horizontal body-nav-fixed">
-                        <div class="container">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-home icon-large"></i> Mi Actividad
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href={% url 'perfil_principal_paciente' %}>
-                                        <i class="icon-user icon-large"></i> Mi Perfil
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'listar_estado_animo_paciente' %}">
-                                        <i class="icon-calendar icon-large"></i> Mi Diario Médico
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-briefcase icon-large"></i> Mi Hub de Salud
-                                    </a>
-                                </li>
-                                 <li>
-                                    <a href="#">
-                                        <i class="icon-envelope icon-large"></i> Mis Mensajes
-                                    </a>
-                                </li>
-                                  <li>
-                                    <a href="#">
-                                        <i class="icon-users icon-large"></i> Mis Contactos
-                                    </a>
-                                </li>
                             </ul>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li>
+                            <a href="/logout/">Salir</a>
+                        </li>
 
-    <section class="page container">
-  {% block content %}
-
-  {% endblock content %}
-    </section>
-            </div>
-        </div>
-
-        <div id="spinner" class="spinner" style="display:none;">
-            Loading&hellip;
-        </div>
-
-        <footer class="application-footer">
-            <div class="container">
-                <p> Powered by Digitalsmark Latinoamérica | Copyright © 2002 - 2014</p>
-                <div class="disclaimer">
-                    <p>Términos de uso</p>
-                    <p>Políticas de privacidad</p>
-                    <p>Condiciones de servicio</p>
+                    </ul>
                 </div>
             </div>
-        </footer>
- <!-- jQuery Version 1.11.0 -->
- 
-      
+        </div>
+    </div>
+
+    <div id="body-container">
+        <div id="body-content">
+
+            <div class="body-nav body-nav-horizontal body-nav-fixed">
+                <div class="container">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="icon-home icon-large"></i> Mi Actividad
+                            </a>
+                        </li>
+                        <li>
+                            <a href={% url 'perfil_principal_paciente' %}>
+                                <i class="icon-user icon-large"></i> Mi Perfil
+                            </a>
+                        </li>
+                        <li>
+                            <a href={% url 'listar_estado_animo_paciente' %}>
+                                <i class="icon-calendar icon-large"></i> Mi Diario Médico
+                            </a>
+                        </li>
+                        <li>
+                            <a href={% url 'listar_club_paciente' %}>
+                                <i class="icon-briefcase icon-large"></i> Mi Hub de Salud
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <section class="page container">
+                {% block content %} {% endblock content %}
+            </section>
+        </div>
+    </div>
+
+    <div id="spinner" class="spinner" style="display:none;">
+        Loading&hellip;
+    </div>
+
+    <footer class="application-footer">
+        <div class="container">
+            <p>Powered by Digitalsmark Latinoamérica | Copyright © 2002 - 2014</p>
+            <div class="disclaimer">
+                <p>Términos de uso</p>
+                <p>Políticas de privacidad</p>
+                <p>Condiciones de servicio</p>
+            </div>
+        </div>
+    </footer>
     <!-- jQuery Version 1.11.0 -->
-    <script src="{{STATIC_URL}}pacientes2/js/jquery-1.11.0.js"></script> 
 
 
-     <!-- jQuery UI Version 1.11.2 -->
+    <!-- jQuery Version 1.11.0 -->
+    <script src="{{STATIC_URL}}pacientes2/js/jquery-1.11.0.js"></script>
+
+
+    <!-- jQuery UI Version 1.11.2 -->
     <script src="{{STATIC_URL}}pacientes2/jquery/jquery-ui.js"></script>
-        
-      
-       
+
+    <!-- jQuery UI Version 1.11.2 -->
+    <script src="{{STATIC_URL}}js/bootstrap.js"></script>
+
+
+
     <script>
-$( "#datePicker" ).datepicker({ dateFormat: 'dd/mm/yy',  changeMonth: true,
-      changeYear: true });
-$( "#datePicker2" ).datepicker({ dateFormat: 'dd/mm/yy',  changeMonth: true,
-      changeYear: true });
-$( ".selectMenu" ).selectmenu();
-</script>
-<script>
-  $(function() {
-    $( "#slider-vertical" ).slider({
-      orientation: "horizontal",
-      range: "min",
-      min: 1,
-      max: 10,
-      value: 5,
-      slide: function( event, ui ) {
-        $( "#estado" ).val( ui.value );
-      }
-    });
-    $( "#estado" ).val( $( "#slider-vertical" ).slider( "value" ) );
-  });
-  </script>
- <script>
-  $(function() {
-    $( "#dialog" ).dialog({
-      autoOpen: false,
-      show: {
-        effect: "blind",
-        duration: 1000
-      },
-      hide: {
-        effect: "explode",
-        duration: 1000
-      }
-    });
- 
-    $( "#opener" ).click(function() {
-      $( "#dialog" ).dialog( "open" );
-    });
-  });
-  </script>
-    </body>
+        $("#datePicker").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true
+        });
+        $("#datePicker2").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true
+        });
+        $(".selectMenu").selectmenu();
+    </script>
+    <script>
+        $(function () {
+            $("#slider-vertical").slider({
+                orientation: "horizontal",
+                range: "min",
+                min: 1,
+                max: 10,
+                value: 5,
+                slide: function (event, ui) {
+                    $("#estado").val(ui.value);
+                }
+            });
+            $("#estado").val($("#slider-vertical").slider("value"));
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#dialog").dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+
+            $("#opener").click(function () {
+                $("#dialog").dialog("open");
+            });
+        });
+    </script>
+    <script>
+        $('#myTab a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+    </script>
+
+
+</body>
+
 </html>

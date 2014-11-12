@@ -490,4 +490,13 @@ class ClubMedicoForm(forms.ModelForm):
         model = ClubMedico
         exclude = ('user',)
         
+class ClubMedicoSubscripcionForm(forms.ModelForm):
+    class Meta:
+        model = ClubMedicoSubscripcion
+        exclude = ('user','rol')
+        widgets = {
+            
+            'club': forms.Select(attrs={'style':'width:30%'}),   
+        }
+        
       

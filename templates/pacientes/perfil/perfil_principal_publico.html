@@ -1,71 +1,247 @@
-{% extends "pacientes/index.html" %}
+{% extends "pacientes/index.html" %} {% block title %} Perfil {% endblock %} {% block content %}
+<div class="row">
+    <div class="span5">
+        <div class="panel panel-default">
+            <div class="panel-heading">
 
-{% block title %}
-Perfil
-{% endblock %}
 
-{% block content %} 
-  
+            </div>
+            <div class="panel-body">
 
- 
-<div class="signin-row row">
-                    <div class="span4">
-                    </div>
-                    <div class="span5">
-                        <div class="container-signin">
-                        <div class="span3">
-                        {% if paciente %}
-                        {% for paciente in paciente %}
-                       
-                            <div class="thumbnail">                 
+                <div class="col-lg-4">
+                    <div class="well well-sm">
+                        {% if paciente %} {% for paciente in paciente %}
+
+                        <div class="thumbnail">
                             <img src={{MEDIA_URL}}{{paciente.imagen}}>
-                         </div>
-                         {% endfor %}
-                         {% else%}
-                          <div class="thumbnail">                 
+                        </div>
+                        {% endfor %} {% else%}
+                        <div class="thumbnail">
                             <img src="{{MEDIA_URL}}images/silueta.jpg">
-                         </div>
-                         {% endif %}
-    
-    </div>
-    {% for paciente in paciente %}
-                            <legend>{{paciente.nombres}} {{paciente.apellidos}}</legend>
-    {% endfor %}
-                            <form action="dashboard.html" method="POST" id="loginForm" class="form-signin" autocomplete="off">
+                        </div>
+                        {% endif %} {% for paciente in paciente %}
+                        <h4>{{paciente.nombres}} {{paciente.apellidos}}</h4>
+                        {% endfor %}
+                        <div class="alert alert-info">
+
+                            {% for paciente in paciente %} {{paciente.acerca_de}} {% endfor %}
+
+
+                        </div>
+                        <form action="dashboard.html" method="POST" id="loginForm" class="form-signin" autocomplete="off">
                             {% for social in social %}
-                                <div class="form-inner">
-                                    <div class="input-prepend">
+                            <div class="form-inner">
+                                <div class="input-prepend">
 
-                                        <a href='http://{{social.blog}}' target="_blank"><span class="add-on" rel="tooltip"  data-placement="top"><i class="icon-globe icon-large"></i> Web Personal</span></a>
+                                    <a href='http://{{social.blog}}' target="_blank"><span class="add-on" rel="tooltip"  data-placement="top"><i class="icon-globe icon-large"></i> 
+                                        Web Personal</span></a>
+                                    <p></p>
+                                    <a href='http://{{social.twitter}}' target="_blank"><span class="add-on" rel="tooltip"  data-placement="top"><i class="icon-twitter-sign icon-large"></i> 
+                                        Twitter</span></a> 
+                                    <div class="panel-body">
+                                        <p></p>
+                                        <a href='http://{{social.facebook}}' target="_blank"><span class="add-on" rel="tooltip"  data-placement="top"><i class="icon-facebook-sign icon-large"></i> 
+                                        Facebook</span></a> 
+                                        <div class="panel-body">
+
+                                            <p></p>
+                                            <a href='http://{{social.linkedin}}' target="_blank"><span class="add-on" rel="tooltip"  data-placement="top"><i class="icon-linkedin-sign icon-large"></i> 
+                                        Linkedin</span></a> 
+                                            <p></p>
+                                            <a href='http://{{social.you_tube}}' target="_blank"><span class="add-on" rel="tooltip"  data-placement="top"><i class="icon-youtube-play icon-large"></i> 
+                                        You Tube</span></a> 
+                                            <p></p>
+                                            <a href="{% url 'perfil_basico_paciente' %}">
+                                                <input class="btn btn-primary" value="Editar mi perfil">
+                                            </a>
+                                            <div class="panel-body">
+
+
+                                            </div>
+                                        </div>
+
+
+
                                     </div>
+                                    {% endfor %}
 
-                                    
-                                  
+                        </form>
+                        </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="span11">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Mis Síntomas</h4>
+
+            </div>
+            <div class="panel-body">
+
+                <div class="col-lg-4">
+                    <div class="well well-sm">
+
+                        {% if sintomas %}
+                        <p>{{sintomas.sintoma}} el {{sintomas.timestamp}}</p>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- /.row -->
+    <div class="span11">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Mis Variables Médicas</h4>
+
+            </div>
+            <div class="panel-body">
+
+                <div class="col-lg-4">
+                    <div class="well well-sm">
+                        <ul class="nav nav-tabs" role="tablist" id="myTab">
+                            <li role="presentation" class="active"><a href="#home" role="tab" data-toggle="tab">Hemoglobina Glicosilada</a>
+                            </li>
+                            <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">Colesterol & Triglicéridos</a>
+                            </li>
+                            <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">Presión Arterial</a>
+                            </li>
+                            <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">GlucoDay</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="home">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+
+                                                <th>porcentaje</th>
+                                                <th>fecha</th>
+                                            </tr>
+                                        </thead>
+                                        {% if hemoglobina %}
+                                        <tbody>
+                                            <tr>
+                                                <td>{{hemoglobina.porcentaje}}</td>
+                                                <td>{{hemoglobina.timestamp}}</td>
+                                            </tr>
+                                        </tbody>
+                                        {% endif %}
+                                    </table>
                                 </div>
-                                 {% endfor %}
-                                <footer class="signin-actions">
-                                     <a href="{% url 'perfil_basico_paciente' %}" ><input class="btn btn-primary" value="Editar Perfil"></a>
-                                </footer>
-                            </form>
-                           
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                                 <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+
+                                                <th>ldl</th>
+                                                <th>hdl</th>
+                                                <th>trigliceridos</th>
+                                                <th>colesterol</th>
+                                                <th>fecha</th>
+                                            </tr>
+                                        </thead>
+                                        {% if colesterol %}
+                                        <tbody>
+                                            <tr>
+                                                <td>{{colesterol.ldl}}</td>
+                                                <td>{{colesterol.hdl}}</td>
+                                                <td>{{colesterol.trigliceridos}}</td>
+                                                <td>{{colesterol.colesterol_total}}</td>
+                                                <td>{{colesterol.timestamp}}</td>
+                                            </tr>
+                                        </tbody>
+                                        {% endif %}
+                                    </table>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="messages">
+                                       <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+
+                                                <th>sistólica</th>
+                                                <th>diastólica</th>
+                                                <th>pulso</th>
+                                                <th>fecha</th>
+                                            </tr>
+                                        </thead>
+                                        {% if presion %}
+                                        <tbody>
+                                            <tr>
+                                                <td>{{presion.sistolica}}</td>
+                                                <td>{{presion.diastolica}}</td>
+                                                <td>{{presion.pulso}}</td>
+                                                <td>{{presion.timestamp}}</td>
+                                            </tr>
+                                        </tbody>
+                                        {% endif %}
+                                    </table>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="settings">
+                                            <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+
+                                                <th>medicion</th>
+                                                <th>contexto</th>
+                                                <th>tipo de sangre</th>
+                                                <th>fecha</th>
+                                            </tr>
+                                        </thead>
+                                        {% if gluco %}
+                                        <tbody>
+                                            <tr>
+                                                <td>{{gluco.medicion}}</td>
+                                                <td>{{gluco.contexto_medicion_id}}</td>
+                                                <td>{{gluco.tipo_id}}</td>
+                                                <td>{{gluco.timestamp}}</td>
+                                            </tr>
+                                        </tbody>
+                                        {% endif %}
+                                    </table>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
-                    <div class="span3"></div>
+                </div>
 
-                </div>
-                <div class="signin-row row">
-                    <div class="span3"></div>
-                    <div class="span8">
-                        <div class="well well-small well-shadow">
-                            <legend class="lead">Sobre Mi</legend>
-                            {% for paciente in paciente %}
-                            {{paciente.acerca_de}}
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="span8"></div>
-                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- /.row -->
+</div>
 
 
 

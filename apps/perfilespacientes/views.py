@@ -5,6 +5,7 @@ from django.shortcuts import render, render_to_response, RequestContext, get_obj
 from django.http import HttpResponseRedirect, HttpRequest
 from django.core.context_processors import csrf
 from .models import *
+from apps.perfilesmedicos.models import *
 from django.contrib.auth.decorators import login_required
 from django.views.generic.base import *
 from django.views.generic.edit import *
@@ -1035,40 +1036,41 @@ class EliminarGinecoDiarioPaciente(DeleteView):
     
  #--------------Hub Salud - Club -----------------------------------------------------------# 
 class IngresarClubPaciente(CreateView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
-    form_class = AntecedentesFamiliaresForm
-    model = AntecedentesFamiliares
+    template_name = 'pacientes/clubes/clubes_form.html'
+    form_class = ClubMedicoSubscripcionForm
+    model = ClubMedicoSubscripcion
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
-	return super(IngresarCirugiaPaciente,self).form_valid(form)
-    success_url = reverse_lazy('listar_familiar_paciente') 
+	return super(IngresarClubPaciente,self).form_valid(form)
+    success_url = reverse_lazy('listar_club_paciente') 
      
 class ListarClubPaciente(ListView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_listar_form.html'
-    form_class = AntecedentesFamiliaresForm
-    #model = Cirugia
-    success_url = reverse_lazy('listar_familiar_paciente')
+    template_name = 'pacientes/clubes/clubes_listar_form.html'
+    form_class = ClubMedicoSubscripcionForm
+    model = ClubMedicoSubscripcion
+    success_url = reverse_lazy('listar_club_paciente')
     
     def get_queryset(self):
-        return Cirugia.objects.filter(user_id = self.request.user)
+        return ClubMedicoSubscripcion.objects.filter(user_id = self.request.user)
+    
     
 class ActualizarClubPaciente(UpdateView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_form.html'
-    form_class = AntecedentesFamiliaresForm
-    model = AntecedentesFamiliares
+    template_name = 'pacientes/clubes/clubes_listar_form.html'
+    form_class = ClubMedicoSubscripcionForm
+    model = ClubMedicoSubscripcion
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
 	self.object.save()
-	return super(ActualizarCirugiaPaciente,self).form_valid(form)
-    success_url = reverse_lazy('listar_familiar_paciente')
+	return super(ActualizarClubPaciente,self).form_valid(form)
+    success_url = reverse_lazy('listar_club_paciente')
     
 class EliminarClubPaciente(DeleteView):
-    template_name = 'pacientes/historialclinico/antecedentes/familiares/mis_antecedentes_familiares_confirmar_delete_form.html'
-    model = AntecedentesFamiliares
-    success_url = reverse_lazy('listar_familiar_paciente')
+    template_name = 'pacientes/clubes/clubes_confirmar_delete_form.html'
+    model = ClubMedicoSubscripcion
+    success_url = reverse_lazy('listar_club_paciente')
 
     
 @login_required
@@ -1133,6 +1135,11 @@ def perfil_principal_paciente_home(request):
         paciente = PerfilBasico.objects.filter(user_id = usuario.id)
         contacto = ContactosBasico.objects.filter(user_id = usuario.id)
         social = RedesSociales.objects.filter(user_id = usuario.id)
+	sintomas =  SintomasAlteracionGlicemicaPaciente.objects.filter(user_id = usuario.id)[1]
+	hemoglobina =  Hemoglobina.objects.filter(user_id = usuario.id)[1]
+	colesterol = Colesterol.objects.filter(user_id = usuario.id)[1]
+	presion = Presion.objects.filter(user_id = usuario.id)[1]
+	gluco = Glucemia.objects.filter(user_id = usuario.id)[1]
         obj_contacto = get_object_or_404(contacto,user_id=usuario.id)
         tipo_pais = obj_contacto.pais
         tipo_dpto = obj_contacto.dpto
@@ -1143,6 +1150,11 @@ def perfil_principal_paciente_home(request):
         data['pais'] = tipo_pais
         data['dpto'] = tipo_dpto
         data['ciudad'] = tipo_ciudad
+	data['sintomas'] = sintomas
+	data['hemoglobina'] = hemoglobina
+	data['colesterol'] = colesterol
+	data['presion'] = presion
+	data['gluco'] = gluco
 
 	return render_to_response('pacientes/perfil/perfil_principal_publico.html',data,context_instance=RequestContext(request))
     

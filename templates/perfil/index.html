@@ -2,83 +2,87 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-         {% for usr in usuario %}
-	<title>Perfil Público de {{usr.nombres}} {{usr.apellidos}}</title>
-        {% endfor %}
+<head>
 
-        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    {% for usr in usuario %}
+    <title>Perfil Público de {{usr.nombres}} {{usr.apellidos}}</title>
+    {% endfor %}
 
-        <meta name="description" content="FlexyCodes - FlexyCard vCard Template. Creating my personal page!"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-        <!-- CSS | bootstrap -->
-        <!-- Credits: http://getbootstrap.com/ -->
-        <link  rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/bootstrap.min.css" />
+    <meta name="description" content="FlexyCodes - FlexyCard vCard Template. Creating my personal page!" />
 
-        <!-- CSS | font-awesome -->
-        <!-- Credits: http://fortawesome.github.io/Font-Awesome/icons/ -->
-        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/font-awesome.min.css" />
+    <!-- CSS | bootstrap -->
+    <!-- Credits: http://getbootstrap.com/ -->
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/bootstrap.min.css" />
 
-        <!-- CSS | animate -->
-        <!-- Credits: http://daneden.github.io/animate.css/ -->
-        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/animate.min.css" />
+    <!-- CSS | font-awesome -->
+    <!-- Credits: http://fortawesome.github.io/Font-Awesome/icons/ -->
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/font-awesome.min.css" />
 
-        <!-- CSS | Normalize -->
-        <!-- Credits: http://manos.malihu.gr/jquery-custom-content-scroller -->
-        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/jquery.mCustomScrollbar.css" />
+    <!-- CSS | animate -->
+    <!-- Credits: http://daneden.github.io/animate.css/ -->
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/animate.min.css" />
 
-        <!-- CSS | Colors -->
-        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/colors/DarkBlue.css" />
+    <!-- CSS | Normalize -->
+    <!-- Credits: http://manos.malihu.gr/jquery-custom-content-scroller -->
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/jquery.mCustomScrollbar.css" />
 
-        <!-- CSS | Style -->
-        <!-- Credits: http://themeforest.net/user/FlexyCodes -->
-        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/main.css" />
+    <!-- CSS | Colors -->
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/colors/DarkBlue.css" />
 
-        <!-- CSS | prettyPhoto -->
-        <!-- Credits: http://www.no-margin-for-errors.com/ -->
-        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/prettyPhoto.css"/> 
+    <!-- CSS | Style -->
+    <!-- Credits: http://themeforest.net/user/FlexyCodes -->
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/main.css" />
 
-        <!-- CSS | Google Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
-        
-        <link rel="shortcut icon" href="{{MEDIA_URL}}images/registro_menu.png">
+    <!-- CSS | prettyPhoto -->
+    <!-- Credits: http://www.no-margin-for-errors.com/ -->
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}card/css/prettyPhoto.css" />
 
-        <!--[if IE 7]>
+    <!-- CSS | Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+
+    <link rel="shortcut icon" href="{{MEDIA_URL}}images/registro_menu.png">
+
+    <!--[if IE 7]>
                 <link rel="stylesheet" type="text/css" href="css/icons/font-awesome-ie7.min.css"/>
         <![endif]-->
 
-        <style>
-            @media only screen and (max-width : 991px){
-                .resp-vtabs .resp-tabs-container {
-                    margin-left: 13px;
-                }
+    <style>
+        @media only screen and (max-width: 991px) {
+            .resp-vtabs .resp-tabs-container {
+                margin-left: 13px;
             }
-            @media only screen and (min-width : 800px) and (max-width : 991px){
-                .resp-vtabs .resp-tabs-container {
-                    margin-left: 13px;
-                    width:89%;
-                }
-            }			
+        }
+        @media only screen and (min-width: 800px) and (max-width: 991px) {
+            .resp-vtabs .resp-tabs-container {
+                margin-left: 13px;
+                width: 89%;
+            }
+        }
+    </style>
 
-        </style>
+</head>
 
-    </head>
+<body>
 
-    <body>
-
-        <!--[if lt IE 7]>
+    <!--[if lt IE 7]>
                 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Laoding page -->
-        <div id="preloader"><div id="spinner"></div></div>
+    <!-- Laoding page -->
+    <div id="preloader">
+        <div id="spinner"></div>
+    </div>
 
-        <!-- .slideshow -->
-        <!--<ul class="cb-slideshow" id="cb_slideshow">
+    <!-- .slideshow -->
+    <!--<ul class="cb-slideshow" id="cb_slideshow">
             <li><span>Image 01</span><div></div></li>
             <li><span>Image 02</span><div></div></li>
             <li><span>Image 03</span><div></div></li>
@@ -86,694 +90,688 @@
             <li><span>Image 05</span><div></div></li>
             <li><span>Image 06</span><div></div></li>
         </ul> -->
-        <!-- /.slideshow --> 
+    <!-- /.slideshow -->
 
-        <!-- .wrapper --> 
-        <div class="wrapper">
+    <!-- .wrapper -->
+    <div class="wrapper">
 
-            <!--- .Content --> 
-            <section class="tab-content">
-                <div class="container">
-                     {% for cont in contactos %}
-		     {% for usr in usuario %}
-		    
-		    
-		     {% for soc in social %}
-		     
-                    <div class="row">
+        <!--- .Content -->
+        <section class="tab-content">
+            <div class="container">
+                {% for cont in contactos %} {% for usr in usuario %} {% for soc in social %}
 
-                        <div class="col-md-12">
+                <div class="row">
 
-                            <div class="row">   
-                                <div class="col-md-3 widget-profil">
-                                    <div class="row">
+                    <div class="col-md-12">
 
-                                        <!-- Profile Image -->
-                                        <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12 ">
+                        <div class="row">
+                            <div class="col-md-3 widget-profil">
+                                <div class="row">
 
-                                            <div class="image-holder one" id="pic_prof_1">
+                                    <!-- Profile Image -->
+                                    <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12 ">
 
-                                                <img class="head-image up circle" src="{{MEDIA_URL}}{{usr.imagen}}" width="150" height="150" alt="" />
+                                        <div class="image-holder one" id="pic_prof_1">
 
-                                            </div>
-                                        </div>
-                                        <!-- End Profile Image -->
-
-                                        <div class="col-lg-12 col-md-12 col-sm-9 col-xs-12">
-
-                                            <!-- Profile info -->
-					    
-                                            <div id="profile_info">
-                                                <h1 id="name">Doc. {{usr.apellidos}}</h1>
-                                                                                          
-                                            </div>
-					   
-                                            <!-- End Profile info -->  
-
-
-                                            <!-- Profile Description -->
-                                          
-                                            <!-- End Profile Description -->  
-
-                                             
-                                            <!-- Name -->
-                                            <div id="profile_social">
-                                                <h6>Mis Redes Sociales</h6>
-                                                <a href="http://{{soc.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>
-                                                <a href="http://twitter.com/{{soc.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>
-                                                <a href="http://{{soc.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                                <a href="http://{{soc.you_tube}}" target="_blank"><i class="fa fa fa-youtube"></i></a>
-						<a href="http://{{soc.blog}}" target="_blank"><i class="fa fa-bold"></i></a>  
-                                                <div class="clear"></div>
-                                            </div>
-                                            <!-- End Name -->  
+                                            <img class="head-image up circle" src="{{MEDIA_URL}}{{usr.imagen}}" width="150" height="150" alt="" />
 
                                         </div>
+                                    </div>
+                                    <!-- End Profile Image -->
+
+                                    <div class="col-lg-12 col-md-12 col-sm-9 col-xs-12">
+
+                                        <!-- Profile info -->
+
+                                        <div id="profile_info">
+                                            <h1 id="name">Doc. {{usr.apellidos}}</h1>
+
+                                        </div>
+
+                                        <!-- End Profile info -->
+
+
+                                        <!-- Profile Description -->
+
+                                        <!-- End Profile Description -->
+
+
+                                        <!-- Name -->
+                                        <div id="profile_social">
+                                            <h6>Redes Sociales</h6>
+                                            <a href="http://{{soc.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                            <a href="http://twitter.com/{{soc.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>
+                                            <a href="http://{{soc.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                            <a href="http://{{soc.you_tube}}" target="_blank"><i class="fa fa fa-youtube"></i></a>
+                                            <a href="http://{{soc.blog}}" target="_blank"><i class="fa fa-bold"></i></a> 
+                                            <div class="clear"></div>
+                                        </div>
+                                        <!-- End Name -->
 
                                     </div>
+
                                 </div>
+                            </div>
 
-                                <div class="col-md-9 flexy_content" style="padding-left: 0;padding-right: 0;">
+                            <div class="col-md-9 flexy_content" style="padding-left: 0;padding-right: 0;">
 
-                                    <!-- verticalTab menu -->
-                                    <div id="verticalTab">
+                                <!-- verticalTab menu -->
+                                <div id="verticalTab">
 
-                                        <ul class="resp-tabs-list">
-                                            <li class="tabs-profile hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a profile" data-tab-name="profile">			
-                                                <span class="tite-list">Perfil</span>
-                                                <i class="fa fa-user icon_menu icon_menu_active"></i>
-                                            </li>
+                                    <ul class="resp-tabs-list">
+                                        <li class="tabs-profile hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a profile" data-tab-name="profile">
+                                            <span class="tite-list">Perfil</span>
+                                            <i class="fa fa-user icon_menu icon_menu_active"></i>
+                                        </li>
 
-                                            <li class="tabs-resume hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="resume"> 
-                                                <span class="tite-list">Resumen</span>
-                                                <i class="fa fa-tasks icon_menu"></i>
-                                            </li>
+                                        <li class="tabs-resume hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="resume">
+                                            <span class="tite-list">Resumen</span>
+                                            <i class="fa fa-tasks icon_menu"></i>
+                                        </li>
 
-                                            <li class="tabs-contact hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="contact"> 
-                                                <span class="tite-list">Portafolio</span>
-                                                <i class="fa fa-envelope icon_menu"></i>
-                                            </li>
+                                        <li class="tabs-contact hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="contact">
+                                            <span class="tite-list">Portafolio</span>
+                                            <i class="fa fa-envelope icon_menu"></i>
+                                        </li>
 
-                                            <li class="tabs-consultas hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="consultas">
-                                                <span class="tite-list">Consultas</span>
-                                                <i class="fa fa-bullhorn icon_menu"></i>
-                                            </li>
+                                        <li class="tabs-consultas hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="consultas">
+                                            <span class="tite-list">Consultas</span>
+                                            <i class="fa fa-bullhorn icon_menu"></i>
+                                        </li>
 
-                                            <li class="tabs-contact hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="servicios" style="margin-bottom: 48px !important;"> 
-                                                <span class="tite-list">Servicios</span>
-                                                <i class="fa fa-briefcase icon_menu"></i> 
-                                            </li>
+                                        <li class="tabs-contact hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="servicios" style="margin-bottom: 48px !important;">
+                                            <span class="tite-list">Servicios</span>
+                                            <i class="fa fa-briefcase icon_menu"></i> 
+                                        </li>
 
-                                            <a href="#" id="print"><i class="fa fa-print icon_print"></i> </a>
-                                            <a href="#" id="downlowd"><i class="fa fa-download icon_print"></i> </a>
+                                        <a href="#" id="print"><i class="fa fa-print icon_print"></i> </a>
+                                        <a href="#" id="downlowd"><i class="fa fa-download icon_print"></i> </a>
 
-                                        </ul>
-                                        <!-- /resp-tabs-list -->
+                                    </ul>
+                                    <!-- /resp-tabs-list -->
 
-                                        <!-- resp-tabs-container --> 
-                                        <div class="resp-tabs-container">
+                                    <!-- resp-tabs-container -->
+                                    <div class="resp-tabs-container">
 
-                                            <!-- profile -->
-                                            <div id="profile" class="content_2">
-                                                <!-- .title -->
-                                                <h1>Doctor(a) {{usr.nombres}} {{usr.apellidos}}</h1>
+                                        <!-- profile -->
+                                        <div id="profile" class="content_2">
+                                            <!-- .title -->
+                                            <h1>Doctor(a) {{usr.nombres}} {{usr.apellidos}}</h1>
 
-                                                <div class="row top-p">
-                                                    <div class="col-md-6 profile-l">
+                                            <div class="row top-p">
+                                                <div class="col-md-6 profile-l">
 
-                                                        <!--About me-->
-							
-                                                        <div class="title_content">
-                                                            <div class="text_content">Datos Personales</div>
-                                                            <div class="clear"></div>
-                                                        </div>
-							
+                                                    <!--About me-->
 
-                                                        <ul class="about">
-
-                                                            <li>
-                                                                <i class="glyphicon glyphicon-user"></i>
-                                                                <label>Nombre</label>
-                                                                <span class="value">{{usr.nombres}} {{usr.apellidos}}</span>
-                                                                <div class="clear"></div>
-                                                            </li>
-
-                                                            <li> 
-                                                                <i class="glyphicon glyphicon-map-marker"></i>
-                                                                <label>Dirección</label>
-                                                                <span class="value">{{cont.ciudad}}</span>
-                                                                <div class="clear"></div>
-                                                            </li>
-
-                                                            <li>
-                                                                <i class="glyphicon glyphicon-envelope"></i>
-                                                                <label>Correo</label>
-                                                                <span class="value">{{cont.correo}}</span>
-                                                                <div class="clear"></div>
-                                                            </li>
-
-                                                            <li>
-                                                                <i class="glyphicon glyphicon-phone"></i>
-                                                                <label>Teléfono</label>
-                                                                <span class="value">{{cont.telefono}}</span>
-                                                                <div class="clear"></div>
-                                                            </li>
-							    
-							      <li>
-                                                                <i class="glyphicon glyphicon-phone"></i>
-                                                                <label>Móvil</label>
-                                                                <span class="value">{{cont.celular}}</span>
-                                                                <div class="clear"></div>
-                                                            </li>
-
-                                                        </ul>                                                      
-
+                                                    <div class="title_content">
+                                                        <div class="text_content">Datos Personales</div>
+                                                        <div class="clear"></div>
                                                     </div>
-                                                    <!-- End left-wrap -->
 
-                                                    <div class="col-md-6 profile-r">
 
-                                                        <div class="cycle-slideshow">
-                                                            <img src="{{MEDIA_URL}}images/Fotolia_Subscription_Monthly_P.jpg" alt="" />
-                                                            <img src="{{MEDIA_URL}}images/Fotolia_Subscription_Monthly_S.jpg" alt="" />
-                                                            <img src="{{MEDIA_URL}}images/Fotolia_Subscription_Monthly_T.jpg" alt="" />
-                                                        </div>
+                                                    <ul class="about">
 
+                                                        <li>
+                                                            <i class="glyphicon glyphicon-user"></i>
+                                                            <label>Nombre</label>
+                                                            <span class="value">{{usr.nombres}} {{usr.apellidos}}</span>
+                                                            <div class="clear"></div>
+                                                        </li>
+
+                                                        <li>
+                                                            <i class="glyphicon glyphicon-map-marker"></i>
+                                                            <label>Dirección</label>
+                                                            <span class="value">{{cont.ciudad}}</span>
+                                                            <div class="clear"></div>
+                                                        </li>
+
+                                                        <li>
+                                                            <i class="glyphicon glyphicon-envelope"></i>
+                                                            <label>Correo</label>
+                                                            <span class="value">{{cont.correo}}</span>
+                                                            <div class="clear"></div>
+                                                        </li>
+
+                                                        <li>
+                                                            <i class="glyphicon glyphicon-phone"></i>
+                                                            <label>Teléfono</label>
+                                                            <span class="value">{{cont.telefono}}</span>
+                                                            <div class="clear"></div>
+                                                        </li>
+
+                                                        <li>
+                                                            <i class="glyphicon glyphicon-phone"></i>
+                                                            <label>Móvil</label>
+                                                            <span class="value">{{cont.celular}}</span>
+                                                            <div class="clear"></div>
+                                                        </li>
+
+                                                    </ul>
+
+                                                </div>
+                                                <!-- End left-wrap -->
+
+                                                <div class="col-md-6 profile-r">
+
+                                                    <div class="cycle-slideshow">
+                                                        <img src="{{MEDIA_URL}}images/Fotolia_Subscription_Monthly_P.jpg" alt="" />
+                                                        <img src="{{MEDIA_URL}}images/Fotolia_Subscription_Monthly_S.jpg" alt="" />
+                                                        <img src="{{MEDIA_URL}}images/Fotolia_Subscription_Monthly_T.jpg" alt="" />
                                                     </div>
 
                                                 </div>
-						<div class="row">
-						  
-						  <div class="col-md-12">
-						       <div class="title_content">
-                                                            <div class="text_content">Reseña Personal</div>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-md-12">
+                                                    <div class="title_content">
+                                                        <div class="text_content">Reseña Personal</div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <p style="margin-bottom:20px">
+                                                        <i class="fa fa-quote-left"></i> {{usr.acerca_de}}
+                                                        <i class="fa fa-quote-right"></i> 
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="border-list"></div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="bottom-p">
+                                                        <div class="title_content">
+                                                            <div class="text_content">Servicios</div>
                                                             <div class="clear"></div>
                                                         </div>
-						   <p style="margin-bottom:20px">
-                                                            <i class="fa fa-quote-left"></i>       
-                                                           {{usr.acerca_de}}
-							   <i class="fa fa-quote-right"></i>  
-                                                        </p>
-						</div>
-						</div>
 
-                                                <div class="border-list"></div>
-
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="bottom-p">
-                                                            <div class="title_content">
-                                                                <div class="text_content">Servicios</div>
-                                                                <div class="clear"></div>
-                                                            </div>
-
-                                                            <div class="panel-group" id="accordion">
-                                                                <div class="panel panel-default">
-                                                                    <div class="panel-heading">
-                                                                        <h4 class="panel-title">
+                                                        <div class="panel-group" id="accordion">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading">
+                                                                    <h4 class="panel-title">
                                                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapse_tabs">
                                                                                 {{prof.organizacion}}
                                                                                 <i class="glyphicon glyphicon-chevron-up" style="float: right;font-size: 13px;"></i>
                                                                             </a>
                                                                         </h4>
-                                                                    </div>
-                                                                    <div id="collapseOne" class="panel-collapse collapse in">
-                                                                        <div class="panel-body">
-									    <div id="profile_info">
-                                                <h1 id="name">Doc. {{usr.apellidos}}</h1>
-                                                <h4 class="line">{{academia.titulo}}</h4>
-                                              
-                                            </div>
-					   
-                                            <!-- End Profile info -->  
+                                                                </div>
+                                                                <div id="collapseOne" class="panel-collapse collapse in">
+                                                                    <div class="panel-body">
+                                                                        <div id="profile_info">
+                                                                            <h1 id="name">Doc. {{usr.apellidos}}</h1>
+                                                                            <h4 class="line">{{academia.titulo}}</h4>
+
+                                                                        </div>
+
+                                                                        <!-- End Profile info -->
 
 
-                                            <!-- Profile Description -->
-                                            <div id="profile_desc">
-					     <h6>Especialidad</h6>
-					      <h4 class="line">{{prof.especialidad}}</h4>
-                                            </div>
-                                                                      </div>
+                                                                        <!-- Profile Description -->
+                                                                        <div id="profile_desc">
+                                                                            <h6>Especialidad</h6>
+                                                                            <h4 class="line">{{prof.especialidad}}</h4>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="clear"></div>
-
                                             </div>
-                                            <!-- End .profile -->
-
-                                            <!-- .resume -->
-                                            <div id="resume" class="content_2">
-                                                <!-- .title -->
-                                                
-                                                <div class="row">
-
-                                                    <!-- .resume-right -->
-                                                    <div class="col-md-12">
-						       <!-- .title_content -->
-                                                        <div class="title_content" style="margin-bottom:5px">
-                                                            <div class="text_content">Experiencia Profesional</div>
-                                                            <div class="clear"></div>
-                                                        </div>
-                                                        <!-- /.title_content -->
-
-                                                        <!-- .attributes -->
-							 {% for prof in profesional %}
-                                                        <ul class="attributes">
-                                                            <li class="first">
-                                                                <h5>{{prof.cargo}} <span class="duration"><i class="fa fa-calendar color"></i> {{prof.anioinicio}} - {{prof.aniofin}} </span></h5>
-                                                                <h6><span class="fa fa-briefcase"></span> {{prof.organizacion}}</h6>
-                                                                <p>{{prof.funcionesrealizadas}}</p>
-                                                            </li>
-                                                         
-
-                                                        </ul>
-							<p></p>
-							<br>
-						        
-						         {% endfor %}
-                                                        <!-- /.attributes -->
-                                                        <br>
-                                                    </div>
-						</div>
-                                                    <!-- /.resume-right -->
-
-                                                    <!-- .resume-left -->
-						  <div class="row">
-                                                    <div class="col-md-12">    
-                                                        
-
-                                                        <!-- .title_content -->
-                                                        <div class="title_content" style="margin-bottom:5px">
-                                                            <div class="text_content">Información Académica</div>
-                                                            <div class="clear"></div>
-                                                        </div>
-                                                        <!-- /.title_content -->
-
-                                                        <!-- .attributes -->
-							{% for academia in academico %}
-                                                        <ul class="attributes">
-                                                            <li class="first">
-                                                                <h5> {{academia.titulo}} <span class="duration"><i class="fa fa-calendar color"></i> {{academia.anioinicio}} - {{academia.aniofin}} </span></h5>
-                                                                <h6><span class="fa fa-book"></span> {{academia.institucion}} </h6>
-                                                                <p> {{academia.logros}} </p>
-                                                            </li>
-                                                          
-                                                        </ul>
-                                                      <p></p>
-							<br>
-						        
-						         {% endfor %}
-                                                        <!-- /.attributes -->
-                                                        <br>
-                                                    </div>
-                                                    <!-- /.resume-left -->
-                                                </div>
-
-                                                <div style="clear: both"></div>  
-
-
-                                                <!-- client reference -->
-                                                <div class="row">
-                                                    <div class="col-md-12">   
-
-                                                  
-                                                    </div>
-
-
-
-
-                                                    <div style="clear: both"></div>   
-                                                </div>
-
-
-                                            </div>
-                                            <!-- End .resume -->
-					    
-					     <!-- .servicios -->
-                                            <div id="servicios" class="content_2">
-                                                <!-- .title -->
-                                                
-                                                <div class="row">
-
-                                                    <!-- .resume-right -->
-                                                    <div class="col-md-12">
-						       <!-- .title_content -->
-                                                        <div class="title_content" style="margin-bottom:5px">
-                                                            <div class="text_content">Mis Servicios</div>
-                                                            <div class="clear"></div>
-                                                        </div>
-                                                        <!-- /.title_content -->
-
-                                                        <!-- .attributes -->
-							 {% for serv in servicios %}
-                                                       <ul class="about">
-
-                                                            <li>
-                                                                <i class="glyphicon glyphicon-user"></i>
-                                                                <label>Entidad</label>
-                                                                <span class="value">{{serv.organizacion}}</span>
-                                                                <div class="clear"></div>
-                                                            </li>
-
-                                                            <li> 
-                                                                <i class="glyphicon glyphicon-map-marker"></i>
-                                                                <label>Dirección</label>
-                                                                <span class="value">{{serv.direccion}}</span>
-                                                                <div class="clear"></div>
-                                                            </li>
-
-                                                            <li>
-                                                                <i class="glyphicon glyphicon-envelope"></i>
-                                                                <label>Correo</label>
-                                                                <span class="value">{{serv.correo}}</span>
-                                                                <div class="clear"></div>
-                                                            </li>
-
-                                                            <li>
-                                                                <i class="glyphicon glyphicon-phone"></i>
-                                                                <label>Teléfono</label>
-                                                                <span class="value">{{serv.telefono}}</span>
-                                                                <div class="clear"></div>
-                                                            </li>
-							    
-							      <li>
-                                                                <i class="glyphicon glyphicon-phone"></i>
-                                                                <label>Móvil</label>
-                                                                <span class="value">{{serv.celular}}</span>
-                                                                <div class="clear"></div>
-                                                            </li>
-
-                                                        </ul>     
-							<p></p>
-							<br>
-						        
-						         {% endfor %}
-                                                        <!-- /.attributes -->
-                                                        <br>
-                                                    </div>
-						</div>
-                                                    <!-- /.resume-right -->
-
-                                                    <!-- .resume-left -->
-						
-
-                                                <div style="clear: both"></div>  
-
-
-                                                <!-- client reference -->
-                                                <div class="row">
-                                                    <div class="col-md-12">   
-
-                                                  
-                                                    </div>
-
-
-
-
-                                                    <div style="clear: both"></div>   
-                                                </div>
-
-
-                                            </div>
-                                            <!-- End .servicios -->
-					      <!-- .Consultas -->
-                                            <div id="consultas" class="content_2">
-                                                <!-- .title -->
-                                                <h1>Respuestas comunes a tus preguntas</h1>
-						{% for consultas in consultas %}
-                                                <div class="row">
-
-                                                    <!-- .resume-right -->
-                                                    <div class="col-md-12">
-						       <!-- .title_content -->
-                                                        <div class="title_content" style="margin-bottom:5px">
-                                                           
-                                                            <div class="clear"></div>
-                                                        </div>
-                                                        <!-- /.title_content -->
-
-                                                        <!-- .attributes -->
-                                                        <ul class="attributes">
-                                                            <li class="first">
-                                                                <h4 class="line">{{consultas.pregunta}}</span></h4>
-                                                                 <p>{{consultas.respuesta}}</p>
-                                                            </li>
-                                                         
-
-                                                        </ul>
-                                                        <!-- /.attributes -->
-                                                        <br>
-                                                    </div>
-                                                    <!-- /.resume-right -->
-
-                                                    <!-- .resume-left -->
-                                                  
-                                                    <!-- /.resume-left -->
-                                                </div>
-						{% endfor %}
-
-                                                <div style="clear: both"></div>  
-
-
-                                                <!-- client reference -->
-                                                <div class="row">
-                                                    <div class="col-md-12">   
-
-                                                  
-                                                    </div>
-
-
-
-
-                                                    <div style="clear: both"></div>   
-                                                </div>
-
-
-                                            </div>
-                                            <!-- End .Consultas -->
-
-
-                                            <!-- .contact -->
-                                            <div id="contact" class="content_2">
-
-                                                <h1 class="h-bloc">Contacto</h1>
-
-
-                                                <div class="row">
-
-                                                    <div class="col-lg-12">
-                                                       
-                                                    </div>  
-
-                                                    <div class="col-lg-12">
-                                                        <div class="row" id="contact-user">
-                                                            <div class="col-md-5">
-                                                                <div class="contact-info">
-                                                                    <!--<h3 class="main-heading"><span>Contact info</span></h3>-->
-
-                                                                    <div class="title_content" style="float: none;">
-                                                                        <div class="text_content">Info</div>
-                                                                        <div class="clear"></div>
-                                                                    </div>
-
-                                                                    <ul>
-                                                                        
-                                                                        <li><span class="span-info"><i class="glyphicon glyphicon-envelope"></i> Correo:</span> {{cont.correo}}</li>
-                                                                        <li><span class="span-info"><i class="glyphicon glyphicon-phone"></i> Teléfono:</span> {{cont.tel}}</li>
-                                                                        <li><span class="span-info"><i class="glyphicon glyphicon-globe"></i> Website:</span> {{soc.blog}}</li>
-                                                                  
-                                                                    </ul>
-                                                                </div>
-                                                                <!-- /Contact Info -->
-                                                                <div class="clear"></div>
-
-                                                                <!--<h3 class="main-heading" style="margin-left: 22px;"><span>Follow me</span></h3>-->
-
-                                                                <div class="title_content tiltle_contacts" style="float: none;">
-                                                                    <div class="text_content">Sígueme</div>
-                                                                    <div class="clear"></div>
-                                                                </div>
-
-
-
-                                                                <div id="profile_social">
-                                                                    <a href=http://{{soc.facebook}}><i class="fa fa-facebook"></i></a>
-                                                                    <a href=http://twitter.com/{{soc.twitter}}><i class="fa fa-twitter"></i></a>
-                                                                    <a href=http://{{soc.linkedin}}><i class="fa fa-linkedin"></i></a>
-                                                               
-                                                                    <div class="clear"></div>
-                                                                </div>
-
-
-
-                                                            </div>
-
-                                                            <div class="col-md-7">
-                                                                <!-- Contact Form -->
-                                                                <div class="title_content" style="float: none;">
-                                                                    <div class="text_content"></div>
-                                                                    <div class="clear"></div>
-                                                                </div>
-
-                                                                <div class="contact-form">
-                                                                    <!--<h3 class="main-heading"><span>Let's keep in touch</span></h3>-->
-
-
-
-                                                                    <div id="contact-status"></div>
-
-                                                                    <form action="" id="contactform">
-                                                                        <p class="form-group" id="contact-name">
-                                                                            <label for="name">Tu Nombre</label>
-                                                                            <input type="text" name="name" class="form-control name-contact" id="inputSuccess" placeholder="Nombre..." />
-                                                                        </p>
-                                                                        <p class="form-group" id="contact-email"> 
-                                                                            <label for="email">Tu Correo</label>
-                                                                            <input type="text" name="email" class="form-control email-contact" id="inputSuccess" placeholder="Correo..." />
-                                                                        </p>
-
-                                                                        <p class="form-group" id="contact-message">
-                                                                            <label for="message">Tu Mensaje</label>
-                                                                            <textarea name="message" cols="88" rows="6" class="form-control message-contact" id="inputError" placeholder="Mensaje..."></textarea>
-                                                                        </p>
-                                                                        <input type="reset" name="reset" value="LIMPIAR" class="reset">
-                                                                        <!-- <input type="submit" name="submit" value="SEND MESSAGE" class="submit">-->
-
-                                                                        <section class="button-demo" style="display: inline-block;">
-                                                                            <button class="ladda-button submit send_email" name="submit" data-color="green" data-style="expand-left">ENVIAR</button>
-                                                                        </section>
-
-                                                                    </form>
-                                                                </div>
-                                                                <!-- /Contact Form -->
-                                                            </div>
-                                                        </div>
-                                                    </div>  
-
-                                                </div>
-                                            </div>
-                                            <!-- End .contact -->
+                                            <div class="clear"></div>
 
                                         </div>
-                                        <!-- End #resp-tabs-container --> 
+                                        <!-- End .profile -->
 
-                                    </div><!-- End verticalTab -->
+                                        <!-- .resume -->
+                                        <div id="resume" class="content_2">
+                                            <!-- .title -->
 
-                                </div><!-- End flexy_content -->
+                                            <div class="row">
 
+                                                <!-- .resume-right -->
+                                                <div class="col-md-12">
+                                                    <!-- .title_content -->
+                                                    <div class="title_content" style="margin-bottom:5px">
+                                                        <div class="text_content">Experiencia Profesional</div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <!-- /.title_content -->
 
-                            </div><!-- End row -->
-
-                        </div><!-- End col-md-12 -->
-
-                    </div><!-- End row -->
-                   
-		
-		   {% endfor %}
-		   {% endfor %}
-		   {% endfor %}
-	         
-                </div><!-- End container -->
-
-            </section>
-            <!-- End Content -->
-
-        </div>
-        <!-- End wrapper -->
-
-
-        <!-- jquery | jQuery 1.11.0 -->
-        <!-- Credits: http://jquery.com -->
-        <script type="text/javascript" src="{{STATIC_URL}}card/js/jquery.min.js"></script>
-
-        <!-- Js | bootstrap -->
-        <!-- Credits: http://getbootstrap.com/ -->
-        <script type="text/javascript" src="{{STATIC_URL}}card/js/bootstrap.min.js"></script> 
-
-        <!-- Js | jquery.cycle -->
-        <!-- Credits: https://github.com/malsup/cycle2 -->
-        <script type="text/javascript" src="{{STATIC_URL}}card/js/jquery.cycle2.min.js"></script>
-
-        <!-- jquery | rotate and portfolio -->
-        <!-- Credits: http://jquery.com -->
-        <script type="text/javascript" src="{{STATIC_URL}}card/js/jquery.mixitup.min.js"></script> 
-        <script type="text/javascript" src="{{STATIC_URL}}card/js/HeadImage.js"></script>
-
-        <!-- Js | easyResponsiveTabs -->
-        <!-- Credits: http://webtrendset.com/demo/easy-responsive-tabs/Index.html -->
-        <script type="text/javascript" src="{{STATIC_URL}}card/js/easyResponsiveTabs.min.js"></script> 	
-
-        <!-- Js | mCustomScrollbar -->
-        <!-- Credits: http://manos.malihu.gr/jquery-custom-content-scroller -->
-        <script type="text/javascript" src="{{STATIC_URL}}card/js/jquery.mCustomScrollbar.concat.min.js"></script>		
-
-        <!-- jquery | prettyPhoto -->
-        <!-- Credits: http://www.no-margin-for-errors.com/ -->
-        <script type="text/javascript" src="{{STATIC_URL}}card/js/jquery.prettyPhoto.js"></script>
-
-        <!-- Js | gmaps -->
-        <!-- Credits: http://maps.google.com/maps/api/js?sensor=true-->
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="{{STATIC_URL}}card/js/gmaps.min.js"></script>
-
-        <!-- Js | Js -->
-        <!-- Credits: http://themeforest.net/user/FlexyCodes -->
-        <script type="text/javascript" src="{{STATIC_URL}}card/js/main.js"></script>
-
-        <!-- code js for image rotate -->
-        <script type="text/javascript">
-
-            var mouseX;
-            var mouseY;
-            var imageOne;
-
-            /* Calling the initialization function */
-            $(init);
-
-            /* The images need to re-initialize on load and on resize, or else the areas
-             * where each image is displayed will be wrong. */
-            $(window).load(init);
-            $(window).resize(init);
-
-            /* Setting the mousemove event caller */
-            $(window).mousemove(getMousePosition);
-
-            /* This function is called on document ready, on load and on resize
-             * and initiallizes all the images */
-            function init() {
-
-                /* Instanciate the mouse position variables */
-                mouseX = 0;
-                mouseY = 0;
-
-                /* Instanciate a HeadImage class for every image */
-                imageOne = new HeadImage("one");
-
-            }
-
-            /* This function is called on mouse move and gets the mouse position. 
-             * It also calls the HeadImage function to display the correct image*/
-            function getMousePosition(event) {
-
-                /* Setting the mouse position variables */
-                mouseX = event.pageX;
-                mouseY = event.pageY;
-
-                /*Calling the setImageDirection function of the HeadImage class
-                 * to display the correct image*/
-                imageOne.setImageDirection();
-
-            }
-
-        </script>
+                                                    <!-- .attributes -->
+                                                    {% for prof in profesional %}
+                                                    <ul class="attributes">
+                                                        <li class="first">
+                                                            <h5>{{prof.cargo}} <span class="duration"><i class="fa fa-calendar color"></i> {{prof.anioinicio}} - {{prof.aniofin}} </span></h5>
+                                                            <h6><span class="fa fa-briefcase"></span> {{prof.organizacion}}</h6>
+                                                            <p>{{prof.funcionesrealizadas}}</p>
+                                                        </li>
 
 
-        <!--[if lt IE 9]>
+                                                    </ul>
+                                                    <p></p>
+                                                    <br>{% endfor %}
+                                                    <!-- /.attributes -->
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <!-- /.resume-right -->
+
+                                            <!-- .resume-left -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+
+
+                                                    <!-- .title_content -->
+                                                    <div class="title_content" style="margin-bottom:5px">
+                                                        <div class="text_content">Información Académica</div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <!-- /.title_content -->
+
+                                                    <!-- .attributes -->
+                                                    {% for academia in academico %}
+                                                    <ul class="attributes">
+                                                        <li class="first">
+                                                            <h5> {{academia.titulo}} <span class="duration"><i class="fa fa-calendar color"></i> {{academia.anioinicio}} - {{academia.aniofin}} </span></h5>
+                                                            <h6><span class="fa fa-book"></span> {{academia.institucion}} </h6>
+                                                            <p>{{academia.logros}}</p>
+                                                        </li>
+
+                                                    </ul>
+                                                    <p></p>
+                                                    <br>{% endfor %}
+                                                    <!-- /.attributes -->
+                                                    <br>
+                                                </div>
+                                                <!-- /.resume-left -->
+                                            </div>
+
+                                            <div style="clear: both"></div>
+
+
+                                            <!-- client reference -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+
+
+                                                </div>
+
+
+
+
+                                                <div style="clear: both"></div>
+                                            </div>
+
+
+                                        </div>
+                                        <!-- End .resume -->
+
+                                        <!-- .servicios -->
+                                        <div id="servicios" class="content_2">
+                                            <!-- .title -->
+
+                                            <div class="row">
+
+                                                <!-- .resume-right -->
+                                                <div class="col-md-12">
+                                                    <!-- .title_content -->
+                                                    <div class="title_content" style="margin-bottom:5px">
+                                                        <div class="text_content">Servicios</div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <!-- /.title_content -->
+
+                                                    <!-- .attributes -->
+                                                    {% for serv in servicios %}
+                                                    <ul class="about">
+
+                                                        <li>
+                                                            <i class="glyphicon glyphicon-user"></i>
+                                                            <label>Entidad</label>
+                                                            <span class="value">{{serv.organizacion}}</span>
+                                                            <div class="clear"></div>
+                                                        </li>
+
+                                                        <li>
+                                                            <i class="glyphicon glyphicon-map-marker"></i>
+                                                            <label>Dirección</label>
+                                                            <span class="value">{{serv.direccion}}</span>
+                                                            <div class="clear"></div>
+                                                        </li>
+
+                                                        <li>
+                                                            <i class="glyphicon glyphicon-envelope"></i>
+                                                            <label>Correo</label>
+                                                            <span class="value">{{serv.correo}}</span>
+                                                            <div class="clear"></div>
+                                                        </li>
+
+                                                        <li>
+                                                            <i class="glyphicon glyphicon-phone"></i>
+                                                            <label>Teléfono</label>
+                                                            <span class="value">{{serv.telefono}}</span>
+                                                            <div class="clear"></div>
+                                                        </li>
+
+                                                        <li>
+                                                            <i class="glyphicon glyphicon-phone"></i>
+                                                            <label>Móvil</label>
+                                                            <span class="value">{{serv.celular}}</span>
+                                                            <div class="clear"></div>
+                                                        </li>
+
+                                                    </ul>
+                                                    <p></p>
+                                                    <br>{% endfor %}
+                                                    <!-- /.attributes -->
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <!-- /.resume-right -->
+
+                                            <!-- .resume-left -->
+
+
+                                            <div style="clear: both"></div>
+
+
+                                            <!-- client reference -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+
+
+                                                </div>
+
+
+
+
+                                                <div style="clear: both"></div>
+                                            </div>
+
+
+                                        </div>
+                                        <!-- End .servicios -->
+                                        <!-- .Consultas -->
+                                        <div id="consultas" class="content_2">
+                                            <!-- .title -->
+                                            <h1>Respuestas comunes a tus preguntas</h1>
+                                            {% for consultas in consultas %}
+                                            <div class="row">
+
+                                                <!-- .resume-right -->
+                                                <div class="col-md-12">
+                                                    <!-- .title_content -->
+                                                    <div class="title_content" style="margin-bottom:5px">
+
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <!-- /.title_content -->
+
+                                                    <!-- .attributes -->
+                                                    <ul class="attributes">
+                                                        <li class="first">
+                                                            <h4 class="line">{{consultas.pregunta}}</span></h4>
+                                                            <p>{{consultas.respuesta}}</p>
+                                                        </li>
+
+
+                                                    </ul>
+                                                    <!-- /.attributes -->
+                                                    <br>
+                                                </div>
+                                                <!-- /.resume-right -->
+
+                                                <!-- .resume-left -->
+
+                                                <!-- /.resume-left -->
+                                            </div>
+                                            {% endfor %}
+                                            <h1>Audios</h1>
+                                            <div style="clear: both">
+                                                <iframe id='audio_iframe' src='http://www.podbean.com/media/player/audio/postId/5365850?url=http%3A%2F%2Fdavos457.podbean.com%2Fe%2Ftipos-de-diabetes-1415625912%2F' data-link='http://www.podbean.com/media/player/audio/postId/5365850?url=http%3A%2F%2Fdavos457.podbean.com%2Fe%2Ftipos-de-diabetes-1415625912%2F' height='100' width='100%' frameborder='0' scrolling='no' data-name='pb-iframe-player'></iframe>
+                                            </div>
+
+
+                                            <!-- client reference -->
+                                            <div class="row">
+                                                <div class="col-md-12">
+
+
+                                                </div>
+
+
+
+
+                                                <div style="clear: both"></div>
+                                            </div>
+
+
+                                        </div>
+                                        <!-- End .Consultas -->
+
+
+                                        <!-- .contact -->
+                                        <div id="contact" class="content_2">
+
+                                            <h1 class="h-bloc">Contacto</h1>
+
+
+                                            <div class="row">
+
+                                                <div class="col-lg-12">
+
+                                                </div>
+
+                                                <div class="col-lg-12">
+                                                    <div class="row" id="contact-user">
+                                                        <div class="col-md-5">
+                                                            <div class="contact-info">
+                                                                <!--<h3 class="main-heading"><span>Contact info</span></h3>-->
+
+                                                                <div class="title_content" style="float: none;">
+                                                                    <div class="text_content">Info</div>
+                                                                    <div class="clear"></div>
+                                                                </div>
+
+                                                                <ul>
+
+                                                                    <li><span class="span-info"><i class="glyphicon glyphicon-envelope"></i> Correo:</span> {{cont.correo}}</li>
+                                                                    <li><span class="span-info"><i class="glyphicon glyphicon-phone"></i> Teléfono:</span> {{cont.tel}}</li>
+                                                                    <li><span class="span-info"><i class="glyphicon glyphicon-globe"></i> Website:</span> {{soc.blog}}</li>
+
+                                                                </ul>
+                                                            </div>
+                                                            <!-- /Contact Info -->
+                                                            <div class="clear"></div>
+
+                                                            <!--<h3 class="main-heading" style="margin-left: 22px;"><span>Follow me</span></h3>-->
+
+                                                            <div class="title_content tiltle_contacts" style="float: none;">
+                                                                <div class="text_content">Sígueme</div>
+                                                                <div class="clear"></div>
+                                                            </div>
+
+
+
+                                                            <div id="profile_social">
+                                                                <a href=http://{{soc.facebook}}><i class="fa fa-facebook"></i></a>
+                                                                <a href=http://twitter.com/{{soc.twitter}}><i class="fa fa-twitter"></i></a>
+                                                                <a href=http://{{soc.linkedin}}><i class="fa fa-linkedin"></i></a>
+
+                                                                <div class="clear"></div>
+                                                            </div>
+
+
+
+                                                        </div>
+
+                                                        <div class="col-md-7">
+                                                            <!-- Contact Form -->
+                                                            <div class="title_content" style="float: none;">
+                                                                <div class="text_content"></div>
+                                                                <div class="clear"></div>
+                                                            </div>
+
+                                                            <div class="contact-form">
+                                                                <!--<h3 class="main-heading"><span>Let's keep in touch</span></h3>-->
+
+
+
+                                                                <div id="contact-status"></div>
+
+                                                                <form action="" id="contactform">
+                                                                    <p class="form-group" id="contact-name">
+                                                                        <label for="name">Tu Nombre</label>
+                                                                        <input type="text" name="name" class="form-control name-contact" id="inputSuccess" placeholder="Nombre..." />
+                                                                    </p>
+                                                                    <p class="form-group" id="contact-email">
+                                                                        <label for="email">Tu Correo</label>
+                                                                        <input type="text" name="email" class="form-control email-contact" id="inputSuccess" placeholder="Correo..." />
+                                                                    </p>
+
+                                                                    <p class="form-group" id="contact-message">
+                                                                        <label for="message">Tu Mensaje</label>
+                                                                        <textarea name="message" cols="88" rows="6" class="form-control message-contact" id="inputError" placeholder="Mensaje..."></textarea>
+                                                                    </p>
+                                                                    <input type="reset" name="reset" value="LIMPIAR" class="reset">
+                                                                    <!-- <input type="submit" name="submit" value="SEND MESSAGE" class="submit">-->
+
+                                                                    <section class="button-demo" style="display: inline-block;">
+                                                                        <button class="ladda-button submit send_email" name="submit" data-color="green" data-style="expand-left">ENVIAR</button>
+                                                                    </section>
+
+                                                                </form>
+                                                            </div>
+                                                            <!-- /Contact Form -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- End .contact -->
+
+                                    </div>
+                                    <!-- End #resp-tabs-container -->
+
+                                </div>
+                                <!-- End verticalTab -->
+
+                            </div>
+                            <!-- End flexy_content -->
+
+
+                        </div>
+                        <!-- End row -->
+
+                    </div>
+                    <!-- End col-md-12 -->
+
+                </div>
+                <!-- End row -->
+
+
+                {% endfor %} {% endfor %} {% endfor %}
+
+            </div>
+            <!-- End container -->
+
+        </section>
+        <!-- End Content -->
+
+    </div>
+    <!-- End wrapper -->
+
+
+    <!-- jquery | jQuery 1.11.0 -->
+    <!-- Credits: http://jquery.com -->
+    <script type="text/javascript" src="{{STATIC_URL}}card/js/jquery.min.js"></script>
+
+    <!-- Js | bootstrap -->
+    <!-- Credits: http://getbootstrap.com/ -->
+    <script type="text/javascript" src="{{STATIC_URL}}card/js/bootstrap.min.js"></script>
+
+    <!-- Js | jquery.cycle -->
+    <!-- Credits: https://github.com/malsup/cycle2 -->
+    <script type="text/javascript" src="{{STATIC_URL}}card/js/jquery.cycle2.min.js"></script>
+
+    <!-- jquery | rotate and portfolio -->
+    <!-- Credits: http://jquery.com -->
+    <script type="text/javascript" src="{{STATIC_URL}}card/js/jquery.mixitup.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}card/js/HeadImage.js"></script>
+
+    <!-- Js | easyResponsiveTabs -->
+    <!-- Credits: http://webtrendset.com/demo/easy-responsive-tabs/Index.html -->
+    <script type="text/javascript" src="{{STATIC_URL}}card/js/easyResponsiveTabs.min.js"></script>
+
+    <!-- Js | mCustomScrollbar -->
+    <!-- Credits: http://manos.malihu.gr/jquery-custom-content-scroller -->
+    <script type="text/javascript" src="{{STATIC_URL}}card/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- jquery | prettyPhoto -->
+    <!-- Credits: http://www.no-margin-for-errors.com/ -->
+    <script type="text/javascript" src="{{STATIC_URL}}card/js/jquery.prettyPhoto.js"></script>
+
+    <!-- Js | gmaps -->
+    <!-- Credits: http://maps.google.com/maps/api/js?sensor=true-->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}card/js/gmaps.min.js"></script>
+
+    <!-- Js | Js -->
+    <!-- Credits: http://themeforest.net/user/FlexyCodes -->
+    <script type="text/javascript" src="{{STATIC_URL}}card/js/main.js"></script>
+
+    <!-- code js for image rotate -->
+    <script type="text/javascript">
+        var mouseX;
+        var mouseY;
+        var imageOne;
+
+        /* Calling the initialization function */
+        $(init);
+
+        /* The images need to re-initialize on load and on resize, or else the areas
+         * where each image is displayed will be wrong. */
+        $(window).load(init);
+        $(window).resize(init);
+
+        /* Setting the mousemove event caller */
+        $(window).mousemove(getMousePosition);
+
+        /* This function is called on document ready, on load and on resize
+         * and initiallizes all the images */
+        function init() {
+
+            /* Instanciate the mouse position variables */
+            mouseX = 0;
+            mouseY = 0;
+
+            /* Instanciate a HeadImage class for every image */
+            imageOne = new HeadImage("one");
+
+        }
+
+        /* This function is called on mouse move and gets the mouse position. 
+         * It also calls the HeadImage function to display the correct image*/
+        function getMousePosition(event) {
+
+            /* Setting the mouse position variables */
+            mouseX = event.pageX;
+            mouseY = event.pageY;
+
+            /*Calling the setImageDirection function of the HeadImage class
+             * to display the correct image*/
+            imageOne.setImageDirection();
+
+        }
+    </script>
+
+
+    <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-    </body>
+</body>
+
 </html>

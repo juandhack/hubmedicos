@@ -143,11 +143,6 @@ class ContactosBasico(models.Model):
 	def __unicode__(self):
 	     return u'%s %s' % (self.dpto, self.ciudad)
             
-class ClubMedico(models.Model):
-
-    nombre_club = models.CharField(max_length=100)		
-    def __unicode__(self):
-		return self.nombre_club
 	
 
 SINTOMAS_GENERALES = (
@@ -774,7 +769,7 @@ class Enfermedad(models.Model):
 class Cirugia(models.Model):
     user = models.ForeignKey(User,null=True,blank=True)
     nombre = models.CharField(max_length=100)
-    fecha = models.DateTimeField(unique=True)
+    fecha = models.DateTimeField()
     ubicacion_cuerpo = models.CharField("Ubicación en el cuerpo",max_length=100,null=True,blank=True)
     proveedor = models.CharField("Nombre especialista",max_length=100,null=True,blank=True)
     nota = models.TextField(null=True, blank=True)
@@ -1025,6 +1020,8 @@ class GinecoDiario(models.Model):
     def get_delete_url(self):
                 return ('eliminar_gineco_diario_paciente', [self.id, ])
     #code
+    
+    
     
     
 

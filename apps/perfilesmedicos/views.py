@@ -131,7 +131,7 @@ def user_perfil_publico(request,userid):
     
 class IngresarPregunta(CreateView):
     template_name = 'inicio/preguntasrespuestas_form.html'
-    form_class = ConsultasForm
+    form_class = PreguntasRespuestasForm
     model = PreguntasRespuestas
     def form_valid(self,form):
 	self.object = form.save(commit=False)
@@ -152,7 +152,7 @@ class EliminarPregunta(DeleteView):
     
 class ActualizarPregunta(UpdateView):
     template_name = 'inicio/preguntasrespuestas_form.html'
-    form_class = ConsultasForm
+    form_class = PreguntasRespuestasForm
     model = PreguntasRespuestas
     def form_valid(self,form):
 	self.object = form.save(commit=False)
@@ -163,7 +163,7 @@ class ActualizarPregunta(UpdateView):
     
 class ListarPreguntas(ListView):
     template_name = 'inicio/listarpr_form.html'
-    form_class = ConsultasForm
+    form_class = PreguntasRespuestas
     model = PreguntasRespuestas
     success_url = reverse_lazy('listar_preguntas')
     
@@ -183,6 +183,21 @@ def listar_pacientes(request):
 
 
 	return render_to_response('pacientes/medicos_pacientes_fichas.html',data,context_instance=RequestContext(request))
+    
+def listar_informacion_club_home(request, club_id):
+        paciente = PerfilBasico.objects.all()
+        medico = ClubMedicoSubscripcion.objects.filter(club_id = club_id)
+	obj_club = get_object_or_404(ClubMedico,id = club_id)
+	nombre_club = obj_club.nombre_club
+        obj_medico = Perfiles.objects.all()
+        data = {}
+	data['paciente'] = paciente
+	data['medico'] = obj_medico
+	data['club'] = nombre_club
+
+
+
+	return render_to_response('clubes/home_clubes.html',data,context_instance=RequestContext(request))
 	
 def listar_perfil_paciente_principal(request, pk):
 	data = {}
@@ -201,8 +216,17 @@ def listar_perfil_paciente_principal(request, pk):
         data['ciudad'] = tipo_ciudad
 
 	return render_to_response('pacientes/perfil_paciente_en_medico.html',data,context_instance=RequestContext(request))
+
 	
-	
+def ver_detalles_clubes_medicos(request, pk):
+
+	data = {}
+        club = ClubMedicoSubscripcion.objects.filter(id = pk)
+  
+	data['club_medico_detalle'] = club
+
+
+	return render_to_response('pacientes/tratamientos/mis_medicamentos_ver_detalle.html',data,context_instance=RequestContext(request)) 	
 	
     
 class IngresarInfoProfesional(CreateView):
@@ -270,7 +294,7 @@ class EliminarInfoAcademica(DeleteView):
 class ActualizarInfoAcademica(UpdateView):
     template_name = 'perfil/academico_form.html'
     form_class = PerfilAcademicoForm
-    model = PerfilAcademico
+    model = PerfilAcademico 
     def form_valid(self,form):
 	self.object = form.save(commit=False)
 	self.object.user = self.request.user
@@ -340,6 +364,99 @@ class IngresarEntradaBlog(CreateView):
 	self.object.save()
 	return super(IngresarEntradaBlog,self).form_valid(form)
     success_url = reverse_lazy('ingresar_entrada_blog')
+    
+class IngresarCategoria(CreateView):
+    template_name = 'inicio/categoria_pyr_form.html'
+    form_class = CategoriaPyRForm
+    model = CategoriaPR
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(IngresarCategoria,self).form_valid(form)
+    success_url = reverse_lazy('crear_pregunta')
+    
+class IngresarPregunta(CreateView):
+    template_name = 'inicio/preguntasrespuestas_form.html'
+    form_class = PreguntasRespuestasForm
+    model = PreguntasRespuestas
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(IngresarPregunta,self).form_valid(form)
+    success_url = reverse_lazy('listar_preguntas')
+    
+class VisualizarPregunta(DetailView):
+    template_name = 'inicio/listarpr_form.html'
+    model = PreguntasRespuestas
+    
+class EliminarPregunta(DeleteView):
+    template_name = 'inicio/preguntasrespuestas_confirm_delete.html'
+    model = PreguntasRespuestas
+    success_url = reverse_lazy('listar_preguntas')
+  
+    
+class ActualizarPregunta(UpdateView):
+    template_name = 'inicio/preguntasrespuestas_form.html'
+    form_class = PreguntasRespuestasForm
+    model = PreguntasRespuestas
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(ActualizarPregunta,self).form_valid(form)
+    success_url = reverse_lazy('listar_preguntas')  
+    
+class ListarPreguntas(ListView):
+    template_name = 'inicio/listarpr_form.html'
+    form_class = PreguntasRespuestas
+    model = PreguntasRespuestas
+    success_url = reverse_lazy('listar_preguntas')
+    
+    def get_queryset(self):
+        return PreguntasRespuestas.objects.filter(user_id = self.request.user)
 
 
+    
+class IngresarClubMedico(CreateView):
+    template_name = 'medicos/clubes/clubes_form.html'
+    form_class = ClubMedicoSubscripcionForm
+    model = ClubMedicoSubscripcion
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(IngresarClubMedico,self).form_valid(form)
+    success_url = reverse_lazy('listar_club_medico')
+
+    
+class EliminarClubMedico(DeleteView):
+    template_name = 'medicos/clubes/clubes_confirmar_delete_form.html'
+    model = ClubMedicoSubscripcion
+    success_url = reverse_lazy('listar_club_medico')
+  
+    
+class ActualizarClubMedico(UpdateView):
+    template_name = 'medicos/clubes/clubes_form.html'
+    form_class = ClubMedicoSubscripcionForm
+    model = ClubMedicoSubscripcion
+    def form_valid(self,form):
+	self.object = form.save(commit=False)
+	self.object.user = self.request.user
+	self.object.save()
+	return super(ActualizarClubMedico,self).form_valid(form)
+    success_url = reverse_lazy('listar_club_medico')  
+    
+class ListarClubMedico(ListView):
+    template_name = 'medicos/clubes/clubes_listar_form.html'
+    form_class = ClubMedicoSubscripcionForm
+    model = ClubMedicoSubscripcion
+    success_url = reverse_lazy('listar_club_medico')
+    
+    def get_queryset(self):
+        return ClubMedicoSubscripcion.objects.filter(user_id = self.request.user)
+    
+class MostrarClubMedicoHome(TemplateView):
+    template_name = 'clubes/home_clubes.html'
 

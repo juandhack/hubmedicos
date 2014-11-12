@@ -1,0 +1,82 @@
+{% extends "inicio/board.html" %} 
+{% block title %} Club {% endblock %} 
+{% block content %}
+<div class ="row">
+    <div class="span12">
+        {% if club  %}
+        <div class="well well-lg">Club: {{club}}</div>
+        {% endif %}
+    </div>
+</div>
+
+    <div class="span5">
+
+            <div class="row">
+                <div class="span5">
+                <div class="box pattern pattern-sandstone">
+                    <div class="box-header">
+                        <i class="icon-list"></i>
+                        <h5>Pacientes miembros del club</h5>
+                        <button class="btn btn-box-right" data-toggle="collapse" data-target=".box-list">
+                            <i class="icon-reorder"></i>
+                        </button>
+                    </div>
+                    <div class="box-content box-list in collapse" style="height: auto;">
+                        <ul>
+                        {% for paciente in paciente %}
+                            <li>
+                                <div>
+                                    <a href=/home/pacientes/ver/{{paciente.user.id}} class="news-item-title">{{ paciente.nombres }} {{ paciente.apellidos }}</a>
+                                    
+                                </div>
+                            </li>
+                         {% endfor %} 
+                        </ul>
+                      
+                       
+                    </div>
+
+                </div>
+            </div>
+              
+            </div>
+ 
+
+    </div>
+   <div class="span5">
+              <div class="row">
+                <div class="span5">
+                <div class="box pattern pattern-sandstone">
+                    <div class="box-header">
+                        <i class="icon-list"></i>
+                        <h5>Equipo médico</h5>
+                        <button class="btn btn-box-right" data-toggle="collapse" data-target=".box-list">
+                            <i class="icon-reorder"></i>
+                        </button>
+                    </div>
+                    <div class="box-content box-list in collapse" style="height: auto;">
+                        <ul>
+                        {% for medico in medico %}
+                            <li>
+                                <div>
+                                    <a href=/home/pacientes/ver/{{paciente.user.id}} class="news-item-title">{{ medico.nombres }} {{ medico.apellidos }}</a>
+                                    
+                                </div>
+                            </li>
+                         {% endfor %} 
+                        </ul>
+                      
+                       
+                    </div>
+
+                </div>
+            </div>
+              
+            </div>
+
+    </div>
+
+<script>
+    $('.collapse').collapse()
+</script>
+{% endblock %}

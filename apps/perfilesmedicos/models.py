@@ -27,7 +27,34 @@ class Especialidad(models.Model):
 	
 	def __unicode__(self):
 		return self.nombre
+	    
+class CategoriaPR(models.Model):
+	nombre = models.CharField(max_length = 140)
 	
+	def __unicode__(self):
+	    return self.nombre
+	
+class RolMedico(models.Model):
+	nombre = models.CharField(max_length = 140)
+	
+	def __unicode__(self):
+	    return self.nombre
+        
+
+class ClubMedico(models.Model):
+
+    nombre_club = models.CharField(max_length=100)		
+    def __unicode__(self):
+		return self.nombre_club  
+	
+    
+class ClubMedicoSubscripcion(models.Model):
+    user = models.ForeignKey(User)
+    club = models.ForeignKey(ClubMedico)
+    rol = models.ForeignKey(RolMedico, null=True, blank=True)
+    
+    def __unicode__(self):
+	    return self.medico
 
 
 class Perfiles(models.Model):
@@ -144,7 +171,7 @@ class RedesSociales(models.Model):
 	linkedin = models.CharField(max_length=200, null=True, blank=True)
 	you_tube = models.CharField(max_length=200, null=True, blank=True)
     
-   
+
 
 class PerfilProfesional(models.Model):
 	user = models.ForeignKey(User, null=True, blank=True)
@@ -153,8 +180,8 @@ class PerfilProfesional(models.Model):
 	cargo = models.CharField(max_length=255, null=True, blank=True)
 	numregistroprof = models.CharField("Registro Profesional",max_length=255, null=True, blank=True)
 	funcionesrealizadas = models.TextField("Funciones Realizadas",null=True, blank=True)
-	anioinicio = models.CharField("Año Inicio", max_length=255,null=True,blank=True)
-	aniofin = models.CharField("Año Finalización", max_length=255,null=True,blank=True)
+	anioinicio = models.DateField("Año Inicio",null=True, blank=True)
+	aniofin = models.DateField("Año Finalización",null=True, blank=True)
 	class Meta:
 		verbose_name = 'Profesional'
 		verbose_name_plural = 'Profesional'
@@ -172,8 +199,8 @@ class PerfilAcademico(models.Model):
 	institucion = models.CharField("Universidad",max_length=255, null=True, blank=True)
 	titulo = models.CharField("Título",max_length=255, null=True, blank=True)
 	logros = models.TextField(null=True, blank=True)
-	anioinicio = models.CharField("Año Inicio", max_length=255,null=True,blank=True)
-	aniofin = models.CharField("Año Finalización", max_length=255,null=True,blank=True)
+	anioinicio = models.DateField("Año Inicio",null=True, blank=True)
+	aniofin = models.DateField("Año Finalización",null=True, blank=True)
 	
 	class Meta:
 		verbose_name = 'Academico'
@@ -190,6 +217,7 @@ class PreguntasRespuestas(models.Model):
 	user = models.ForeignKey(User, null=True, blank=True)
 	pregunta = models.TextField("Ingresa la pregunta",null=True,blank=True)
 	respuesta = models.TextField("Ingresa la respuesta",null=True,blank=True)
+	categoria = models.ForeignKey(CategoriaPR, null=True, blank=True)
         
         class Meta:
 		verbose_name = 'Pregunta'
