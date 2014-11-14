@@ -1136,10 +1136,10 @@ def perfil_principal_paciente_home(request):
         contacto = ContactosBasico.objects.filter(user_id = usuario.id)
         social = RedesSociales.objects.filter(user_id = usuario.id)
 	sintomas =  SintomasAlteracionGlicemicaPaciente.objects.filter(user_id = usuario.id)[1]
-	hemoglobina =  Hemoglobina.objects.filter(user_id = usuario.id)[1]
-	colesterol = Colesterol.objects.filter(user_id = usuario.id)[1]
-	presion = Presion.objects.filter(user_id = usuario.id)[1]
-	gluco = Glucemia.objects.filter(user_id = usuario.id)[1]
+	hemoglobina =  Hemoglobina.objects.filter(user_id = usuario.id)
+	colesterol = Colesterol.objects.filter(user_id = usuario.id)
+	presion = Presion.objects.filter(user_id = usuario.id)
+	gluco = Glucemia.objects.filter(user_id = usuario.id)
         obj_contacto = get_object_or_404(contacto,user_id=usuario.id)
         tipo_pais = obj_contacto.pais
         tipo_dpto = obj_contacto.dpto
